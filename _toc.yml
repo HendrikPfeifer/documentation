@@ -1,0 +1,21 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: welcome
+parts:
+  - caption: Content
+    chapters:
+    - file: 01_business_case
+    - file: 02_data_analysis
+    - file: 03_data_preperation
+  - caption: Models
+    chapters:
+    - file: 04_models
+    - file: model_1_Keras
+    - file: model_1_SK-learn
+    - file: model_2_SK-learn
+  - caption: Deployment
+    chapters:
+    - file: 05_deployment
+
