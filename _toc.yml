@@ -4,14 +4,11 @@
 format: jb-book
 root: welcome
 parts:
-  - caption: Content
+  - caption: Content-test
     chapters:
     - file: 01_business_case
     - file: 02_data_analysis
     - file: 03_data_preperation
-  - caption: Test
-    chapters:
-    - file: markdown
   - caption: Models
     chapters:
     - file: 04_models
