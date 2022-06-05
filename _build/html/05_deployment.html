@@ -234,6 +234,23 @@ const thebe_selector_output = ".output, .cell_output"
 
             <!-- Launch buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/05_deployment.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Starten Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
         </div>
 
         <!-- Table of contents -->
@@ -245,8 +262,8 @@ const thebe_selector_output = ".output, .cell_output"
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#you-can-find-the-deployments-below">
-   You can find the deployments below.
+  <a class="reference internal nav-link" href="#you-can-find-the-deployments-with-streamlit-below">
+   You can find the deployments with streamlit below.
   </a>
  </li>
 </ul>
@@ -270,8 +287,8 @@ const thebe_selector_output = ".output, .cell_output"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#you-can-find-the-deployments-below">
-   You can find the deployments below.
+  <a class="reference internal nav-link" href="#you-can-find-the-deployments-with-streamlit-below">
+   You can find the deployments with streamlit below.
   </a>
  </li>
 </ul>
@@ -285,8 +302,109 @@ const thebe_selector_output = ".output, .cell_output"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="deployment">
 <h1>Deployment<a class="headerlink" href="#deployment" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="you-can-find-the-deployments-below">
-<h2>You can find the deployments below.<a class="headerlink" href="#you-can-find-the-deployments-below" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="you-can-find-the-deployments-with-streamlit-below">
+<h2>You can find the deployments with streamlit below.<a class="headerlink" href="#you-can-find-the-deployments-with-streamlit-below" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">streamlit</span> <span class="k">as</span> <span class="nn">st</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras</span> <span class="kn">import</span> <span class="n">layers</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras</span> <span class="kn">import</span> <span class="n">models</span><span class="p">,</span><span class="n">utils</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.models</span> <span class="kn">import</span> <span class="n">load_model</span>
+
+
+<span class="n">st</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Car Prices Dashboard&#39;</span><span class="p">)</span>
+
+<span class="n">st</span><span class="o">.</span><span class="n">subheader</span><span class="p">(</span><span class="s2">&quot;This interactive dashboard helps you to predict the price for the desired configuration of your car.&quot;</span><span class="p">)</span>
+
+<span class="c1"># Load model</span>
+
+<span class="n">model_keras</span> <span class="o">=</span> <span class="n">load_model</span><span class="p">(</span><span class="s2">&quot;my_car_model-mean-absolute&quot;</span><span class="p">)</span>
+
+
+<span class="c1"># Using object notation</span>
+<span class="c1">#add_selectbox = st.sidebar.selectbox(</span>
+<span class="c1">#    &quot;How would you like to be contacted?&quot;,</span>
+<span class="c1">#    (&quot;Email&quot;, &quot;Home phone&quot;, &quot;Mobile phone&quot;)</span>
+<span class="c1">#)</span>
+
+<span class="c1"># Selector</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+
+    <span class="n">sample</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;year&quot;</span><span class="p">:</span> <span class="n">st</span><span class="o">.</span><span class="n">slider</span><span class="p">(</span><span class="s2">&quot;Choose year&quot;</span><span class="p">,</span> <span class="mi">1990</span><span class="p">,</span> <span class="mi">2015</span><span class="p">),</span>
+        <span class="s2">&quot;brand&quot;</span><span class="p">:</span> <span class="n">st</span><span class="o">.</span><span class="n">selectbox</span><span class="p">(</span><span class="s2">&quot;Select a brand&quot;</span><span class="p">,</span> <span class="p">[</span>          
+        <span class="s1">&#39;kia&#39;</span><span class="p">,</span>           <span class="s1">&#39;bmw&#39;</span><span class="p">,</span>         <span class="s1">&#39;volvo&#39;</span><span class="p">,</span>        <span class="s1">&#39;nissan&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;chevrolet&#39;</span><span class="p">,</span>          <span class="s1">&#39;audi&#39;</span><span class="p">,</span>          <span class="s1">&#39;ford&#39;</span><span class="p">,</span>         <span class="s1">&#39;buick&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;cadillac&#39;</span><span class="p">,</span>         <span class="s1">&#39;acura&#39;</span><span class="p">,</span>         <span class="s1">&#39;lexus&#39;</span><span class="p">,</span>       <span class="s1">&#39;hyundai&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;infiniti&#39;</span><span class="p">,</span>          <span class="s1">&#39;jeep&#39;</span><span class="p">,</span> <span class="s1">&#39;mercedes-benz&#39;</span><span class="p">,</span>    <span class="s1">&#39;mitsubishi&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;mazda&#39;</span><span class="p">,</span>          <span class="s1">&#39;mini&#39;</span><span class="p">,</span>    <span class="s1">&#39;land rover&#39;</span><span class="p">,</span>       <span class="s1">&#39;lincoln&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;jaguar&#39;</span><span class="p">,</span>    <span class="s1">&#39;volkswagen&#39;</span><span class="p">,</span>        <span class="s1">&#39;toyota&#39;</span><span class="p">,</span>        <span class="s1">&#39;subaru&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;scion&#39;</span><span class="p">,</span>       <span class="s1">&#39;porsche&#39;</span><span class="p">,</span>         <span class="s1">&#39;dodge&#39;</span><span class="p">,</span>          <span class="s1">&#39;fiat&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;chrysler&#39;</span><span class="p">,</span>       <span class="s1">&#39;ferrari&#39;</span><span class="p">,</span>         <span class="s1">&#39;honda&#39;</span><span class="p">,</span>           <span class="s1">&#39;gmc&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;ram&#39;</span><span class="p">,</span>         <span class="s1">&#39;smart&#39;</span><span class="p">,</span>       <span class="s1">&#39;bentley&#39;</span><span class="p">,</span>       <span class="s1">&#39;pontiac&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;saturn&#39;</span><span class="p">,</span>      <span class="s1">&#39;maserati&#39;</span><span class="p">,</span>       <span class="s1">&#39;mercury&#39;</span><span class="p">,</span>        <span class="s1">&#39;hummer&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;saab&#39;</span><span class="p">,</span>        <span class="s1">&#39;suzuki&#39;</span><span class="p">,</span>    <span class="s1">&#39;oldsmobile&#39;</span><span class="p">,</span>           <span class="s1">&#39;geo&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;rolls-royce&#39;</span><span class="p">,</span>         <span class="s1">&#39;isuzu&#39;</span><span class="p">,</span>      <span class="s1">&#39;plymouth&#39;</span><span class="p">,</span>         <span class="s1">&#39;tesla&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;aston martin&#39;</span><span class="p">,</span>        <span class="s1">&#39;fisker&#39;</span><span class="p">,</span>        <span class="s1">&#39;daewoo&#39;</span><span class="p">,</span>   <span class="s1">&#39;lamborghini&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;lotus&#39;</span><span class="p">]</span> <span class="p">),</span>
+        <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="n">st</span><span class="o">.</span><span class="n">text_input</span><span class="p">(</span><span class="s2">&quot;Car model&quot;</span><span class="p">,),</span>
+        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="n">st</span><span class="o">.</span><span class="n">selectbox</span><span class="p">(</span><span class="s2">&quot;Select type of car&quot;</span><span class="p">,</span> <span class="p">[</span>                    
+                        <span class="s1">&#39;suv&#39;</span><span class="p">,</span>                   <span class="s1">&#39;sedan&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;convertible&#39;</span><span class="p">,</span>                   <span class="s1">&#39;coupe&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;wagon&#39;</span><span class="p">,</span>               <span class="s1">&#39;hatchback&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;crew cab&#39;</span><span class="p">,</span>                 <span class="s1">&#39;g coupe&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;g sedan&#39;</span><span class="p">,</span>           <span class="s1">&#39;elantra coupe&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;genesis coupe&#39;</span><span class="p">,</span>                 <span class="s1">&#39;minivan&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;van&#39;</span><span class="p">,</span>              <span class="s1">&#39;double cab&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;crewmax cab&#39;</span><span class="p">,</span>              <span class="s1">&#39;access cab&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;king cab&#39;</span><span class="p">,</span>               <span class="s1">&#39;supercrew&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;cts coupe&#39;</span><span class="p">,</span>            <span class="s1">&#39;extended cab&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;e-series van&#39;</span><span class="p">,</span>                <span class="s1">&#39;supercab&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;regular cab&#39;</span><span class="p">,</span>           <span class="s1">&#39;g convertible&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;koup&#39;</span><span class="p">,</span>                <span class="s1">&#39;quad cab&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;cts-v coupe&#39;</span><span class="p">,</span>         <span class="s1">&#39;g37 convertible&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;club cab&#39;</span><span class="p">,</span>                 <span class="s1">&#39;xtracab&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;q60 convertible&#39;</span><span class="p">,</span>               <span class="s1">&#39;cts wagon&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;g37 coupe&#39;</span><span class="p">,</span>                <span class="s1">&#39;mega cab&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;cab plus 4&#39;</span><span class="p">,</span>               <span class="s1">&#39;q60 coupe&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;beetle convertible&#39;</span><span class="p">,</span>         <span class="s1">&#39;tsx sport wagon&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;promaster cargo van&#39;</span><span class="p">,</span>                <span class="s1">&#39;cab plus&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;granturismo convertible&#39;</span><span class="p">,</span>             <span class="s1">&#39;cts-v wagon&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;ram van&#39;</span><span class="p">,</span>             <span class="s1">&#39;transit van&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;regular-cab&#39;</span><span class="p">]),</span>
+        <span class="s2">&quot;state&quot;</span><span class="p">:</span> <span class="n">st</span><span class="o">.</span><span class="n">selectbox</span><span class="p">(</span><span class="s2">&quot;Select US-State&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;ca&#39;</span><span class="p">,</span> <span class="s1">&#39;tx&#39;</span><span class="p">,</span> <span class="s1">&#39;pa&#39;</span><span class="p">,</span> <span class="s1">&#39;mn&#39;</span><span class="p">,</span> <span class="s1">&#39;az&#39;</span><span class="p">,</span> <span class="s1">&#39;wi&#39;</span><span class="p">,</span> <span class="s1">&#39;tn&#39;</span><span class="p">,</span> <span class="s1">&#39;md&#39;</span><span class="p">,</span> <span class="s1">&#39;fl&#39;</span><span class="p">,</span> <span class="s1">&#39;ne&#39;</span><span class="p">,</span> <span class="s1">&#39;oh&#39;</span><span class="p">,</span> <span class="s1">&#39;mi&#39;</span><span class="p">,</span> <span class="s1">&#39;nj&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;ga&#39;</span><span class="p">,</span> <span class="s1">&#39;va&#39;</span><span class="p">,</span> <span class="s1">&#39;sc&#39;</span><span class="p">,</span> <span class="s1">&#39;in&#39;</span><span class="p">,</span> <span class="s1">&#39;il&#39;</span><span class="p">,</span> <span class="s1">&#39;co&#39;</span><span class="p">,</span> <span class="s1">&#39;ut&#39;</span><span class="p">,</span> <span class="s1">&#39;mo&#39;</span><span class="p">,</span> <span class="s1">&#39;nv&#39;</span><span class="p">,</span> <span class="s1">&#39;ma&#39;</span><span class="p">,</span> <span class="s1">&#39;pr&#39;</span><span class="p">,</span> <span class="s1">&#39;nc&#39;</span><span class="p">,</span> <span class="s1">&#39;ny&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;or&#39;</span><span class="p">,</span> <span class="s1">&#39;la&#39;</span><span class="p">,</span> <span class="s1">&#39;wa&#39;</span><span class="p">,</span> <span class="s1">&#39;hi&#39;</span><span class="p">,</span> <span class="s1">&#39;qc&#39;</span><span class="p">,</span> <span class="s1">&#39;ab&#39;</span><span class="p">,</span> <span class="s1">&#39;on&#39;</span><span class="p">,</span> <span class="s1">&#39;ok&#39;</span><span class="p">,</span> <span class="s1">&#39;ms&#39;</span><span class="p">,</span> <span class="s1">&#39;nm&#39;</span><span class="p">,</span> <span class="s1">&#39;al&#39;</span><span class="p">,</span> <span class="s1">&#39;ns&#39;</span><span class="p">]),</span>
+        <span class="s2">&quot;condition&quot;</span><span class="p">:</span> <span class="n">st</span><span class="o">.</span><span class="n">slider</span><span class="p">(</span><span class="s2">&quot;Choose condition&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span>
+        <span class="s2">&quot;miles&quot;</span><span class="p">:</span> <span class="n">st</span><span class="o">.</span><span class="n">number_input</span><span class="p">(</span><span class="s2">&quot;Select miles&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1000000</span> <span class="p">),</span>
+        <span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="n">st</span><span class="o">.</span><span class="n">selectbox</span><span class="p">(</span><span class="s2">&quot;Select color&quot;</span><span class="p">,</span> <span class="p">[</span>    <span class="s1">&#39;white&#39;</span><span class="p">,</span>      <span class="s1">&#39;gray&#39;</span><span class="p">,</span>     <span class="s1">&#39;black&#39;</span><span class="p">,</span>       <span class="s1">&#39;red&#39;</span><span class="p">,</span>    <span class="s1">&#39;silver&#39;</span><span class="p">,</span>     <span class="s1">&#39;brown&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;beige&#39;</span><span class="p">,</span>      <span class="s1">&#39;blue&#39;</span><span class="p">,</span>    <span class="s1">&#39;purple&#39;</span><span class="p">,</span>  <span class="s1">&#39;burgundy&#39;</span><span class="p">,</span>      <span class="s1">&#39;gold&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;yellow&#39;</span><span class="p">,</span>     <span class="s1">&#39;green&#39;</span><span class="p">,</span>  <span class="s1">&#39;charcoal&#39;</span><span class="p">,</span>    <span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="s1">&#39;off-white&#39;</span><span class="p">,</span> <span class="s1">&#39;turquoise&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;pink&#39;</span><span class="p">,</span>      <span class="s1">&#39;lime&#39;</span><span class="p">]),</span>
+        <span class="s2">&quot;interior&quot;</span><span class="p">:</span> <span class="n">st</span><span class="o">.</span><span class="n">selectbox</span><span class="p">(</span><span class="s2">&quot;Select interior&quot;</span><span class="p">,</span> <span class="p">[</span>    <span class="s1">&#39;black&#39;</span><span class="p">,</span>     <span class="s1">&#39;beige&#39;</span><span class="p">,</span>       <span class="s1">&#39;tan&#39;</span><span class="p">,</span>     <span class="s1">&#39;brown&#39;</span><span class="p">,</span>      <span class="s1">&#39;gray&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;burgundy&#39;</span><span class="p">,</span>     <span class="s1">&#39;white&#39;</span><span class="p">,</span>    <span class="s1">&#39;silver&#39;</span><span class="p">,</span> <span class="s1">&#39;off-white&#39;</span><span class="p">,</span>       <span class="s1">&#39;red&#39;</span><span class="p">,</span>    <span class="s1">&#39;yellow&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;green&#39;</span><span class="p">,</span>    <span class="s1">&#39;purple&#39;</span><span class="p">,</span>      <span class="s1">&#39;blue&#39;</span><span class="p">,</span>    <span class="s1">&#39;orange&#39;</span><span class="p">,</span>      <span class="s1">&#39;gold&#39;</span><span class="p">]),</span>
+        <span class="s2">&quot;seller&quot;</span><span class="p">:</span> <span class="n">st</span><span class="o">.</span><span class="n">text_input</span><span class="p">(</span><span class="s2">&quot;Seller&quot;</span><span class="p">,</span><span class="s2">&quot;kia motors america, inc&quot;</span><span class="p">),</span>
+    <span class="p">}</span>
+
+    <span class="n">input_dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">name</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">convert_to_tensor</span><span class="p">([</span><span class="n">value</span><span class="p">])</span> <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">sample</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+
+
+    <span class="k">if</span> <span class="n">st</span><span class="o">.</span><span class="n">button</span><span class="p">(</span><span class="s2">&quot;Predict Car Price&quot;</span><span class="p">):</span>
+        <span class="n">predictions</span> <span class="o">=</span> <span class="n">model_keras</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">input_dict</span><span class="p">)</span>
+        <span class="n">st</span><span class="o">.</span><span class="n">success</span><span class="p">(</span><span class="s2">&quot;Your selected car will cost </span><span class="si">{}</span><span class="s2"> us-dollars.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">predictions</span><span class="p">))</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 </div>
 

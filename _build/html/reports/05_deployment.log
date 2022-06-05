@@ -1,0 +1,127 @@
+Traceback (most recent call last):
+  File "/opt/anaconda3/envs/jpbook/lib/python3.9/site-packages/jupyter_cache/executors/utils.py", line 51, in single_nb_execution
+    executenb(
+  File "/opt/anaconda3/envs/jpbook/lib/python3.9/site-packages/nbclient/client.py", line 1204, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/opt/anaconda3/envs/jpbook/lib/python3.9/site-packages/nbclient/util.py", line 84, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "/opt/anaconda3/envs/jpbook/lib/python3.9/site-packages/nbclient/util.py", line 62, in just_run
+    return loop.run_until_complete(coro)
+  File "/opt/anaconda3/envs/jpbook/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "/opt/anaconda3/envs/jpbook/lib/python3.9/site-packages/nbclient/client.py", line 663, in async_execute
+    await self.async_execute_cell(
+  File "/opt/anaconda3/envs/jpbook/lib/python3.9/site-packages/nbclient/client.py", line 965, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/opt/anaconda3/envs/jpbook/lib/python3.9/site-packages/nbclient/client.py", line 862, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+import streamlit as st
+import pandas as pd
+
+import tensorflow as tf
+from tensorflow.keras import layers
+from tensorflow.keras import models,utils
+from tensorflow.keras.models import load_model
+
+
+st.title('Car Prices Dashboard')
+
+st.subheader("This interactive dashboard helps you to predict the price for the desired configuration of your car.")
+
+# Load model
+
+model_keras = load_model("my_car_model-mean-absolute")
+
+
+# Using object notation
+#add_selectbox = st.sidebar.selectbox(
+#    "How would you like to be contacted?",
+#    ("Email", "Home phone", "Mobile phone")
+#)
+
+# Selector
+
+def main():
+
+    sample = {
+        "year": st.slider("Choose year", 1990, 2015),
+        "brand": st.selectbox("Select a brand", [          
+        'kia',           'bmw',         'volvo',        'nissan',
+        'chevrolet',          'audi',          'ford',         'buick',
+        'cadillac',         'acura',         'lexus',       'hyundai',
+        'infiniti',          'jeep', 'mercedes-benz',    'mitsubishi',
+            'mazda',          'mini',    'land rover',       'lincoln',
+            'jaguar',    'volkswagen',        'toyota',        'subaru',
+            'scion',       'porsche',         'dodge',          'fiat',
+        'chrysler',       'ferrari',         'honda',           'gmc',
+            'ram',         'smart',       'bentley',       'pontiac',
+            'saturn',      'maserati',       'mercury',        'hummer',
+            'saab',        'suzuki',    'oldsmobile',           'geo',
+    'rolls-royce',         'isuzu',      'plymouth',         'tesla',
+    'aston martin',        'fisker',        'daewoo',   'lamborghini',
+            'lotus'] ),
+        "model": st.text_input("Car model",),
+        "type": st.selectbox("Select type of car", [                    
+                        'suv',                   'sedan',
+                'convertible',                   'coupe',
+                    'wagon',               'hatchback',
+                    'crew cab',                 'g coupe',
+                    'g sedan',           'elantra coupe',
+            'genesis coupe',                 'minivan',
+                        'van',              'double cab',
+                'crewmax cab',              'access cab',
+                    'king cab',               'supercrew',
+                'cts coupe',            'extended cab',
+                'e-series van',                'supercab',
+                'regular cab',           'g convertible',
+                        'koup',                'quad cab',
+                'cts-v coupe',         'g37 convertible',
+                    'club cab',                 'xtracab',
+            'q60 convertible',               'cts wagon',
+                'g37 coupe',                'mega cab',
+                'cab plus 4',               'q60 coupe',
+        'beetle convertible',         'tsx sport wagon',
+        'promaster cargo van',                'cab plus',
+    'granturismo convertible',             'cts-v wagon',
+                    'ram van',             'transit van',
+                'regular-cab']),
+        "state": st.selectbox("Select US-State", ['ca', 'tx', 'pa', 'mn', 'az', 'wi', 'tn', 'md', 'fl', 'ne', 'oh', 'mi', 'nj',
+    'ga', 'va', 'sc', 'in', 'il', 'co', 'ut', 'mo', 'nv', 'ma', 'pr', 'nc', 'ny',
+    'or', 'la', 'wa', 'hi', 'qc', 'ab', 'on', 'ok', 'ms', 'nm', 'al', 'ns']),
+        "condition": st.slider("Choose condition", 0, 5),
+        "miles": st.number_input("Select miles", 0, 1000000 ),
+        "color": st.selectbox("Select color", [    'white',      'gray',     'black',       'red',    'silver',     'brown',
+        'beige',      'blue',    'purple',  'burgundy',      'gold',
+        'yellow',     'green',  'charcoal',    'orange', 'off-white', 'turquoise',
+        'pink',      'lime']),
+        "interior": st.selectbox("Select interior", [    'black',     'beige',       'tan',     'brown',      'gray',
+    'burgundy',     'white',    'silver', 'off-white',       'red',    'yellow',
+        'green',    'purple',      'blue',    'orange',      'gold']),
+        "seller": st.text_input("Seller","kia motors america, inc"),
+    }
+
+    input_dict = {name: tf.convert_to_tensor([value]) for name, value in sample.items()}
+
+
+    if st.button("Predict Car Price"):
+        predictions = model_keras.predict(input_dict)
+        st.success("Your selected car will cost {} us-dollars.".format(predictions))
+
+if __name__ == "__main__":
+    main()
+
+
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+Input [0;32mIn [1][0m, in [0;36m<cell line: 1>[0;34m()[0m
+[0;32m----> 1[0m [38;5;28;01mimport[39;00m [38;5;21;01mstreamlit[39;00m [38;5;28;01mas[39;00m [38;5;21;01mst[39;00m
+[1;32m      2[0m [38;5;28;01mimport[39;00m [38;5;21;01mpandas[39;00m [38;5;28;01mas[39;00m [38;5;21;01mpd[39;00m
+[1;32m      4[0m [38;5;28;01mimport[39;00m [38;5;21;01mtensorflow[39;00m [38;5;28;01mas[39;00m [38;5;21;01mtf[39;00m
+
+[0;31mModuleNotFoundError[0m: No module named 'streamlit'
+ModuleNotFoundError: No module named 'streamlit'
+
