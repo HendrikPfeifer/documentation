@@ -18,9 +18,9 @@ parts:
   - caption: Deployment
     chapters:
     - file: 05_deployment
-  - caption: Airflow Pipeline
+  - caption: Airflow
     chapters:
-    - file: airflow_data
-    - file: airflow_model
-    - file: airflow_prediction
+    - file: 06_airflow_data
+    - file: 07_airflow_model
+    - file: 08_airflow_prediction
 
