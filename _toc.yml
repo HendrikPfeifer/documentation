@@ -11,7 +11,7 @@ parts:
     - file: 03_data_preperation
   - caption: Test
     chapters:
-    - file: airflow_model
+    - file: welcome
   - caption: Models
     chapters:
     - file: 04_models
