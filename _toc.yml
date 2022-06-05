@@ -9,6 +9,9 @@ parts:
     - file: 01_business_case
     - file: 02_data_analysis
     - file: 03_data_preperation
+  - caption: Test
+    chapters:
+    - file: airflow_model
   - caption: Models
     chapters:
     - file: 04_models
