@@ -48,3 +48,6 @@ df_prediction = pd.DataFrame({"pred": my_prediction})
 
 # Store predictions as csv
 df_prediction.to_csv("/Users/hendrikpfeifer/airflow/dags/carprices_dag/my_prediction.csv")
+
+
+

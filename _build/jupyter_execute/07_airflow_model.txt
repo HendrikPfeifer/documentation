@@ -111,3 +111,7 @@ y_pred = lm_model.predict(X_test)
 # Step 4) Store model
 
 dump(lm_model, "/Users/hendrikpfeifer/airflow/dags/carprices_dag/my_linear_model.joblib")
+
+
+
+

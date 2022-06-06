@@ -2,9 +2,9 @@
 # Learn more at https://jupyterbook.org/customize/toc.html
 
 format: jb-book
-root: welcome
+root: intro
 parts:
-  - caption: Contenttest
+  - caption: Content
     chapters:
     - file: 01_business_case
     - file: 02_data_analysis
@@ -23,4 +23,5 @@ parts:
     - file: 06_airflow_data
     - file: 07_airflow_model
     - file: 08_airflow_prediction
+
 

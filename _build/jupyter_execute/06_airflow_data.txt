@@ -45,3 +45,7 @@ df["type"] = df["type"].str.lower()
 
 # Step 3: Save data to current working directory
 df.to_csv('/Users/hendrikpfeifer/airflow/dags/carprices_dag/df_clean.csv', index=False)
+
+
+
+
