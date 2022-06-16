@@ -15,7 +15,7 @@ parts:
     - file: model_1_Keras
     - file: model_1_SK-learn
     - file: model_2_SK-learn
-  - caption: Deployment
+  - caption: Deployment with Streamlit
     chapters:
     - file: 05_deployment
   - caption: Airflow
