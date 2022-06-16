@@ -23,5 +23,8 @@ parts:
     - file: 06_airflow_data
     - file: 07_airflow_model
     - file: 08_airflow_prediction
+  - caption: SHAP
+    chapters:
+    - file: SHAP_car_structured_data_regression
 
 
