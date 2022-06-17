@@ -160,7 +160,8 @@ X_test[list_numerical] = scaler.transform(X_test[list_numerical])
 
 model = tf.keras.Sequential([
     tf.keras.layers.Dense(10, activation='relu'),
-    tf.keras.layers.Dense(10, activation='relu')
+    tf.keras.layers.Dense(10, activation='relu'),
+    tf.keras.layers.Dense(1)
   ])
 
 
