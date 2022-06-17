@@ -1,8 +1,3 @@
-# Welcome to my Jupyter Book
+# Welcome
 
-
-
-Check out the content pages bundled with this sample book to see more.
-
-```{tableofcontents}
-```
+This is my jupyter-book documentation for the car prices project in Prof. Kirenz's MLOps course in SoSe 2022.
