@@ -11,16 +11,15 @@ parts:
     - file: 03_data_preperation
   - caption: Models
     chapters:
-    - file: 04_models
     - file: model_1_Keras
     - file: model_1_SK-learn
     - file: model_2_SK-learn
   - caption: Hyperparameter Tuning
     chapters:
     - file: hyperparameter_keras
-  - caption: Deployment with Streamlit
+  - caption: Deployment
     chapters:
-    - file: 05_deployment
+    - file: streamlit
   - caption: Airflow
     chapters:
     - file: 06_airflow_data
