@@ -15,6 +15,9 @@ parts:
     - file: model_1_Keras
     - file: model_1_SK-learn
     - file: model_2_SK-learn
+  - caption: Hyperparameter Tuning
+    chapters:
+    - file: hyperparameter_keras
   - caption: Deployment with Streamlit
     chapters:
     - file: 05_deployment

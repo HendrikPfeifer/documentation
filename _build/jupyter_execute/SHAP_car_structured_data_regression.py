@@ -14,6 +14,15 @@
 # In[1]:
 
 
+# import warnings filter
+from warnings import simplefilter
+# ignore all future warnings
+simplefilter(action='ignore', category=FutureWarning)
+
+
+# In[2]:
+
+
 import numpy as np
 import pandas as pd
 
@@ -28,7 +37,7 @@ import shap
 tf.__version__
 
 
-# In[2]:
+# In[3]:
 
 
 # print the JS visualization code to the notebook
@@ -42,20 +51,20 @@ shap.initjs()
 # 
 # - Let's download the data and load it into a Pandas dataframe:
 
-# In[3]:
+# In[4]:
 
 
 df = pd.read_csv("car_prices_clean.csv", on_bad_lines="skip")
 df = df.drop(columns=['Unnamed: 0', "seller"])
 
 
-# In[4]:
+# In[5]:
 
 
 df.head()
 
 
-# In[5]:
+# In[6]:
 
 
 df.info()
@@ -67,25 +76,25 @@ df.info()
 # 
 # We need to encode our categorical features as one-hot numeric features (dummy variables):
 
-# In[5]:
+# In[7]:
 
 
 dummies = pd.get_dummies(df[["brand", "model", "type", "state", "color", "interior"]])
 
 
-# In[6]:
+# In[8]:
 
 
 dummies.info()
 
 
-# In[7]:
+# In[9]:
 
 
 print(dummies.head())
 
 
-# In[8]:
+# In[10]:
 
 
 # make target variable
@@ -93,20 +102,20 @@ print(dummies.head())
 y = df['sellingprice']
 
 
-# In[9]:
+# In[11]:
 
 
 X_numerical = df.drop(["sellingprice", "brand", "model", "type", "state", "color", "interior"], axis=1).astype('float64')
 
 
-# In[10]:
+# In[12]:
 
 
 list_numerical = X_numerical.columns
 list_numerical
 
 
-# In[11]:
+# In[13]:
 
 
 # Create all features
@@ -119,13 +128,13 @@ X.info()
 
 # - Let's split the data into a training and test set
 
-# In[12]:
+# In[14]:
 
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=10)
 
 
-# In[13]:
+# In[15]:
 
 
 X_train.head()
@@ -133,7 +142,7 @@ X_train.head()
 
 # ### Feature preprocessing
 
-# In[14]:
+# In[16]:
 
 
 scaler = StandardScaler().fit(X_train[list_numerical]) 
@@ -146,7 +155,7 @@ X_test[list_numerical] = scaler.transform(X_test[list_numerical])
 
 # Now we can build the model using the Keras sequential API:
 
-# In[52]:
+# In[17]:
 
 
 model = tf.keras.Sequential([
@@ -155,7 +164,7 @@ model = tf.keras.Sequential([
   ])
 
 
-# In[53]:
+# In[18]:
 
 
 model.compile(optimizer="adam", 
@@ -163,7 +172,7 @@ model.compile(optimizer="adam",
               metrics=["mean_absolute_error"])
 
 
-# In[54]:
+# In[19]:
 
 
 # will stop training when there is no improvement in 3 consecutive epochs
@@ -171,7 +180,7 @@ model.compile(optimizer="adam",
 callback = tf.keras.callbacks.EarlyStopping(monitor='loss', patience=3)
 
 
-# In[55]:
+# In[20]:
 
 
 model.fit(X_train, y_train, 
@@ -185,13 +194,13 @@ model.fit(X_train, y_train,
 
 # Let's visualize our connectivity graph:
 
-# In[47]:
+# In[21]:
 
 
 tf.keras.utils.plot_model(model, show_shapes=True, rankdir="LR")
 
 
-# In[23]:
+# In[22]:
 
 
 loss, accuracy = model.evaluate(X_test, y_test)
@@ -205,7 +214,7 @@ print("MAE:", accuracy)
 
 # - Save the heart diseases classification model
 
-# In[24]:
+# In[23]:
 
 
 model.save('shap_car_model')
@@ -213,19 +222,19 @@ model.save('shap_car_model')
 
 # - Load model
 
-# In[25]:
+# In[24]:
 
 
 reloaded_model = tf.keras.models.load_model('shap_car_model')
 
 
-# In[37]:
+# In[25]:
 
 
 predictions = reloaded_model.predict(X_train)
 
 
-# In[38]:
+# In[26]:
 
 
 predictions
@@ -235,7 +244,7 @@ predictions
 
 # We use our model and a selection of 50 samples from the dataset to represent “typical” feature values (the so called background distribution).
 
-# In[40]:
+# In[27]:
 
 
 explainer = shap.KernelExplainer(model, X_train.iloc[:50,:])
@@ -243,7 +252,7 @@ explainer = shap.KernelExplainer(model, X_train.iloc[:50,:])
 
 # Now we use 500 perterbation samples to estimate the SHAP values for a given prediction (at index location 20). Note that this requires 500 * 50 evaluations of the model.
 
-# In[41]:
+# In[28]:
 
 
 shap_values = explainer.shap_values(X_train.iloc[20,:], nsamples=500)
@@ -251,7 +260,7 @@ shap_values = explainer.shap_values(X_train.iloc[20,:], nsamples=500)
 
 # The so called force plot below shows how each feature contributes to push the model output from the base value (the average model output over the training dataset we passed) to the model output. Features pushing the prediction higher are shown in red, those pushing the prediction lower are in blue. To learn more about force plots, take a look at this [Nature BME paper](https://www.nature.com/articles/s41551-018-0304-0.epdf?author_access_token=vSPt7ryUfdSCv4qcyeEuCdRgN0jAjWel9jnR3ZoTv0PdqacSN9qNY_fC0jWkIQUd0L2zaj3bbIQEdrTqCczGWv2brU5rTJPxyss1N4yTIHpnSv5_nBVJoUbvejyvvjrGTb2odwWKT2Bfvl0ExQKhZw%3D%3D) from Lundberg et al. (2018).
 
-# In[42]:
+# In[29]:
 
 
 shap.force_plot(explainer.expected_value[0], shap_values[0], X_train.iloc[20,:])
@@ -263,13 +272,13 @@ shap.force_plot(explainer.expected_value[0], shap_values[0], X_train.iloc[20,:])
 # 
 # To understand how a single feature effects the output of the model we can plot the SHAP value of that feature vs. the value of the feature for all the examples in a dataset. Since SHAP values represent a feature's responsibility for a change in the model output, the plot below represents the change in the dependent variable. Vertical dispersion at a single value of represents interaction effects with other features. 
 
-# In[43]:
+# In[30]:
 
 
 shap_values50 = explainer.shap_values(X_train.iloc[50:100,:], nsamples=500)
 
 
-# In[44]:
+# In[31]:
 
 
 shap.force_plot(explainer.expected_value[0], shap_values50[0], X_train.iloc[50:100,:])
