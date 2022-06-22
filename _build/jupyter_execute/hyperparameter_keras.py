@@ -40,14 +40,13 @@ df = df.drop(columns=['Unnamed: 0', "seller"])
 # In[17]:
 
 
-dummies = pd.get_dummies(df[["brand", "model", "type", "state", "color", "interior"]])
+dummies = pd.get_dummies(df[["year","brand", "model", "type", "state", "condition", "color", "interior"]])
 
 
 # In[18]:
 
 
 # make target variable
-#y = df.pop('sellingprice')
 
 y = df['sellingprice']
 
@@ -55,7 +54,7 @@ y = df['sellingprice']
 # In[19]:
 
 
-X_numerical = df.drop(["sellingprice", "brand", "model", "type", "state", "color", "interior"], axis=1).astype('float64')
+X_numerical = df.drop(["sellingprice","year", "brand", "model", "type", "state", "condition", "color", "interior"], axis=1).astype('float64')
 
 
 # In[20]:

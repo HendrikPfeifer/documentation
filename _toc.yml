@@ -12,6 +12,7 @@ parts:
   - caption: Models
     chapters:
     - file: model_1_Keras
+    - file: car_prices_Keras3
     - file: model_1_SK-learn
     - file: model_2_SK-learn
   - caption: Hyperparameter Tuning
@@ -25,7 +26,7 @@ parts:
     - file: 06_airflow_data
     - file: 07_airflow_model
     - file: 08_airflow_prediction
-  - caption: SHAP
+  - caption: Explainable AI
     chapters:
     - file: SHAP_car_structured_data_regression
 
