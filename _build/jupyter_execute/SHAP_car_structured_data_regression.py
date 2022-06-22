@@ -79,7 +79,7 @@ df.info()
 # In[7]:
 
 
-dummies = pd.get_dummies(df[["brand", "model", "type", "state", "color", "interior"]])
+dummies = pd.get_dummies(df[["year","brand", "model", "type", "state", "condition", "color", "interior"]])
 
 
 # In[8]:
@@ -105,7 +105,7 @@ y = df['sellingprice']
 # In[11]:
 
 
-X_numerical = df.drop(["sellingprice", "brand", "model", "type", "state", "color", "interior"], axis=1).astype('float64')
+X_numerical = df.drop(["sellingprice","year", "brand", "model", "type", "state", "condition", "color", "interior"], axis=1).astype('float64')
 
 
 # In[12]:
@@ -218,7 +218,7 @@ print("MAE:", accuracy)
 # In[23]:
 
 
-model.save('shap_car_model')
+model.save('shap_car_model-1')
 
 
 # - Load model
@@ -226,7 +226,7 @@ model.save('shap_car_model')
 # In[24]:
 
 
-reloaded_model = tf.keras.models.load_model('shap_car_model')
+reloaded_model = tf.keras.models.load_model('shap_car_model-1')
 
 
 # In[25]:

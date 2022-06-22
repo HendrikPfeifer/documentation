@@ -107,6 +107,37 @@ X_val[list_numerical] = scaler.transform(X_val[list_numerical])
 
 # ## Define search space
 
+# In[26]:
+
+
+def build_model(hp):
+
+    model = keras.Sequential()
+    
+    model.add(
+        layers.Dense(
+            # Define the hyperparameter.
+            units = hp.Int("units", min_value=32, 
+                                    max_value=512, 
+                                    step=32),
+            activation = "relu",
+        )
+    )
+    model.add(layers.Dense(1))
+    
+    model.compile(
+        optimizer="adam", loss="mse", metrics=["mean_absolute_error"],
+    
+    )
+    return model
+
+
+# In[27]:
+
+
+build_model(kt.HyperParameters())
+
+
 # In[36]:
 
 
