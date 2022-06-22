@@ -1,0 +1,1707 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2nd Keras Model &#8212; MLOps Project SoSe 2022 - Documentation</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="1st SK-learn model" href="model_1_SK-learn.html" />
+    <link rel="prev" title="1st Keras model" href="model_1_Keras.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/hdm-logo.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">MLOps Project SoSe 2022 - Documentation</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Dieses Buch durchsuchen ..." aria-label="Dieses Buch durchsuchen ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Welcome
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Content
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01_business_case.html">
+   Business Case
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="02_data_analysis.html">
+   Data analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03_data_preperation.html">
+   Data preperation
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Models
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="model_1_Keras.html">
+   1st Keras model
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   2nd Keras Model
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="model_1_SK-learn.html">
+   1st SK-learn model
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="model_2_SK-learn.html">
+   2nd SK-learn model
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Hyperparameter Tuning
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="hyperparameter_keras.html">
+   Tuning Keras
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Deployment
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="streamlit.html">
+   Streamlit
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Airflow
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="06_airflow_data.html">
+   Airflow - Data Preperation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07_airflow_model.html">
+   Airflow - Model Building
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="08_airflow_prediction.html">
+   Airflow - Prediction
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Explainable AI
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="SHAP_car_structured_data_regression.html">
+   SHAP
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Navigation umschalten" aria-controls="site-navigation"
+                title="Navigation umschalten" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Laden Sie diese Seite herunter"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/car_prices_Keras3.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Quelldatei herunterladen" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="In PDF drucken"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Quell-Repository"><i
+                    class="fab fa-github"></i>Repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fcar_prices_Keras3.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Öffnen Sie ein Problem"><i class="fas fa-lightbulb"></i>offenes Thema</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Vollbildmodus"
+        title="Vollbildmodus"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/car_prices_Keras3.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Starten Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Inhalt
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   2nd Keras Model
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#load-packages">
+     Load Packages
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#define-label">
+     Define label
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-format">
+     Data format
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-splitting">
+     Data Splitting
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#transform-to-tensors">
+     Transform to Tensors
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#feature-preprocessing">
+   Feature preprocessing
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#numerical-preprocessing-function">
+     Numerical preprocessing function
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#categorical-preprocessing-function">
+     Categorical preprocessing function
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-preprocessing">
+     Data preprocessing
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#numercial-preprocessing">
+     Numercial preprocessing
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#categorical-preprocessing">
+     Categorical preprocessing
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#training">
+     Training
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#perform-inference">
+     Perform inference
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>2nd Keras Model</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Inhalt </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   2nd Keras Model
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#load-packages">
+     Load Packages
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#define-label">
+     Define label
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-format">
+     Data format
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-splitting">
+     Data Splitting
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#transform-to-tensors">
+     Transform to Tensors
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#feature-preprocessing">
+   Feature preprocessing
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#numerical-preprocessing-function">
+     Numerical preprocessing function
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#categorical-preprocessing-function">
+     Categorical preprocessing function
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-preprocessing">
+     Data preprocessing
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#numercial-preprocessing">
+     Numercial preprocessing
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#categorical-preprocessing">
+     Categorical preprocessing
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#training">
+     Training
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#perform-inference">
+     Perform inference
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="nd-keras-model">
+<h1>2nd Keras Model<a class="headerlink" href="#nd-keras-model" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="load-packages">
+<h2>Load Packages<a class="headerlink" href="#load-packages" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras</span> <span class="kn">import</span> <span class="n">layers</span>
+
+<span class="kn">import</span> <span class="nn">keras_tuner</span> <span class="k">as</span> <span class="nn">kt</span>
+
+
+<span class="n">tf</span><span class="o">.</span><span class="n">__version__</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;2.8.1&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import dataset </span>
+<span class="n">raw_dataset</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;car_prices.csv&quot;</span><span class="p">,</span> <span class="n">on_bad_lines</span><span class="o">=</span><span class="s2">&quot;skip&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">raw_dataset</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>year</th>
+      <th>make</th>
+      <th>model</th>
+      <th>trim</th>
+      <th>body</th>
+      <th>transmission</th>
+      <th>vin</th>
+      <th>state</th>
+      <th>condition</th>
+      <th>odometer</th>
+      <th>color</th>
+      <th>interior</th>
+      <th>seller</th>
+      <th>mmr</th>
+      <th>sellingprice</th>
+      <th>saledate</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2015</td>
+      <td>Kia</td>
+      <td>Sorento</td>
+      <td>LX</td>
+      <td>SUV</td>
+      <td>automatic</td>
+      <td>5xyktca69fg566472</td>
+      <td>ca</td>
+      <td>5.0</td>
+      <td>16639.0</td>
+      <td>white</td>
+      <td>black</td>
+      <td>kia motors america, inc</td>
+      <td>20500</td>
+      <td>21500</td>
+      <td>Tue Dec 16 2014 12:30:00 GMT-0800 (PST)</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2015</td>
+      <td>Kia</td>
+      <td>Sorento</td>
+      <td>LX</td>
+      <td>SUV</td>
+      <td>automatic</td>
+      <td>5xyktca69fg561319</td>
+      <td>ca</td>
+      <td>5.0</td>
+      <td>9393.0</td>
+      <td>white</td>
+      <td>beige</td>
+      <td>kia motors america, inc</td>
+      <td>20800</td>
+      <td>21500</td>
+      <td>Tue Dec 16 2014 12:30:00 GMT-0800 (PST)</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2014</td>
+      <td>BMW</td>
+      <td>3 Series</td>
+      <td>328i SULEV</td>
+      <td>Sedan</td>
+      <td>automatic</td>
+      <td>wba3c1c51ek116351</td>
+      <td>ca</td>
+      <td>4.5</td>
+      <td>1331.0</td>
+      <td>gray</td>
+      <td>black</td>
+      <td>financial services remarketing (lease)</td>
+      <td>31900</td>
+      <td>30000</td>
+      <td>Thu Jan 15 2015 04:30:00 GMT-0800 (PST)</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2015</td>
+      <td>Volvo</td>
+      <td>S60</td>
+      <td>T5</td>
+      <td>Sedan</td>
+      <td>automatic</td>
+      <td>yv1612tb4f1310987</td>
+      <td>ca</td>
+      <td>4.1</td>
+      <td>14282.0</td>
+      <td>white</td>
+      <td>black</td>
+      <td>volvo na rep/world omni</td>
+      <td>27500</td>
+      <td>27750</td>
+      <td>Thu Jan 29 2015 04:30:00 GMT-0800 (PST)</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2014</td>
+      <td>BMW</td>
+      <td>6 Series Gran Coupe</td>
+      <td>650i</td>
+      <td>Sedan</td>
+      <td>automatic</td>
+      <td>wba6b2c57ed129731</td>
+      <td>ca</td>
+      <td>4.3</td>
+      <td>2641.0</td>
+      <td>gray</td>
+      <td>black</td>
+      <td>financial services remarketing (lease)</td>
+      <td>66000</td>
+      <td>67000</td>
+      <td>Thu Dec 18 2014 12:30:00 GMT-0800 (PST)</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 558811 entries, 0 to 558810
+Data columns (total 16 columns):
+ #   Column        Non-Null Count   Dtype  
+---  ------        --------------   -----  
+ 0   year          558811 non-null  int64  
+ 1   make          548510 non-null  object 
+ 2   model         548412 non-null  object 
+ 3   trim          548160 non-null  object 
+ 4   body          545616 non-null  object 
+ 5   transmission  493458 non-null  object 
+ 6   vin           558811 non-null  object 
+ 7   state         558811 non-null  object 
+ 8   condition     547017 non-null  float64
+ 9   odometer      558717 non-null  float64
+ 10  color         558062 non-null  object 
+ 11  interior      558062 non-null  object 
+ 12  seller        558811 non-null  object 
+ 13  mmr           558811 non-null  int64  
+ 14  sellingprice  558811 non-null  int64  
+ 15  saledate      558811 non-null  object 
+dtypes: float64(2), int64(3), object(11)
+memory usage: 68.2+ MB
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># drop column with too many missing values</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;transmission&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># drop remaining row with one missing value</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Drop irrelevant features</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;trim&#39;</span><span class="p">,</span> <span class="s1">&#39;vin&#39;</span><span class="p">,</span> <span class="s1">&#39;mmr&#39;</span><span class="p">,</span> <span class="s1">&#39;saledate&#39;</span><span class="p">,</span> <span class="s1">&#39;seller&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># rename columns</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span>
+<span class="s2">&quot;make&quot;</span> <span class="p">:</span> <span class="s2">&quot;brand&quot;</span><span class="p">,</span>
+<span class="s2">&quot;body&quot;</span> <span class="p">:</span> <span class="s2">&quot;type&quot;</span><span class="p">,</span>
+<span class="s2">&quot;odometer&quot;</span> <span class="p">:</span> <span class="s2">&quot;miles&quot;</span><span class="p">}</span> 
+    <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># transform into lowercase</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;brand&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;brand&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;model&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;model&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="define-label">
+<h2>Define label<a class="headerlink" href="#define-label" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_label</span> <span class="o">=</span> <span class="s1">&#39;sellingprice&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="data-format">
+<h2>Data format<a class="headerlink" href="#data-format" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make a dictionary with int64 features as keys and np.int32 as values</span>
+<span class="n">int_32</span> <span class="o">=</span> <span class="nb">dict</span><span class="o">.</span><span class="n">fromkeys</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+<span class="c1"># Change all columns from dictionary</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">int_32</span><span class="p">)</span>
+
+<span class="c1"># Make a dictionary with float64 columns as keys and np.float32 as values</span>
+<span class="n">float_32</span> <span class="o">=</span> <span class="nb">dict</span><span class="o">.</span><span class="n">fromkeys</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">float_32</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">int_32</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;year&#39;: numpy.int32, &#39;sellingprice&#39;: numpy.int32}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Convert to categorical</span>
+
+<span class="c1"># make a list of all categorical variables</span>
+<span class="n">cat_convert</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;brand&quot;</span><span class="p">,</span> <span class="s2">&quot;model&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">,</span> <span class="s2">&quot;state&quot;</span><span class="p">,</span> <span class="s2">&quot;color&quot;</span><span class="p">,</span> <span class="s2">&quot;interior&quot;</span><span class="p">]</span>
+
+<span class="c1"># convert variables</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">cat_convert</span><span class="p">:</span>
+    <span class="n">df</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;string&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Convert to category</span>
+
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;category&quot;</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;condition&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;condition&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;category&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+Int64Index: 533660 entries, 0 to 558810
+Data columns (total 10 columns):
+ #   Column        Non-Null Count   Dtype   
+---  ------        --------------   -----   
+ 0   year          533660 non-null  category
+ 1   brand         533660 non-null  string  
+ 2   model         533660 non-null  string  
+ 3   type          533660 non-null  string  
+ 4   state         533660 non-null  string  
+ 5   condition     533660 non-null  category
+ 6   miles         533660 non-null  float32 
+ 7   color         533660 non-null  string  
+ 8   interior      533660 non-null  string  
+ 9   sellingprice  533660 non-null  int32   
+dtypes: category(2), float32(1), int32(1), string(6)
+memory usage: 33.6 MB
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make list of all numerical data (except label)</span>
+<span class="n">list_num</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="n">y_label</span><span class="p">])</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">number</span><span class="p">])</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+
+<span class="c1"># Make list of all categorical data which is stored as integers (except label)</span>
+<span class="n">list_cat_int</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="n">y_label</span><span class="p">])</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;category&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+
+<span class="c1"># Make list of all categorical data which is stored as string (except label)</span>
+<span class="n">list_cat_string</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="n">y_label</span><span class="p">])</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;string&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">list_num</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;miles&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">list_cat_int</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;year&#39;, &#39;condition&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+Int64Index: 533660 entries, 0 to 558810
+Data columns (total 10 columns):
+ #   Column        Non-Null Count   Dtype   
+---  ------        --------------   -----   
+ 0   year          533660 non-null  category
+ 1   brand         533660 non-null  string  
+ 2   model         533660 non-null  string  
+ 3   type          533660 non-null  string  
+ 4   state         533660 non-null  string  
+ 5   condition     533660 non-null  category
+ 6   miles         533660 non-null  float32 
+ 7   color         533660 non-null  string  
+ 8   interior      533660 non-null  string  
+ 9   sellingprice  533660 non-null  int32   
+dtypes: category(2), float32(1), int32(1), string(6)
+memory usage: 33.6 MB
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="data-splitting">
+<h2>Data Splitting<a class="headerlink" href="#data-splitting" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make test data</span>
+<span class="n">df_test</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">frac</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1337</span><span class="p">)</span>
+
+<span class="c1"># Create training data</span>
+<span class="n">df_train</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">df_test</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span>
+    <span class="s2">&quot;Using </span><span class="si">%d</span><span class="s2"> samples for training and </span><span class="si">%d</span><span class="s2"> for validation&quot;</span>
+    <span class="o">%</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df_train</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_test</span><span class="p">))</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using 426928 samples for training and 106732 for validation
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="transform-to-tensors">
+<h2>Transform to Tensors<a class="headerlink" href="#transform-to-tensors" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define a function to create our tensors</span>
+
+<span class="k">def</span> <span class="nf">dataframe_to_dataset</span><span class="p">(</span><span class="n">dataframe</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">32</span><span class="p">):</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">labels</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">y_label</span><span class="p">)</span> <span class="c1">#pick y_label and delete</span>
+    <span class="n">ds</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="o">.</span><span class="n">from_tensor_slices</span><span class="p">((</span><span class="nb">dict</span><span class="p">(</span><span class="n">df</span><span class="p">),</span> <span class="n">labels</span><span class="p">))</span> <span class="c1">#ds for tensors</span>
+    <span class="k">if</span> <span class="n">shuffle</span><span class="p">:</span>
+        <span class="n">ds</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">buffer_size</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span> <span class="c1">#len(dataframe)</span>
+    <span class="n">ds</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">batch</span><span class="p">(</span><span class="n">batch_size</span><span class="p">)</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">prefetch</span><span class="p">(</span><span class="n">batch_size</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">ds</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">batch_size</span> <span class="o">=</span> <span class="mi">32</span>
+
+<span class="n">ds_train</span> <span class="o">=</span> <span class="n">dataframe_to_dataset</span><span class="p">(</span><span class="n">df_train</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">)</span>
+<span class="n">ds_test</span> <span class="o">=</span> <span class="n">dataframe_to_dataset</span><span class="p">(</span><span class="n">df_test</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/hendrikpfeifer/opt/anaconda3/envs/tf2/lib/python3.9/site-packages/tensorflow/python/data/util/structure.py:485: FutureWarning: Index.ravel returning ndarray is deprecated; in a future version this will return a view on self.
+  raise TypeError(&quot;Could not build a `TypeSpec` for {} with type {}&quot;.format(
+/Users/hendrikpfeifer/opt/anaconda3/envs/tf2/lib/python3.9/site-packages/tensorflow/python/data/util/structure.py:485: FutureWarning: Index.ravel returning ndarray is deprecated; in a future version this will return a view on self.
+  raise TypeError(&quot;Could not build a `TypeSpec` for {} with type {}&quot;.format(
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds_train</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;BatchDataset element_spec=({&#39;year&#39;: TensorSpec(shape=(None,), dtype=tf.int64, name=None), &#39;brand&#39;: TensorSpec(shape=(None,), dtype=tf.string, name=None), &#39;model&#39;: TensorSpec(shape=(None,), dtype=tf.string, name=None), &#39;type&#39;: TensorSpec(shape=(None,), dtype=tf.string, name=None), &#39;state&#39;: TensorSpec(shape=(None,), dtype=tf.string, name=None), &#39;condition&#39;: TensorSpec(shape=(None,), dtype=tf.float64, name=None), &#39;miles&#39;: TensorSpec(shape=(None,), dtype=tf.float32, name=None), &#39;color&#39;: TensorSpec(shape=(None,), dtype=tf.string, name=None), &#39;interior&#39;: TensorSpec(shape=(None,), dtype=tf.string, name=None)}, TensorSpec(shape=(None,), dtype=tf.int32, name=None))&gt;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="feature-preprocessing">
+<h1>Feature preprocessing<a class="headerlink" href="#feature-preprocessing" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="numerical-preprocessing-function">
+<h2>Numerical preprocessing function<a class="headerlink" href="#numerical-preprocessing-function" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define numerical preprocessing function</span>
+<span class="k">def</span> <span class="nf">get_normalization_layer</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">dataset</span><span class="p">):</span>
+    
+    <span class="c1"># Create a Normalization layer for our feature</span>
+    <span class="n">normalizer</span> <span class="o">=</span> <span class="n">layers</span><span class="o">.</span><span class="n">Normalization</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+
+    <span class="c1"># Prepare a dataset that only yields our feature</span>
+    <span class="n">feature_ds</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="n">name</span><span class="p">])</span>
+
+    <span class="c1"># Learn the statistics of the data</span>
+    <span class="n">normalizer</span><span class="o">.</span><span class="n">adapt</span><span class="p">(</span><span class="n">feature_ds</span><span class="p">)</span>
+
+    <span class="c1"># Normalize the input feature</span>
+    <span class="k">return</span> <span class="n">normalizer</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="categorical-preprocessing-function">
+<h2>Categorical preprocessing function<a class="headerlink" href="#categorical-preprocessing-function" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_category_encoding_layer</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">dataset</span><span class="p">,</span> <span class="n">dtype</span><span class="p">,</span> <span class="n">max_tokens</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+  
+  <span class="c1"># Create a layer that turns strings into integer indices.</span>
+  <span class="k">if</span> <span class="n">dtype</span> <span class="o">==</span> <span class="s1">&#39;string&#39;</span><span class="p">:</span>
+    <span class="n">index</span> <span class="o">=</span> <span class="n">layers</span><span class="o">.</span><span class="n">StringLookup</span><span class="p">(</span><span class="n">max_tokens</span><span class="o">=</span><span class="n">max_tokens</span><span class="p">)</span>
+  <span class="c1"># Otherwise, create a layer that turns integer values into integer indices.</span>
+  <span class="k">else</span><span class="p">:</span>
+    <span class="n">index</span> <span class="o">=</span> <span class="n">layers</span><span class="o">.</span><span class="n">IntegerLookup</span><span class="p">(</span><span class="n">max_tokens</span><span class="o">=</span><span class="n">max_tokens</span><span class="p">)</span> <span class="c1">#, output_mode=&#39;multi_hot&#39;</span>
+
+  <span class="c1"># Prepare a `tf.data.Dataset` that only yields the feature.</span>
+  <span class="n">feature_ds</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="n">name</span><span class="p">])</span>
+
+  <span class="c1"># Learn the set of possible values and assign them a fixed integer index.</span>
+  <span class="n">index</span><span class="o">.</span><span class="n">adapt</span><span class="p">(</span><span class="n">feature_ds</span><span class="p">)</span>
+
+  <span class="c1"># Encode the integer indices.</span>
+  <span class="n">encoder</span> <span class="o">=</span> <span class="n">layers</span><span class="o">.</span><span class="n">CategoryEncoding</span><span class="p">(</span><span class="n">num_tokens</span><span class="o">=</span><span class="n">index</span><span class="o">.</span><span class="n">vocabulary_size</span><span class="p">())</span>
+
+  <span class="c1"># Apply multi-hot encoding to the indices. The lambda function captures the</span>
+  <span class="c1"># layer, so you can use them, or include them in the Keras Functional model later.</span>
+  <span class="k">return</span> <span class="k">lambda</span> <span class="n">feature</span><span class="p">:</span> <span class="n">encoder</span><span class="p">(</span><span class="n">index</span><span class="p">(</span><span class="n">feature</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="data-preprocessing">
+<h2>Data preprocessing<a class="headerlink" href="#data-preprocessing" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">all_inputs</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">encoded_features</span> <span class="o">=</span> <span class="p">[]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="numercial-preprocessing">
+<h2>Numercial preprocessing<a class="headerlink" href="#numercial-preprocessing" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Numerical features</span>
+<span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="n">list_num</span><span class="p">:</span>
+  <span class="n">numeric_feature</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,),</span> <span class="n">name</span><span class="o">=</span><span class="n">feature</span><span class="p">)</span>
+  <span class="n">normalization_layer</span> <span class="o">=</span> <span class="n">get_normalization_layer</span><span class="p">(</span><span class="n">feature</span><span class="p">,</span> <span class="n">ds_train</span><span class="p">)</span>
+  <span class="n">encoded_numeric_feature</span> <span class="o">=</span> <span class="n">normalization_layer</span><span class="p">(</span><span class="n">numeric_feature</span><span class="p">)</span>
+  <span class="n">all_inputs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">numeric_feature</span><span class="p">)</span>
+  <span class="n">encoded_features</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">encoded_numeric_feature</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">encoded_features</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;KerasTensor: shape=(None, 1) dtype=float32 (created by layer &#39;normalization_2&#39;)&gt;]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="categorical-preprocessing">
+<h2>Categorical preprocessing<a class="headerlink" href="#categorical-preprocessing" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="n">list_cat_int</span><span class="p">:</span>
+  <span class="n">categorical_feature</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,),</span> <span class="n">name</span><span class="o">=</span><span class="n">feature</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;int32&#39;</span><span class="p">)</span>
+  <span class="n">encoding_layer</span> <span class="o">=</span> <span class="n">get_category_encoding_layer</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">feature</span><span class="p">,</span>
+                                               <span class="n">dataset</span><span class="o">=</span><span class="n">ds_train</span><span class="p">,</span>
+                                               <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;int32&#39;</span><span class="p">,</span>
+                                               <span class="n">max_tokens</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+  <span class="n">encoded_categorical_feature</span> <span class="o">=</span> <span class="n">encoding_layer</span><span class="p">(</span><span class="n">categorical_feature</span><span class="p">)</span>
+  <span class="n">all_inputs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">categorical_feature</span><span class="p">)</span>
+  <span class="n">encoded_features</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">encoded_categorical_feature</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="n">list_cat_string</span><span class="p">:</span>
+  <span class="n">categorical_feature</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,),</span> <span class="n">name</span><span class="o">=</span><span class="n">feature</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;string&#39;</span><span class="p">)</span>
+  <span class="n">encoding_layer</span> <span class="o">=</span> <span class="n">get_category_encoding_layer</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">feature</span><span class="p">,</span>
+                                               <span class="n">dataset</span><span class="o">=</span><span class="n">ds_train</span><span class="p">,</span>
+                                               <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;string&#39;</span><span class="p">,</span>
+                                               <span class="n">max_tokens</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+  <span class="n">encoded_categorical_feature</span> <span class="o">=</span> <span class="n">encoding_layer</span><span class="p">(</span><span class="n">categorical_feature</span><span class="p">)</span>
+  <span class="n">all_inputs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">categorical_feature</span><span class="p">)</span>
+  <span class="n">encoded_features</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">encoded_categorical_feature</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Merge</span>
+<span class="n">all_features</span> <span class="o">=</span> <span class="n">layers</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">encoded_features</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">all_features</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;KerasTensor: shape=(None, 974) dtype=float32 (created by layer &#39;concatenate&#39;)&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">all_inputs</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;KerasTensor: shape=(None, 1) dtype=float32 (created by layer &#39;miles&#39;)&gt;,
+ &lt;KerasTensor: shape=(None, 1) dtype=int32 (created by layer &#39;year&#39;)&gt;,
+ &lt;KerasTensor: shape=(None, 1) dtype=int32 (created by layer &#39;condition&#39;)&gt;,
+ &lt;KerasTensor: shape=(None, 1) dtype=string (created by layer &#39;brand&#39;)&gt;,
+ &lt;KerasTensor: shape=(None, 1) dtype=string (created by layer &#39;model&#39;)&gt;,
+ &lt;KerasTensor: shape=(None, 1) dtype=string (created by layer &#39;type&#39;)&gt;,
+ &lt;KerasTensor: shape=(None, 1) dtype=string (created by layer &#39;state&#39;)&gt;,
+ &lt;KerasTensor: shape=(None, 1) dtype=string (created by layer &#39;color&#39;)&gt;,
+ &lt;KerasTensor: shape=(None, 1) dtype=string (created by layer &#39;interior&#39;)&gt;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># First layer</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">&quot;relu&quot;</span><span class="p">)(</span><span class="n">all_features</span><span class="p">)</span>
+
+<span class="c1"># Dropout to prevent overvitting - soll sich auf die wichtigsten konzentrieren</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="c1"># Output layer</span>
+<span class="n">output</span> <span class="o">=</span> <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span> <span class="c1">#sigmoid nur für Classifikation // bei regression keine activation</span>
+
+<span class="c1"># Group all layers </span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Model</span><span class="p">(</span><span class="n">all_inputs</span><span class="p">,</span> <span class="n">output</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model: &quot;model&quot;
+__________________________________________________________________________________________________
+ Layer (type)                   Output Shape         Param #     Connected to                     
+==================================================================================================
+ year (InputLayer)              [(None, 1)]          0           []                               
+                                                                                                  
+ condition (InputLayer)         [(None, 1)]          0           []                               
+                                                                                                  
+ brand (InputLayer)             [(None, 1)]          0           []                               
+                                                                                                  
+ model (InputLayer)             [(None, 1)]          0           []                               
+                                                                                                  
+ type (InputLayer)              [(None, 1)]          0           []                               
+                                                                                                  
+ state (InputLayer)             [(None, 1)]          0           []                               
+                                                                                                  
+ color (InputLayer)             [(None, 1)]          0           []                               
+                                                                                                  
+ interior (InputLayer)          [(None, 1)]          0           []                               
+                                                                                                  
+ miles (InputLayer)             [(None, 1)]          0           []                               
+                                                                                                  
+ integer_lookup_1 (IntegerLooku  (None, 1)           0           [&#39;year[0][0]&#39;]                   
+ p)                                                                                               
+                                                                                                  
+ integer_lookup_2 (IntegerLooku  (None, 1)           0           [&#39;condition[0][0]&#39;]              
+ p)                                                                                               
+                                                                                                  
+ string_lookup_3 (StringLookup)  (None, 1)           0           [&#39;brand[0][0]&#39;]                  
+                                                                                                  
+ string_lookup_4 (StringLookup)  (None, 1)           0           [&#39;model[0][0]&#39;]                  
+                                                                                                  
+ string_lookup_5 (StringLookup)  (None, 1)           0           [&#39;type[0][0]&#39;]                   
+                                                                                                  
+ string_lookup_6 (StringLookup)  (None, 1)           0           [&#39;state[0][0]&#39;]                  
+                                                                                                  
+ string_lookup_7 (StringLookup)  (None, 1)           0           [&#39;color[0][0]&#39;]                  
+                                                                                                  
+ string_lookup_8 (StringLookup)  (None, 1)           0           [&#39;interior[0][0]&#39;]               
+                                                                                                  
+ normalization_2 (Normalization  (None, 1)           3           [&#39;miles[0][0]&#39;]                  
+ )                                                                                                
+                                                                                                  
+ category_encoding_3 (CategoryE  (None, 27)          0           [&#39;integer_lookup_1[0][0]&#39;]       
+ ncoding)                                                                                         
+                                                                                                  
+ category_encoding_4 (CategoryE  (None, 6)           0           [&#39;integer_lookup_2[0][0]&#39;]       
+ ncoding)                                                                                         
+                                                                                                  
+ category_encoding_5 (CategoryE  (None, 53)          0           [&#39;string_lookup_3[0][0]&#39;]        
+ ncoding)                                                                                         
+                                                                                                  
+ category_encoding_6 (CategoryE  (None, 764)         0           [&#39;string_lookup_4[0][0]&#39;]        
+ ncoding)                                                                                         
+                                                                                                  
+ category_encoding_7 (CategoryE  (None, 45)          0           [&#39;string_lookup_5[0][0]&#39;]        
+ ncoding)                                                                                         
+                                                                                                  
+ category_encoding_8 (CategoryE  (None, 39)          0           [&#39;string_lookup_6[0][0]&#39;]        
+ ncoding)                                                                                         
+                                                                                                  
+ category_encoding_9 (CategoryE  (None, 21)          0           [&#39;string_lookup_7[0][0]&#39;]        
+ ncoding)                                                                                         
+                                                                                                  
+ category_encoding_10 (Category  (None, 18)          0           [&#39;string_lookup_8[0][0]&#39;]        
+ Encoding)                                                                                        
+                                                                                                  
+ concatenate (Concatenate)      (None, 974)          0           [&#39;normalization_2[0][0]&#39;,        
+                                                                  &#39;category_encoding_3[0][0]&#39;,    
+                                                                  &#39;category_encoding_4[0][0]&#39;,    
+                                                                  &#39;category_encoding_5[0][0]&#39;,    
+                                                                  &#39;category_encoding_6[0][0]&#39;,    
+                                                                  &#39;category_encoding_7[0][0]&#39;,    
+                                                                  &#39;category_encoding_8[0][0]&#39;,    
+                                                                  &#39;category_encoding_9[0][0]&#39;,    
+                                                                  &#39;category_encoding_10[0][0]&#39;]   
+                                                                                                  
+ dense (Dense)                  (None, 32)           31200       [&#39;concatenate[0][0]&#39;]            
+                                                                                                  
+ dropout (Dropout)              (None, 32)           0           [&#39;dense[0][0]&#39;]                  
+                                                                                                  
+ dense_1 (Dense)                (None, 1)            33          [&#39;dropout[0][0]&#39;]                
+                                                                                                  
+==================================================================================================
+Total params: 31,236
+Trainable params: 31,233
+Non-trainable params: 3
+__________________________________________________________________________________________________
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s2">&quot;adam&quot;</span><span class="p">,</span> 
+              <span class="n">loss</span> <span class="o">=</span><span class="s2">&quot;mse&quot;</span><span class="p">,</span> 
+              <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;mean_absolute_error&quot;</span><span class="p">])</span>
+              
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">plot_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">show_shapes</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">rankdir</span><span class="o">=</span><span class="s2">&quot;LR&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/car_prices_Keras3_49_0.png" src="_images/car_prices_Keras3_49_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="training">
+<h2>Training<a class="headerlink" href="#training" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># will stop training when there is no improvement in 3 consecutive epochs</span>
+<span class="n">callback</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">EarlyStopping</span><span class="p">(</span><span class="n">monitor</span><span class="o">=</span><span class="s1">&#39;loss&#39;</span><span class="p">,</span> <span class="n">patience</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">ds_train</span><span class="p">,</span> 
+            <span class="n">epochs</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> 
+            <span class="n">validation_data</span><span class="o">=</span><span class="n">ds_test</span><span class="p">,</span> 
+            <span class="n">callbacks</span><span class="o">=</span><span class="p">[</span><span class="n">callback</span><span class="p">]</span>
+            <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 1/50
+13342/13342 [==============================] - 35s 3ms/step - loss: 152275808.0000 - mean_absolute_error: 8808.7422 - val_loss: 56295200.0000 - val_mean_absolute_error: 4911.3462
+Epoch 2/50
+13342/13342 [==============================] - 35s 3ms/step - loss: 59351148.0000 - mean_absolute_error: 5068.6060 - val_loss: 37074240.0000 - val_mean_absolute_error: 3694.5410
+Epoch 3/50
+13342/13342 [==============================] - 35s 3ms/step - loss: 49639792.0000 - mean_absolute_error: 4579.6631 - val_loss: 30598140.0000 - val_mean_absolute_error: 3232.2419
+Epoch 4/50
+13342/13342 [==============================] - 35s 3ms/step - loss: 44800732.0000 - mean_absolute_error: 4325.5830 - val_loss: 26991852.0000 - val_mean_absolute_error: 2962.8081
+Epoch 5/50
+13342/13342 [==============================] - 35s 3ms/step - loss: 41898644.0000 - mean_absolute_error: 4170.7861 - val_loss: 24746158.0000 - val_mean_absolute_error: 2799.0955
+Epoch 6/50
+13342/13342 [==============================] - 35s 3ms/step - loss: 39780328.0000 - mean_absolute_error: 4063.5859 - val_loss: 23071256.0000 - val_mean_absolute_error: 2677.4524
+Epoch 7/50
+13342/13342 [==============================] - 35s 3ms/step - loss: 38575844.0000 - mean_absolute_error: 3989.2959 - val_loss: 21679844.0000 - val_mean_absolute_error: 2567.0815
+Epoch 8/50
+13342/13342 [==============================] - 38s 3ms/step - loss: 37058932.0000 - mean_absolute_error: 3902.0889 - val_loss: 20488644.0000 - val_mean_absolute_error: 2469.1213
+Epoch 9/50
+13342/13342 [==============================] - 39s 3ms/step - loss: 35807928.0000 - mean_absolute_error: 3824.6069 - val_loss: 19413038.0000 - val_mean_absolute_error: 2385.9883
+Epoch 10/50
+13342/13342 [==============================] - 35s 3ms/step - loss: 35074708.0000 - mean_absolute_error: 3776.6772 - val_loss: 18734628.0000 - val_mean_absolute_error: 2330.6360
+Epoch 11/50
+13342/13342 [==============================] - 36s 3ms/step - loss: 34201020.0000 - mean_absolute_error: 3732.0967 - val_loss: 17921522.0000 - val_mean_absolute_error: 2279.5442
+Epoch 12/50
+13342/13342 [==============================] - 41s 3ms/step - loss: 33397498.0000 - mean_absolute_error: 3693.8030 - val_loss: 17331238.0000 - val_mean_absolute_error: 2241.8838
+Epoch 13/50
+13342/13342 [==============================] - 42s 3ms/step - loss: 33114384.0000 - mean_absolute_error: 3673.7539 - val_loss: 16784784.0000 - val_mean_absolute_error: 2207.9753
+Epoch 14/50
+13342/13342 [==============================] - 42s 3ms/step - loss: 32400640.0000 - mean_absolute_error: 3644.1982 - val_loss: 16318108.0000 - val_mean_absolute_error: 2179.0481
+Epoch 15/50
+13342/13342 [==============================] - 44s 3ms/step - loss: 31976950.0000 - mean_absolute_error: 3626.8489 - val_loss: 15925613.0000 - val_mean_absolute_error: 2159.2202
+Epoch 16/50
+13342/13342 [==============================] - 42s 3ms/step - loss: 31665936.0000 - mean_absolute_error: 3606.4890 - val_loss: 15573626.0000 - val_mean_absolute_error: 2133.7100
+Epoch 17/50
+13342/13342 [==============================] - 39s 3ms/step - loss: 31177768.0000 - mean_absolute_error: 3586.6160 - val_loss: 15105630.0000 - val_mean_absolute_error: 2107.8789
+Epoch 18/50
+13342/13342 [==============================] - 39s 3ms/step - loss: 31217334.0000 - mean_absolute_error: 3584.0356 - val_loss: 14877971.0000 - val_mean_absolute_error: 2093.7629
+Epoch 19/50
+13342/13342 [==============================] - 38s 3ms/step - loss: 30758344.0000 - mean_absolute_error: 3569.1284 - val_loss: 14596781.0000 - val_mean_absolute_error: 2076.2759
+Epoch 20/50
+13342/13342 [==============================] - 38s 3ms/step - loss: 30365196.0000 - mean_absolute_error: 3546.0776 - val_loss: 14330178.0000 - val_mean_absolute_error: 2061.4685
+Epoch 21/50
+13342/13342 [==============================] - 39s 3ms/step - loss: 30299222.0000 - mean_absolute_error: 3538.6226 - val_loss: 14093704.0000 - val_mean_absolute_error: 2048.7251
+Epoch 22/50
+13342/13342 [==============================] - 42s 3ms/step - loss: 29846986.0000 - mean_absolute_error: 3531.3201 - val_loss: 14016421.0000 - val_mean_absolute_error: 2050.9180
+Epoch 23/50
+13342/13342 [==============================] - 38s 3ms/step - loss: 29683514.0000 - mean_absolute_error: 3512.0923 - val_loss: 13711444.0000 - val_mean_absolute_error: 2023.4587
+Epoch 24/50
+13342/13342 [==============================] - 38s 3ms/step - loss: 29667656.0000 - mean_absolute_error: 3504.5820 - val_loss: 13527367.0000 - val_mean_absolute_error: 2015.2454
+Epoch 25/50
+13342/13342 [==============================] - 41s 3ms/step - loss: 29334934.0000 - mean_absolute_error: 3498.8914 - val_loss: 13410439.0000 - val_mean_absolute_error: 2007.4374
+Epoch 26/50
+13342/13342 [==============================] - 40s 3ms/step - loss: 28995790.0000 - mean_absolute_error: 3491.3010 - val_loss: 13202462.0000 - val_mean_absolute_error: 1994.1824
+Epoch 27/50
+13342/13342 [==============================] - 45s 3ms/step - loss: 29019868.0000 - mean_absolute_error: 3482.1360 - val_loss: 12985563.0000 - val_mean_absolute_error: 1976.6328
+Epoch 28/50
+13342/13342 [==============================] - 51s 4ms/step - loss: 28928882.0000 - mean_absolute_error: 3480.5269 - val_loss: 12890350.0000 - val_mean_absolute_error: 1974.9897
+Epoch 29/50
+13342/13342 [==============================] - 46s 3ms/step - loss: 28882128.0000 - mean_absolute_error: 3476.4946 - val_loss: 12774699.0000 - val_mean_absolute_error: 1968.5656
+Epoch 30/50
+13342/13342 [==============================] - 43s 3ms/step - loss: 28537614.0000 - mean_absolute_error: 3462.2449 - val_loss: 12596191.0000 - val_mean_absolute_error: 1956.6665
+Epoch 31/50
+13342/13342 [==============================] - 43s 3ms/step - loss: 28429356.0000 - mean_absolute_error: 3457.7693 - val_loss: 12400688.0000 - val_mean_absolute_error: 1941.7676
+Epoch 32/50
+13342/13342 [==============================] - 44s 3ms/step - loss: 28285156.0000 - mean_absolute_error: 3451.3931 - val_loss: 12370147.0000 - val_mean_absolute_error: 1944.5142
+Epoch 33/50
+13342/13342 [==============================] - 44s 3ms/step - loss: 28235030.0000 - mean_absolute_error: 3447.1870 - val_loss: 12228117.0000 - val_mean_absolute_error: 1932.7429
+Epoch 34/50
+13342/13342 [==============================] - 42s 3ms/step - loss: 27956286.0000 - mean_absolute_error: 3442.6331 - val_loss: 12154395.0000 - val_mean_absolute_error: 1931.5278
+Epoch 35/50
+13342/13342 [==============================] - 40s 3ms/step - loss: 28091092.0000 - mean_absolute_error: 3443.6538 - val_loss: 11986895.0000 - val_mean_absolute_error: 1916.3801
+Epoch 36/50
+13342/13342 [==============================] - 37s 3ms/step - loss: 27824778.0000 - mean_absolute_error: 3423.6094 - val_loss: 11871590.0000 - val_mean_absolute_error: 1905.6835
+Epoch 37/50
+13342/13342 [==============================] - 38s 3ms/step - loss: 27759402.0000 - mean_absolute_error: 3428.3552 - val_loss: 11806314.0000 - val_mean_absolute_error: 1903.9036
+Epoch 38/50
+13342/13342 [==============================] - 37s 3ms/step - loss: 27715448.0000 - mean_absolute_error: 3424.4377 - val_loss: 11682612.0000 - val_mean_absolute_error: 1897.6382
+Epoch 39/50
+13342/13342 [==============================] - 38s 3ms/step - loss: 27521708.0000 - mean_absolute_error: 3410.7061 - val_loss: 11545399.0000 - val_mean_absolute_error: 1888.3690
+Epoch 40/50
+13342/13342 [==============================] - 38s 3ms/step - loss: 27482590.0000 - mean_absolute_error: 3404.1851 - val_loss: 11577246.0000 - val_mean_absolute_error: 1891.4684
+Epoch 41/50
+13342/13342 [==============================] - 39s 3ms/step - loss: 27294038.0000 - mean_absolute_error: 3403.4353 - val_loss: 11548974.0000 - val_mean_absolute_error: 1896.0348
+Epoch 42/50
+13342/13342 [==============================] - 37s 3ms/step - loss: 27243870.0000 - mean_absolute_error: 3397.6531 - val_loss: 11402812.0000 - val_mean_absolute_error: 1882.6802
+Epoch 43/50
+13342/13342 [==============================] - 38s 3ms/step - loss: 27149980.0000 - mean_absolute_error: 3390.9368 - val_loss: 11406903.0000 - val_mean_absolute_error: 1888.3505
+Epoch 44/50
+13342/13342 [==============================] - 38s 3ms/step - loss: 27020260.0000 - mean_absolute_error: 3385.3591 - val_loss: 11302409.0000 - val_mean_absolute_error: 1880.3615
+Epoch 45/50
+13342/13342 [==============================] - 38s 3ms/step - loss: 26961846.0000 - mean_absolute_error: 3380.0879 - val_loss: 11203440.0000 - val_mean_absolute_error: 1869.4635
+Epoch 46/50
+13342/13342 [==============================] - 37s 3ms/step - loss: 27079234.0000 - mean_absolute_error: 3385.8105 - val_loss: 11109799.0000 - val_mean_absolute_error: 1862.8126
+Epoch 47/50
+13342/13342 [==============================] - 37s 3ms/step - loss: 26828956.0000 - mean_absolute_error: 3377.4038 - val_loss: 11193777.0000 - val_mean_absolute_error: 1879.6323
+Epoch 48/50
+13342/13342 [==============================] - 37s 3ms/step - loss: 26913240.0000 - mean_absolute_error: 3372.1882 - val_loss: 11016849.0000 - val_mean_absolute_error: 1865.4457
+Epoch 49/50
+13342/13342 [==============================] - 38s 3ms/step - loss: 26798660.0000 - mean_absolute_error: 3371.5127 - val_loss: 10950399.0000 - val_mean_absolute_error: 1855.5924
+Epoch 50/50
+13342/13342 [==============================] - 37s 3ms/step - loss: 26736418.0000 - mean_absolute_error: 3369.5698 - val_loss: 10889201.0000 - val_mean_absolute_error: 1854.7898
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;keras.callbacks.History at 0x16aee46d0&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#im &quot;echten&quot; die testdaten nehmen</span>
+<span class="n">loss</span><span class="p">,</span> <span class="n">accuracy</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">ds_test</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;MAE:&quot;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">accuracy</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3336/3336 [==============================] - 7s 2ms/step - loss: 10889204.0000 - mean_absolute_error: 1854.7891
+MAE: 1854.79
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="perform-inference">
+<h2>Perform inference<a class="headerlink" href="#perform-inference" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;my_car_model-mean-absolute-3&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-06-22 10:46:31.861446: W tensorflow/python/util/util.cc:368] Sets are not currently considered sequences, but this may change in the future, so consider avoiding using them.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:tensorflow:Assets written to: my_car_model-mean-absolute-3/assets
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reloaded_model</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span><span class="s1">&#39;my_car_model-mean-absolute-3&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>year</th>
+      <th>brand</th>
+      <th>model</th>
+      <th>type</th>
+      <th>state</th>
+      <th>condition</th>
+      <th>miles</th>
+      <th>color</th>
+      <th>interior</th>
+      <th>sellingprice</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2015</td>
+      <td>kia</td>
+      <td>sorento</td>
+      <td>suv</td>
+      <td>ca</td>
+      <td>5.0</td>
+      <td>16639.0</td>
+      <td>white</td>
+      <td>black</td>
+      <td>21500</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2015</td>
+      <td>kia</td>
+      <td>sorento</td>
+      <td>suv</td>
+      <td>ca</td>
+      <td>5.0</td>
+      <td>9393.0</td>
+      <td>white</td>
+      <td>beige</td>
+      <td>21500</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2014</td>
+      <td>bmw</td>
+      <td>3 series</td>
+      <td>sedan</td>
+      <td>ca</td>
+      <td>4.5</td>
+      <td>1331.0</td>
+      <td>gray</td>
+      <td>black</td>
+      <td>30000</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2015</td>
+      <td>volvo</td>
+      <td>s60</td>
+      <td>sedan</td>
+      <td>ca</td>
+      <td>4.1</td>
+      <td>14282.0</td>
+      <td>white</td>
+      <td>black</td>
+      <td>27750</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2014</td>
+      <td>bmw</td>
+      <td>6 series gran coupe</td>
+      <td>sedan</td>
+      <td>ca</td>
+      <td>4.3</td>
+      <td>2641.0</td>
+      <td>gray</td>
+      <td>black</td>
+      <td>67000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sample</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;year&quot;</span><span class="p">:</span> <span class="mi">2014</span><span class="p">,</span>
+    <span class="s2">&quot;brand&quot;</span><span class="p">:</span> <span class="s2">&quot;bmw&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="s2">&quot;3 series&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;sedan&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;state&quot;</span><span class="p">:</span> <span class="s2">&quot;ca&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;condition&quot;</span><span class="p">:</span> <span class="mf">4.5</span><span class="p">,</span>
+    <span class="s2">&quot;miles&quot;</span><span class="p">:</span> <span class="mf">1331.0</span><span class="p">,</span>
+    <span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="s2">&quot;gray&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;interior&quot;</span><span class="p">:</span> <span class="s2">&quot;black&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">input_dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">name</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">convert_to_tensor</span><span class="p">([</span><span class="n">value</span><span class="p">])</span> <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">sample</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">predictions</span> <span class="o">=</span> <span class="n">reloaded_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">input_dict</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pred_list</span> <span class="o">=</span> <span class="n">predictions</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pred_list</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[28013.486328125]]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">z</span> <span class="o">=</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">pred_list</span><span class="p">)[</span><span class="mi">2</span><span class="p">:</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">z</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">z</span><span class="p">,</span><span class="mi">2</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>28013.49
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="model_1_Keras.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">1st Keras model</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="model_1_SK-learn.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">1st SK-learn model</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      Durch Hendrik Pfeifer<br/>
+    
+        &copy; Urheberrechte © 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

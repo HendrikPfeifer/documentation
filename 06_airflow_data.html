@@ -54,7 +54,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Airflow - Model Building" href="07_airflow_model.html" />
-    <link rel="prev" title="Deployment" href="05_deployment.html" />
+    <link rel="prev" title="Streamlit" href="streamlit.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -94,7 +94,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="intro.html">
-   Welcome to your Jupyter Book
+   Welcome
   </a>
  </li>
 </ul>
@@ -127,13 +127,13 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="04_models.html">
-   Models
+  <a class="reference internal" href="model_1_Keras.html">
+   1st Keras model
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="model_1_Keras.html">
-   1st Keras model
+  <a class="reference internal" href="car_prices_Keras3.html">
+   2nd Keras Model
   </a>
  </li>
  <li class="toctree-l1">
@@ -149,13 +149,25 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
+  Hyperparameter Tuning
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="hyperparameter_keras.html">
+   Tuning Keras
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
   Deployment
  </span>
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="05_deployment.html">
-   Deployment
+  <a class="reference internal" href="streamlit.html">
+   Streamlit
   </a>
  </li>
 </ul>
@@ -178,6 +190,18 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="08_airflow_prediction.html">
    Airflow - Prediction
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Explainable AI
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="SHAP_car_structured_data_regression.html">
+   SHAP
   </a>
  </li>
 </ul>
@@ -301,7 +325,7 @@ const thebe_selector_output = ".output, .cell_output"
 <h1>Airflow - Data Preperation<a class="headerlink" href="#airflow-data-preperation" title="Permalink to this headline">¶</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; </span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; </span>
 <span class="sd">    Data preparation</span>
 
 <span class="sd">Step 1) Import data with pandas</span>
@@ -328,7 +352,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
 
 <span class="c1"># Drop irrelevant features</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;trim&#39;</span><span class="p">,</span> <span class="s1">&#39;vin&#39;</span><span class="p">,</span> <span class="s1">&#39;mmr&#39;</span><span class="p">,</span> <span class="s1">&#39;saledate&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;trim&#39;</span><span class="p">,</span> <span class="s1">&#39;vin&#39;</span><span class="p">,</span> <span class="s1">&#39;mmr&#39;</span><span class="p">,</span> <span class="s1">&#39;saledate&#39;</span><span class="p">,</span> <span class="s1">&#39;seller&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="c1"># rename columns</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span>
@@ -348,9 +372,6 @@ const thebe_selector_output = ".output, .cell_output"
 
 <span class="c1"># Step 3: Save data to current working directory</span>
 <span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;/Users/hendrikpfeifer/airflow/dags/carprices_dag/df_clean.csv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-
-
-
 </pre></div>
 </div>
 </div>
@@ -382,11 +403,11 @@ const thebe_selector_output = ".output, .cell_output"
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="05_deployment.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="streamlit.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Deployment</p>
+            <p class="prev-next-title">Streamlit</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="07_airflow_model.html" title="next page">
