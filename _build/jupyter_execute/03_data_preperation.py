@@ -3,27 +3,31 @@
 
 # # Data preperation
 # 
-# ### Here you can find information about the data preperation of the "used car prices"-dataset
 
-# # Conclusion:
+# ## Conclusion form Data Analysis (EDA):
 # 
 # 
 # * ratingprice and sellingprice have a very high correlation, therefore I would remove the column "ratingprice" from the dataset.
+# 
 # * code is not necessary, therefore I would remove the column "code" from the dataset.
+# 
 # * saledate is also unnecessary, therefore I would remove the column "saledate" from the dataset.
 # 
-# * there are almost only automatic cars in "drivetrain" - not sure if I need this column for my model
+# * there are almost only automatic cars in "drivetrain" - therefore I drop this feature.
+# 
+# * I have also removed the column "seller" to simplify the data-understanding of the project.
+# 
 
 # ### Load packages
 
-# In[2]:
+# In[10]:
 
 
 import pandas as pd
 import numpy as np
 
 
-# In[3]:
+# In[11]:
 
 
 # import dataset and save it as df
@@ -31,7 +35,7 @@ import numpy as np
 df = pd.read_csv("car_prices.csv", on_bad_lines="skip")
 
 
-# In[4]:
+# In[12]:
 
 
 # drop missing vales (dataset is still big enough)
@@ -39,7 +43,7 @@ df = pd.read_csv("car_prices.csv", on_bad_lines="skip")
 df = df.dropna()
 
 
-# In[5]:
+# In[13]:
 
 
 # rename colums for better understanding (as described above)
@@ -55,7 +59,7 @@ df = df.rename(columns={
     )
 
 
-# In[6]:
+# In[14]:
 
 
 # transform into lowercase
@@ -71,7 +75,7 @@ df["interior"] = df["interior"].str.lower()
 df["seller"] = df["seller"].str.lower()
 
 
-# In[7]:
+# In[15]:
 
 
 # transform into categorial variables
@@ -80,21 +84,21 @@ for cat in ["year", "brand", "model", "version", "type", "drivetrain", "code", "
     df[cat] = df[cat].astype("category")
 
 
-# In[8]:
+# In[16]:
 
 
 # drop irrelevant features
 
-df = df.drop(["code", "ratingprice", "saledate"], axis=1)
+df = df.drop(["code", "ratingprice", "saledate", "drivetrain", "seller"], axis=1)
 
 
-# In[9]:
+# In[17]:
 
 
 df.info()
 
 
-# In[10]:
+# In[18]:
 
 
 df.head()
@@ -103,5 +107,12 @@ df.head()
 # In[ ]:
 
 
+# export prepared dataset
+from pathlib import Path  
 
+filepath = Path('/Users/hendrikpfeifer/MLOps_SoSe22/car_prices_project/car_prices_clean.csv')  
+
+filepath.parent.mkdir(parents=False, exist_ok=True)  
+
+df.to_csv(filepath)  
 

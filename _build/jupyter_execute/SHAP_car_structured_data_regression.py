@@ -1,7 +1,8 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # SHAP with structured data regression
+# # SHAP 
+# ## with structured data regression
 # 
 # **Explainable AI with TensorFlow, Keras and SHAP**
 # 

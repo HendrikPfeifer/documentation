@@ -3,11 +3,11 @@
 
 # # Data analysis
 # 
-# ### Here you can find the exploratory data analysis (EDA) to understand more about the "used car prices"-dataset.
+# ### Exploratory data analysis (EDA) to get an better overview over the "used car prices"-dataset.
 
 # ### Load packages
 
-# In[1]:
+# In[20]:
 
 
 import pandas as pd
@@ -20,7 +20,7 @@ import matplotlib.pyplot as plt
 
 # ### Import dataset
 
-# In[2]:
+# In[21]:
 
 
 # import dataset and save it as df
@@ -30,7 +30,7 @@ df = pd.read_csv("car_prices.csv", on_bad_lines="skip")
 # on_bad_lines="skip" otherwise it caused a problem
 
 
-# In[3]:
+# In[22]:
 
 
 # show first two rows to check if the dataset is imported correctly 
@@ -38,7 +38,7 @@ df = pd.read_csv("car_prices.csv", on_bad_lines="skip")
 df.head(2)
 
 
-# - year = year the car was put into the dataset           
+# - year = year the car was build
 # - make = brand of the car           
 # - model = cars model            
 # - trim = cars version            
@@ -55,7 +55,7 @@ df.head(2)
 # - sellingprice = sellingprice     
 # - saledate = date of sale 
 
-# In[5]:
+# In[23]:
 
 
 # print how many observations and columns the dataset exists of
@@ -63,7 +63,7 @@ df.head(2)
 print(f"We have {len(df.index):,} observations and {len(df.columns)} columns in our dataset.")
 
 
-# In[7]:
+# In[24]:
 
 
 # overview
@@ -71,7 +71,7 @@ print(f"We have {len(df.index):,} observations and {len(df.columns)} columns in 
 df.info()
 
 
-# In[6]:
+# In[25]:
 
 
 # print the names of all 16 coulmns
@@ -79,7 +79,7 @@ df.info()
 df.columns
 
 
-# In[8]:
+# In[26]:
 
 
 # print datatype of the variables
@@ -87,7 +87,7 @@ df.columns
 df.dtypes
 
 
-# In[9]:
+# In[27]:
 
 
 # print missing values
@@ -97,7 +97,14 @@ df.isna().sum()
 # in transmission are relatively many missing values
 
 
-# In[10]:
+# In[28]:
+
+
+# show missing values (missing values - if present - will be displayed in yellow )
+sns.heatmap(df.isnull(), yticklabels=False, cbar=False, cmap='viridis');
+
+
+# In[29]:
 
 
 # drop missing vales (dataset is still big enough)
@@ -105,14 +112,14 @@ df.isna().sum()
 df = df.dropna()
 
 
-# In[44]:
+# In[30]:
 
 
 # show missing values (missing values - if present - will be displayed in yellow )
 sns.heatmap(df.isnull(), yticklabels=False, cbar=False, cmap='viridis');
 
 
-# In[12]:
+# In[31]:
 
 
 # show if there are still missing values
@@ -120,7 +127,7 @@ sns.heatmap(df.isnull(), yticklabels=False, cbar=False, cmap='viridis');
 df.isna().sum()
 
 
-# In[13]:
+# In[32]:
 
 
 # rename colums for better understanding (as described above)
@@ -136,13 +143,13 @@ df = df.rename(columns={
     )
 
 
-# In[14]:
+# In[33]:
 
 
 df.info()
 
 
-# In[16]:
+# In[34]:
 
 
 # transform into lowercase
@@ -158,7 +165,7 @@ df["interior"] = df["interior"].str.lower()
 df["seller"] = df["seller"].str.lower()
 
 
-# In[17]:
+# In[35]:
 
 
 df.head(2)
@@ -183,7 +190,7 @@ df.head(2)
 # * sellingprice = numeric
 # * saledate = categorial
 
-# In[24]:
+# In[36]:
 
 
 # transform into categorial variables
@@ -192,19 +199,19 @@ for cat in ["year", "brand", "model", "version", "type", "drivetrain", "code", "
     df[cat] = df[cat].astype("category")
 
 
-# In[25]:
+# In[37]:
 
 
 df.dtypes
 
 
-# In[26]:
+# In[38]:
 
 
 df.describe(include="category").T
 
 
-# In[28]:
+# In[39]:
 
 
 # crating variable list for numeric and categorial variables
@@ -220,7 +227,7 @@ print(list_num, list_cat)
 
 # ## Categorical Data
 
-# In[29]:
+# In[40]:
 
 
 # print plots for top 10 of each variable
@@ -239,7 +246,7 @@ for i in list_cat:
     plt.show();
 
 
-# In[114]:
+# In[41]:
 
 
 # Numercial gruped by categorical
@@ -250,45 +257,45 @@ for i in list_cat:
 
 # ## Numerical data
 
-# In[30]:
+# In[42]:
 
 
 # summary of numerical attributes
 df.describe().round(2).T
 
 
-# In[31]:
+# In[43]:
 
 
 # histograms
 df.hist(figsize=(20, 15));
 
 
-# In[34]:
+# In[44]:
 
 
 sns.set_theme(style="ticks", color_codes=True)
 
 
-# In[33]:
+# In[45]:
 
 
 sns.pairplot(df);
 
 
-# In[38]:
+# In[46]:
 
 
 sns.scatterplot(data=df, x="miles", y="sellingprice")
 
 
-# In[46]:
+# In[47]:
 
 
 sns.histplot(data=df, x="ratingprice")
 
 
-# In[124]:
+# In[48]:
 
 
 sns.histplot(data=df, x="sellingprice")
@@ -300,7 +307,7 @@ sns.histplot(data=df, x="sellingprice")
 # Detect the relationships between variables
 # 
 
-# In[47]:
+# In[49]:
 
 
 # inspect correlation

@@ -94,13 +94,13 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="intro.html">
-   Welcome to your Jupyter Book
+   Welcome
   </a>
  </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  Contenttest
+  Content
  </span>
 </p>
 <ul class="current nav bd-sidenav">
@@ -127,13 +127,13 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="04_models.html">
-   Models
+  <a class="reference internal" href="model_1_Keras.html">
+   1st Keras model
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="model_1_Keras.html">
-   1st Keras model
+  <a class="reference internal" href="car_prices_Keras3.html">
+   2nd Keras Model
   </a>
  </li>
  <li class="toctree-l1">
@@ -149,13 +149,25 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
+  Hyperparameter Tuning
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="hyperparameter_keras.html">
+   Tuning Keras
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
   Deployment
  </span>
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="05_deployment.html">
-   Deployment
+  <a class="reference internal" href="streamlit.html">
+   Streamlit
   </a>
  </li>
 </ul>
@@ -183,13 +195,13 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  Test
+  Explainable AI
  </span>
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="test.html">
-   Test hallo
+  <a class="reference internal" href="SHAP_car_structured_data_regression.html">
+   SHAP
   </a>
  </li>
 </ul>
@@ -302,8 +314,8 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
   <ul class="visible nav section-nav flex-column">
    <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#here-you-can-find-the-exploratory-data-analysis-eda-to-understand-more-about-the-used-car-prices-dataset">
-     Here you can find the exploratory data analysis (EDA) to understand more about the “used car prices”-dataset.
+    <a class="reference internal nav-link" href="#exploratory-data-analysis-eda-to-get-an-better-overview-over-the-used-car-prices-dataset">
+     Exploratory data analysis (EDA) to get an better overview over the “used car prices”-dataset.
     </a>
    </li>
    <li class="toc-h2 nav-item toc-entry">
@@ -378,8 +390,8 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
   <ul class="visible nav section-nav flex-column">
    <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#here-you-can-find-the-exploratory-data-analysis-eda-to-understand-more-about-the-used-car-prices-dataset">
-     Here you can find the exploratory data analysis (EDA) to understand more about the “used car prices”-dataset.
+    <a class="reference internal nav-link" href="#exploratory-data-analysis-eda-to-get-an-better-overview-over-the-used-car-prices-dataset">
+     Exploratory data analysis (EDA) to get an better overview over the “used car prices”-dataset.
     </a>
    </li>
    <li class="toc-h2 nav-item toc-entry">
@@ -439,8 +451,8 @@ const thebe_selector_output = ".output, .cell_output"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="data-analysis">
 <h1>Data analysis<a class="headerlink" href="#data-analysis" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="here-you-can-find-the-exploratory-data-analysis-eda-to-understand-more-about-the-used-car-prices-dataset">
-<h2>Here you can find the exploratory data analysis (EDA) to understand more about the “used car prices”-dataset.<a class="headerlink" href="#here-you-can-find-the-exploratory-data-analysis-eda-to-understand-more-about-the-used-car-prices-dataset" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="exploratory-data-analysis-eda-to-get-an-better-overview-over-the-used-car-prices-dataset">
+<h2>Exploratory data analysis (EDA) to get an better overview over the “used car prices”-dataset.<a class="headerlink" href="#exploratory-data-analysis-eda-to-get-an-better-overview-over-the-used-car-prices-dataset" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="load-packages">
 <h2>Load packages<a class="headerlink" href="#load-packages" title="Permalink to this headline">¶</a></h2>
@@ -559,7 +571,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div></div></div>
 </div>
 <ul class="simple">
-<li><p>year = year the car was put into the dataset</p></li>
+<li><p>year = year the car was build</p></li>
 <li><p>make = brand of the car</p></li>
 <li><p>model = cars model</p></li>
 <li><p>trim = cars version</p></li>
@@ -707,6 +719,17 @@ dtype: int64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># show missing values (missing values - if present - will be displayed in yellow )</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">isnull</span><span class="p">(),</span> <span class="n">yticklabels</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">cbar</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/02_data_analysis_12_0.png" src="_images/02_data_analysis_12_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># drop missing vales (dataset is still big enough)</span>
 
 <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
@@ -722,7 +745,7 @@ dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/02_data_analysis_13_0.png" src="_images/02_data_analysis_13_0.png" />
+<img alt="_images/02_data_analysis_14_0.png" src="_images/02_data_analysis_14_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1138,25 +1161,25 @@ dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/02_data_analysis_25_0.png" src="_images/02_data_analysis_25_0.png" />
-<img alt="_images/02_data_analysis_25_1.png" src="_images/02_data_analysis_25_1.png" />
-<img alt="_images/02_data_analysis_25_2.png" src="_images/02_data_analysis_25_2.png" />
-<img alt="_images/02_data_analysis_25_3.png" src="_images/02_data_analysis_25_3.png" />
-<img alt="_images/02_data_analysis_25_4.png" src="_images/02_data_analysis_25_4.png" />
-<img alt="_images/02_data_analysis_25_5.png" src="_images/02_data_analysis_25_5.png" />
-<img alt="_images/02_data_analysis_25_6.png" src="_images/02_data_analysis_25_6.png" />
-<img alt="_images/02_data_analysis_25_7.png" src="_images/02_data_analysis_25_7.png" />
+<img alt="_images/02_data_analysis_26_0.png" src="_images/02_data_analysis_26_0.png" />
+<img alt="_images/02_data_analysis_26_1.png" src="_images/02_data_analysis_26_1.png" />
+<img alt="_images/02_data_analysis_26_2.png" src="_images/02_data_analysis_26_2.png" />
+<img alt="_images/02_data_analysis_26_3.png" src="_images/02_data_analysis_26_3.png" />
+<img alt="_images/02_data_analysis_26_4.png" src="_images/02_data_analysis_26_4.png" />
+<img alt="_images/02_data_analysis_26_5.png" src="_images/02_data_analysis_26_5.png" />
+<img alt="_images/02_data_analysis_26_6.png" src="_images/02_data_analysis_26_6.png" />
+<img alt="_images/02_data_analysis_26_7.png" src="_images/02_data_analysis_26_7.png" />
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/hendrikpfeifer/opt/anaconda3/lib/python3.9/site-packages/seaborn/categorical.py:253: FutureWarning: Index.ravel returning ndarray is deprecated; in a future version this will return a view on self.
   grouped_vals = vals.groupby(grouper)
 /Users/hendrikpfeifer/opt/anaconda3/lib/python3.9/site-packages/seaborn/categorical.py:253: FutureWarning: Index.ravel returning ndarray is deprecated; in a future version this will return a view on self.
   grouped_vals = vals.groupby(grouper)
 </pre></div>
 </div>
-<img alt="_images/02_data_analysis_25_9.png" src="_images/02_data_analysis_25_9.png" />
-<img alt="_images/02_data_analysis_25_10.png" src="_images/02_data_analysis_25_10.png" />
-<img alt="_images/02_data_analysis_25_11.png" src="_images/02_data_analysis_25_11.png" />
-<img alt="_images/02_data_analysis_25_12.png" src="_images/02_data_analysis_25_12.png" />
-<img alt="_images/02_data_analysis_25_13.png" src="_images/02_data_analysis_25_13.png" />
+<img alt="_images/02_data_analysis_26_9.png" src="_images/02_data_analysis_26_9.png" />
+<img alt="_images/02_data_analysis_26_10.png" src="_images/02_data_analysis_26_10.png" />
+<img alt="_images/02_data_analysis_26_11.png" src="_images/02_data_analysis_26_11.png" />
+<img alt="_images/02_data_analysis_26_12.png" src="_images/02_data_analysis_26_12.png" />
+<img alt="_images/02_data_analysis_26_13.png" src="_images/02_data_analysis_26_13.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1170,242 +1193,357 @@ dtype: object
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>year              1990      1991      1992      1993      1994      1995  \
-miles         129102.0  166788.0  156969.5  171030.0  160518.0  170083.0   
-sellingprice     425.0     400.0     450.0     600.0     500.0     550.0   
+miles         129102.0  170874.0  155093.0  169391.0  161863.0  168899.0   
+ratingprice      725.0     625.0     600.0     675.0     662.5     725.0   
+sellingprice     400.0     400.0     450.0     600.0     500.0     550.0   
 
 year              1996      1997      1998      1999  ...      2006      2007  \
-miles         166638.0  162319.0  163262.0  158782.0  ...  114514.0  107222.0   
+miles         167503.0  164794.0  163159.5  157773.0  ...  114489.0  107339.5   
+ratingprice      800.0     925.0    1075.0    1225.0  ...    5325.0    6675.0   
 sellingprice     650.0     800.0     950.0    1050.0  ...    5100.0    6700.0   
 
 year             2008     2009     2010     2011     2012     2013     2014  \
-miles         97236.0  88692.0  76820.0  53122.5  37700.0  35046.0  19529.0   
-sellingprice   8100.0   8700.0  10400.0  14600.0  14100.0  14500.0  17400.0   
+miles         97186.0  88696.0  76839.0  53307.0  37766.0  35032.0  19550.0   
+ratingprice    8175.0   8700.0  10350.0  14750.0  14050.0  14550.0  17350.0   
+sellingprice   8100.0   8700.0  10300.0  14500.0  14100.0  14500.0  17300.0   
 
 year             2015  
-miles         11551.0  
-sellingprice  21800.0  
+miles         11502.5  
+ratingprice   22100.0  
+sellingprice  21850.0  
 
-[2 rows x 26 columns]
+[3 rows x 26 columns]
 brand           acura  aston martin     audi  bentley      bmw    buick  \
-miles         85377.0       22068.5  58195.0  34760.0  50345.5  74334.0   
-sellingprice  12500.0       52250.0  18500.0  64500.0  20250.0  10300.0   
+miles         86602.0       23723.5  58178.5  35070.0  50479.0  74980.0   
+ratingprice   12250.0       51750.0  18650.0  61000.0  20400.0  10600.0   
+sellingprice  12250.0       51000.0  18500.0  62000.0  20000.0  10200.0   
 
 brand         cadillac  chevrolet  chrysler   daewoo  ...      saab    saturn  \
-miles          84297.0    64401.0   55482.5  69106.0  ...  101433.5  112302.0   
-sellingprice   12800.0    10350.0    9900.0    300.0  ...    3050.0    2700.0   
+miles          83345.0    63868.5   55433.0  70104.5  ...  102243.0  112481.5   
+ratingprice    12700.0    10500.0   10150.0    487.5  ...    3075.0    2950.0   
+sellingprice   13000.0    10400.0    9900.0    450.0  ...    3000.0    2700.0   
 
 brand           scion    smart   subaru   suzuki    tesla   toyota  \
-miles         47673.0  25152.0  34907.0  92567.0  15803.5  52705.0   
-sellingprice   9200.0   5900.0  17000.0   3200.0  65750.0  12300.0   
+miles         48369.0  24226.0  35498.0  91185.0  15854.0  52666.0   
+ratingprice    9325.0   5875.0  17100.0   3425.0  68000.0  12500.0   
+sellingprice   9200.0   6000.0  16900.0   3300.0  66500.0  12300.0   
 
 brand         volkswagen    volvo  
-miles            56264.0  85198.0  
-sellingprice      9750.0   7400.0  
+miles            56324.5  86290.5  
+ratingprice      10000.0   7237.5  
+sellingprice      9750.0   7300.0  
 
-[2 rows x 53 columns]
+[3 rows x 53 columns]
 model         1 series     1500  190-class  2 series      200     200sx  \
-miles          36953.0  27699.0   153164.0    4233.0  37287.0  170216.0   
-sellingprice   19775.0  22900.0      750.0   39600.0  10600.0     750.0   
+miles          37252.0  27322.5   153164.0    4658.0  37601.5  176657.0   
+ratingprice    19700.0  22900.0     1075.0   39800.0  10850.0     500.0   
+sellingprice   19500.0  22800.0      750.0   39800.0  10600.0     550.0   
 
 model            2500        3  3 series  3 series gran turismo  ...    yaris  \
-miles         30613.0  46967.0   50103.0                 4987.0  ...  53827.5   
-sellingprice  33400.0  12500.0   17250.0                38675.0  ...   8000.0   
+miles         29993.5  41068.5   50122.0                 5253.0  ...  54070.0   
+ratingprice   33600.0  12575.0   17700.0                39000.0  ...   8350.0   
+sellingprice  33500.0  12650.0   17200.0                39000.0  ...   8000.0   
 
 model            yukon  yukon denali  yukon hybrid  yukon xl       z3  \
-miles         108907.0      127151.0       93246.0  110218.0  98641.0   
-sellingprice   14850.0        1600.0       17000.0   14200.0   4350.0   
+miles         108587.0      183844.0      101108.5  109850.5  98641.0   
+ratingprice    15025.0        1350.0       15600.0   14025.0   4350.0   
+sellingprice   14950.0        1675.0       16500.0   14150.0   4300.0   
 
 model              z4     z4 m      zdx    zephyr  
-miles         40211.5  78425.0  38893.0  109026.0  
-sellingprice  25125.0  21250.0  25700.0    4300.0  
+miles         37751.0  78425.0  34544.0  109026.0  
+ratingprice   27100.0  18550.0  27800.0    4850.0  
+sellingprice  25825.0  21250.0  27175.0    4300.0  
 
-[2 rows x 764 columns]
+[3 rows x 764 columns]
+version             !  (1999.5) xe        +         1      1.6  1.6 base  \
+miles         64578.0     180765.0  22969.0  128313.5  74745.5   58306.0   
+ratingprice    8900.0       1500.0  13200.0    1500.0   4325.0    5150.0   
+sellingprice   8700.0       1500.0  13100.0    1125.0   4800.0    5600.0   
+
+version         1.6 s  1.6 s plus   1.6 sl   1.6 sv  ...     zx3 s  zx3 ses  \
+miles         54601.0     38974.5   7076.0  18587.0  ...  109272.0  95557.5   
+ratingprice    7700.0      9200.0  11400.0  10350.0  ...    2575.0   2412.5   
+sellingprice   7600.0      9000.0  11000.0  10100.0  ...    2300.0   2400.0   
+
+version         zx4 se   zx4 ses    zx4 st       zx5  zx5 premium    zx5 se  \
+miles         114375.0  121448.0  113064.5  127822.0      85128.0  111181.5   
+ratingprice     2675.0    2500.0    2462.5    1700.0       2250.0    2587.5   
+sellingprice    2500.0    2200.0    2500.0    1600.0       2900.0    2650.0   
+
+version        zx5 ses   zxw ses  
+miles         106735.0  110625.0  
+ratingprice     3537.5    2700.0  
+sellingprice    3600.0    2700.0  
+
+[3 rows x 1488 columns]
 type          access cab  beetle convertible  cab plus  cab plus 4  club cab  \
-miles            67001.0             11164.0  120154.0     64289.0  106034.0   
-sellingprice     15100.0             18000.0    4100.0      9800.0    4500.0   
+miles            65442.0             11806.0  120154.0     69059.0  104941.0   
+ratingprice      15725.0             17950.0    3550.0     10000.0    5012.5   
+sellingprice     15150.0             18000.0    4100.0      9800.0    4600.0   
 
 type          convertible    coupe  crew cab  crewmax cab  cts coupe  ...  \
-miles             54998.5  50649.0   71600.0      55924.5    36406.0  ...   
-sellingprice      13900.0  13700.0   21300.0      26600.0    22400.0  ...   
+miles             55428.0  50537.5   71508.0      55618.0    35627.0  ...   
+ratingprice       13950.0  13800.0   21400.0      26050.0    22200.0  ...   
+sellingprice      13900.0  13750.0   21300.0      26250.0    22450.0  ...   
 
 type          regular-cab    sedan  supercab  supercrew      suv  transit van  \
-miles              9636.5  47298.0   80015.0    50534.0  57598.0      13387.0   
-sellingprice      17300.0  11000.0   12300.0    23600.0  15100.0      24600.0   
+miles             11331.5  47304.0   80931.5    50589.5  57561.0      13049.0   
+ratingprice       17225.0  11150.0   12450.0    23900.0  15250.0      24500.0   
+sellingprice      17250.0  11000.0   12300.0    23600.0  15100.0      24800.0   
 
 type          tsx sport wagon      van    wagon   xtracab  
-miles                 33642.0  54522.5  69833.0  167059.0  
-sellingprice          17900.0  15850.0   8800.0    5900.0  
+miles                 33503.5  53773.0  69839.0  155851.0  
+ratingprice           18075.0  16050.0   8875.0    6162.5  
+sellingprice          18200.0  15900.0   8725.0    5800.0  
 
-[2 rows x 45 columns]
+[3 rows x 45 columns]
 drivetrain    automatic   manual
-miles           50685.0  65060.0
+miles           50678.0  64830.0
+ratingprice     12400.0   9350.0
 sellingprice    12300.0   8900.0
+code          137za84341e193591  19uua5640xa034760  19uua5640xa053244  \
+miles                   65612.0           233154.0           175516.0   
+ratingprice             43400.0             1075.0             1325.0   
+sellingprice            45750.0             1050.0             2100.0   
+
+code          19uua5641xa040227  19uua5641xa053415  19uua5642xa002702  \
+miles                  130002.0           153673.0           121985.0   
+ratingprice              1975.0             1500.0             1725.0   
+sellingprice             2800.0             1450.0             2000.0   
+
+code          19uua5643xa001218  19uua5643xa046935  19uua5644xa010087  \
+miles                       1.0           111021.0           180488.0   
+ratingprice              2425.0             2075.0             1225.0   
+sellingprice              900.0             2200.0             1000.0   
+
+code          19uua5644xa036284  ...  zff65ljaxc0183109  zff65tja4c0187060  \
+miles                  195020.0  ...            19435.0             8972.0   
+ratingprice              1475.0  ...           132000.0           143000.0   
+sellingprice             2550.0  ...           113000.0           138000.0   
+
+code          zff65tja5c0187066  zff67nfa1b0178698  zffew59a480162224  \
+miles                   10902.0            12116.0            11301.0   
+ratingprice            149000.0           182000.0           128000.0   
+sellingprice           154000.0           183000.0           117000.0   
+
+code          zffew59a870152438  zffyt53a840138209  zhwgu22t47la04254  \
+miles                   39651.0            16309.0            19908.0   
+ratingprice             96000.0            80000.0           110000.0   
+sellingprice            95500.0            81000.0           107000.0   
+
+code          zhwgu22t47la04447  zhwgu22t97la05738  
+miles                    8824.0            18624.0  
+ratingprice            120000.0           111000.0  
+sellingprice           117500.0           110000.0  
+
+[3 rows x 465779 columns]
 state               al       az       ca       co       fl       ga       hi  \
-miles         111959.0  58194.0  50559.0  40423.0  43182.0  60163.0  32711.5   
-sellingprice    7700.0  11000.0  12600.0  14400.0  12900.0  11400.0  12000.0   
+miles         111959.0  58293.0  50633.0  40435.5  43200.0  60195.0  32710.0   
+ratingprice     8425.0  10950.0  12450.0  14400.0  12900.0  11450.0  12100.0   
+sellingprice    7700.0  10900.0  12500.0  14400.0  12900.0  11400.0  12000.0   
 
 state              il       in       la  ...       or       pa       pr  \
-miles         33317.0  62620.0  64684.0  ...  48500.5  44256.0  43337.0   
-sellingprice  14300.0   9900.0   9700.0  ...  11100.0  12800.0   9000.0   
+miles         33343.0  62142.0  64487.5  ...  49774.0  44408.0  43468.0   
+ratingprice   14400.0  10400.0  10200.0  ...  11300.0  12900.0   9325.0   
+sellingprice  14300.0   9900.0   9900.0  ...  11100.0  12800.0   9000.0   
 
 state              sc       tn       tx       ut       va       wa       wi  
-miles         74328.0  37275.0  56952.0  86975.0  96721.5  40534.0  52718.0  
-sellingprice   9700.0  16200.0  12000.0  10500.0   6900.0  13500.0  12500.0  
+miles         74382.0  37447.0  56672.0  87776.5  96849.0  40538.5  52534.5  
+ratingprice   10000.0  15950.0  12100.0  11950.0   7250.0  13000.0  12650.0  
+sellingprice   9700.0  16200.0  12000.0  10750.0   6900.0  13500.0  12500.0  
 
-[2 rows x 34 columns]
+[3 rows x 34 columns]
 condition          1.0       1.1       1.2       1.3       1.4       1.5  \
-miles         110223.0  101959.0  128117.0  110369.5  118366.0  114571.0   
-sellingprice    2000.0    3900.0    2650.0    2450.0    2500.0    2600.0   
+miles         108749.0  118718.0  126183.5  113867.5  117745.5  118921.0   
+ratingprice     4275.0    5275.0    3962.5    4212.5    3600.0    4125.0   
+sellingprice    2000.0    3400.0    2500.0    2550.0    2500.0    2650.0   
 
 condition          1.6       1.7       1.8       1.9  ...      4.1      4.2  \
-miles         117775.5  113929.0  108189.5  116555.5  ...  38724.5  36322.0   
-sellingprice    2900.0    2800.0    3200.0    3650.0  ...  15000.0  15600.0   
+miles         115886.0  112867.0  108689.5  116745.5  ...  38629.0  36270.5   
+ratingprice     4650.0    4650.0    5100.0    4550.0  ...  14700.0  15300.0   
+sellingprice    3500.0    2900.0    3300.0    3600.0  ...  14900.0  15500.0   
 
 condition         4.3      4.4      4.5      4.6      4.7      4.8      4.9  \
-miles         33518.0  30937.0  27887.0  26207.0  24600.0  22272.0  18021.5   
-sellingprice  16400.0  17000.0  17750.0  18200.0  18700.0  19000.0  20500.0   
+miles         33548.0  30970.0  28075.5  26221.5  24573.0  22231.0  18168.0   
+ratingprice   16050.0  16650.0  17250.0  17750.0  18200.0  18550.0  20000.0   
+sellingprice  16400.0  17000.0  17600.0  18200.0  18700.0  19000.0  20400.0   
 
 condition         5.0  
-miles         13797.0  
-sellingprice  22200.0  
+miles         13790.5  
+ratingprice   21650.0  
+sellingprice  22100.0  
 
-[2 rows x 41 columns]
+[3 rows x 41 columns]
 color           beige    black     blue    brown  burgundy  charcoal     gold  \
-miles         88533.0  46945.0  60372.5  41150.0   63472.5   40394.0  96432.5   
-sellingprice   7900.0  13500.0  10700.0  14100.0   11500.0   14300.0   6500.0   
+miles         88770.5  46813.0  60399.5  41403.0   63436.0   41267.0  96304.0   
+ratingprice    7975.0  13600.0  10900.0  14250.0   11650.0   14550.0   6600.0   
+sellingprice   7950.0  13500.0  10700.0  14000.0   11500.0   14200.0   6500.0   
 
 color            gray    green     lime  off-white   orange     pink   purple  \
-miles         46915.0  92320.0  40462.5    58781.0  56005.5  40563.0  53121.0   
-sellingprice  12500.0   6500.0   9950.0    13200.0  11600.0   9750.0  12450.0   
+miles         46854.0  92557.0  40462.5    56524.0  54555.0  40177.0  54566.5   
+ratingprice   12600.0   6675.0   9000.0    13400.0  11650.0   9800.0  12450.0   
+sellingprice  12500.0   6500.0   9050.0    13700.0  11600.0   9900.0  12000.0   
 
 color             red   silver  turquoise    white   yellow        —  
-miles         46274.0  59405.0    89541.0  47970.0  67649.0  32814.0  
-sellingprice  11700.0  10700.0     7400.0  13200.0  10500.0  16000.0  
+miles         46284.0  59385.0    89699.5  47963.5  67260.0  32676.0  
+ratingprice   11800.0  10900.0     7775.0  13150.0  10550.0  16050.0  
+sellingprice  11700.0  10700.0     7800.0  13200.0  10500.0  16000.0  
 interior        beige    black     blue    brown  burgundy     gold     gray  \
-miles         58023.0  40816.0  99307.0  51089.0   51998.5  72910.0  66996.5   
-sellingprice  12000.0  13700.0   4600.0  18700.0   14850.0   9900.0  10100.0   
+miles         57938.0  40835.0  99772.0  51478.5   51302.0  70135.5  66946.0   
+ratingprice   12000.0  13800.0   4675.0  18700.0   16150.0  10725.0  10250.0   
+sellingprice  12000.0  13700.0   4600.0  18725.0   16050.0  10400.0  10100.0   
 
 interior        green  off-white   orange   purple      red   silver      tan  \
-miles         75286.0    26677.0  54560.0  52424.0  34424.5  83606.0  71672.5   
-sellingprice   9000.0    28750.0  16400.0  11300.0  20900.0   9200.0  11100.0   
+miles         75301.5    27041.0  53578.0  53246.0  33930.5  82208.0  71754.0   
+ratingprice    9162.5    29500.0  15725.0  11100.0  20500.0   9075.0  11200.0   
+sellingprice   8900.0    29000.0  16100.0  11300.0  21000.0   9200.0  11100.0   
 
 interior        white   yellow        —  
-miles         43255.0  31684.0  58799.0  
-sellingprice  16400.0   9600.0  10600.0  
+miles         43897.0  31684.0  58618.0  
+ratingprice   15375.0   9475.0  11100.0  
+sellingprice  15300.0   9600.0  10700.0  
 seller        1 cochran of monroeville  101motors  143 auto sales inc  \
-miles                         106396.0    98491.0             93990.0   
-sellingprice                    4200.0     3750.0              4000.0   
+miles                         108469.0    98491.0             92286.5   
+ratingprice                     3925.0     3800.0              6125.0   
+sellingprice                    4200.0     3750.0              5150.0   
 
 seller        159191 canada inc  1st advantage fcu  1st capital finance  \
-miles                   56534.0            92626.0             200903.0   
-sellingprice            19100.0             8200.0                400.0   
+miles                   57169.0            71478.0             200903.0   
+ratingprice             20250.0             9337.5                600.0   
+sellingprice            19100.0             8900.0                400.0   
 
 seller        1st choice automotive corp  1st choice credit union  \
-miles                           103250.5                  99599.0   
-sellingprice                      7750.0                  10000.0   
+miles                           105993.0                  99599.0   
+ratingprice                       6600.0                  10100.0   
+sellingprice                      7600.0                  10000.0   
 
 seller        1st choice money center  1st class auto  ...  \
 miles                         78577.0        103321.0  ...   
+ratingprice                    2075.0          4700.0  ...   
 sellingprice                    450.0          3300.0  ...   
 
 seller        zimbrick volkswagen of madison  zimmerman auto brokers inc  \
-miles                                62834.5                     55177.0   
-sellingprice                         12000.0                     14400.0   
+miles                                62834.5                     54427.0   
+ratingprice                          11637.5                     14350.0   
+sellingprice                         12000.0                     14500.0   
 
 seller        zinc auto finance  zinc used auto sales   zipcar  \
-miles                  128509.0               77911.0  39635.0   
-sellingprice             4100.0               19000.0  10000.0   
+miles                  131007.0               77911.0  39635.0   
+ratingprice              4475.0               19950.0  10500.0   
+sellingprice             4200.0               19000.0  10000.0   
 
 seller        zippy rent a car llc  zmax moto leasing inc  zuma autoboat  \
-miles                     119381.0               151800.5       150218.0   
-sellingprice                4000.0                 6400.0        10000.0   
+miles                     119381.0               137415.0       150218.0   
+ratingprice                 4175.0                 7175.0         8675.0   
+sellingprice                4000.0                 6300.0        10000.0   
 
 seller        zumbrota ford sales llc  zygi auto corp  
-miles                             NaN         85419.0  
-sellingprice                      NaN          7750.0  
+miles                        153305.0         85419.0  
+ratingprice                   16250.0         12800.0  
+sellingprice                  13800.0          7750.0  
 
-[2 rows x 11927 columns]
+[3 rows x 11927 columns]
 saledate      Fri Apr 03 2015 02:00:00 GMT-0700 (PDT)  \
-miles                                         37281.0   
-sellingprice                                  16600.0   
+miles                                         36402.0   
+ratingprice                                   17550.0   
+sellingprice                                  13700.0   
 
 saledate      Fri Apr 03 2015 02:15:00 GMT-0700 (PDT)  \
 miles                                         38545.0   
+ratingprice                                   24200.0   
 sellingprice                                  12800.0   
 
 saledate      Fri Apr 03 2015 02:20:00 GMT-0700 (PDT)  \
 miles                                             1.0   
+ratingprice                                    5050.0   
 sellingprice                                   2000.0   
 
 saledate      Fri Apr 03 2015 03:45:00 GMT-0700 (PDT)  \
 miles                                        123997.0   
+ratingprice                                   15000.0   
 sellingprice                                   9900.0   
 
 saledate      Fri Apr 10 2015 02:00:00 GMT-0700 (PDT)  \
-miles                                         32770.0   
-sellingprice                                  13200.0   
+miles                                         32728.5   
+ratingprice                                   15625.0   
+sellingprice                                  13250.0   
 
 saledate      Fri Apr 10 2015 02:25:00 GMT-0700 (PDT)  \
-miles                                             NaN   
-sellingprice                                      NaN   
+miles                                        164259.0   
+ratingprice                                    4600.0   
+sellingprice                                   3700.0   
 
 saledate      Fri Apr 10 2015 04:45:00 GMT-0700 (PDT)  \
 miles                                         55388.0   
+ratingprice                                   15750.0   
 sellingprice                                  16900.0   
 
 saledate      Fri Apr 10 2015 05:00:00 GMT-0700 (PDT)  \
 miles                                        102948.0   
+ratingprice                                    6800.0   
 sellingprice                                   6900.0   
 
 saledate      Fri Apr 17 2015 01:29:00 GMT-0700 (PDT)  \
 miles                                         92541.0   
+ratingprice                                    5450.0   
 sellingprice                                    800.0   
 
 saledate      Fri Apr 17 2015 02:00:00 GMT-0700 (PDT)  ...  \
 miles                                         32275.5  ...   
+ratingprice                                   13475.0  ...   
 sellingprice                                  14400.0  ...   
 
 saledate      Wed May 27 2015 08:25:00 GMT-0700 (PDT)  \
-miles                                        128415.0   
+miles                                        114188.0   
+ratingprice                                    4500.0   
 sellingprice                                   4600.0   
 
 saledate      Wed May 27 2015 08:30:00 GMT-0700 (PDT)  \
 miles                                         39701.0   
+ratingprice                                   13400.0   
 sellingprice                                  13000.0   
 
 saledate      Wed May 27 2015 08:35:00 GMT-0700 (PDT)  \
-miles                                         38935.5   
-sellingprice                                  13525.0   
+miles                                         38930.0   
+ratingprice                                   13700.0   
+sellingprice                                  13750.0   
 
 saledate      Wed May 27 2015 08:40:00 GMT-0700 (PDT)  \
 miles                                         56599.0   
+ratingprice                                   11100.0   
 sellingprice                                  10700.0   
 
 saledate      Wed May 27 2015 09:00:00 GMT-0700 (PDT)  \
-miles                                        141466.0   
-sellingprice                                   1100.0   
+miles                                        137064.5   
+ratingprice                                    1875.0   
+sellingprice                                   1450.0   
 
 saledate      Wed May 27 2015 10:10:00 GMT-0700 (PDT)  \
 miles                                         57126.0   
+ratingprice                                    9100.0   
 sellingprice                                  10250.0   
 
 saledate      Wed May 27 2015 10:15:00 GMT-0700 (PDT)  \
-miles                                         88643.0   
-sellingprice                                   8300.0   
+miles                                         87072.0   
+ratingprice                                    9075.0   
+sellingprice                                   8800.0   
 
 saledate      Wed May 27 2015 10:20:00 GMT-0700 (PDT)  \
-miles                                        171399.0   
-sellingprice                                   1300.0   
+miles                                        164630.5   
+ratingprice                                    2062.5   
+sellingprice                                   1450.0   
 
 saledate      Wed May 27 2015 10:25:00 GMT-0700 (PDT)  \
 miles                                         90545.0   
+ratingprice                                    7025.0   
 sellingprice                                   5000.0   
 
 saledate      Wed May 27 2015 17:00:00 GMT-0700 (PDT)  
-miles                                         99943.0  
+miles                                        101809.0  
+ratingprice                                    7800.0  
 sellingprice                                   5500.0  
 
-[2 rows x 3609 columns]
+[3 rows x 3609 columns]
 </pre></div>
 </div>
 </div>
@@ -1495,7 +1633,7 @@ sellingprice                                   5500.0
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/02_data_analysis_29_0.png" src="_images/02_data_analysis_29_0.png" />
+<img alt="_images/02_data_analysis_30_0.png" src="_images/02_data_analysis_30_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1512,7 +1650,7 @@ sellingprice                                   5500.0
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/02_data_analysis_31_0.png" src="_images/02_data_analysis_31_0.png" />
+<img alt="_images/02_data_analysis_32_0.png" src="_images/02_data_analysis_32_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1525,7 +1663,7 @@ sellingprice                                   5500.0
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;miles&#39;, ylabel=&#39;sellingprice&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/02_data_analysis_32_1.png" src="_images/02_data_analysis_32_1.png" />
+<img alt="_images/02_data_analysis_33_1.png" src="_images/02_data_analysis_33_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1538,7 +1676,7 @@ sellingprice                                   5500.0
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;ratingprice&#39;, ylabel=&#39;Count&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/02_data_analysis_33_1.png" src="_images/02_data_analysis_33_1.png" />
+<img alt="_images/02_data_analysis_34_1.png" src="_images/02_data_analysis_34_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1551,7 +1689,7 @@ sellingprice                                   5500.0
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;sellingprice&#39;, ylabel=&#39;Count&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/02_data_analysis_34_1.png" src="_images/02_data_analysis_34_1.png" />
+<img alt="_images/02_data_analysis_35_1.png" src="_images/02_data_analysis_35_1.png" />
 </div>
 </div>
 </div>
@@ -1580,7 +1718,7 @@ sellingprice -0.577385     0.983492      1.000000
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
 </pre></div>
 </div>
-<img alt="_images/02_data_analysis_36_2.png" src="_images/02_data_analysis_36_2.png" />
+<img alt="_images/02_data_analysis_37_2.png" src="_images/02_data_analysis_37_2.png" />
 </div>
 </div>
 </div>
