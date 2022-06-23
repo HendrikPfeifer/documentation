@@ -4,30 +4,36 @@
 format: jb-book
 root: intro
 parts:
-  - caption: Content
+  - caption: Business understanding
     chapters:
     - file: 01_business_case
+  - caption: Data
+    chapters:
     - file: 02_data_analysis
     - file: 03_data_preperation
   - caption: Models
     chapters:
-    - file: model_1_Keras
     - file: car_prices_Keras3
-    - file: model_1_SK-learn
-    - file: model_2_SK-learn
+    - file: car_prices_TF_NEU
+    - file: car_prices_SKlearn_multiple
   - caption: Hyperparameter Tuning
     chapters:
     - file: hyperparameter_keras
+      - caption: Explainable AI
+    chapters:
+    - file: SHAP_car_structured_data_regression
   - caption: Deployment
     chapters:
     - file: streamlit
-  - caption: Airflow
+  - caption: Data Pipelines
     chapters:
     - file: 06_airflow_data
     - file: 07_airflow_model
     - file: 08_airflow_prediction
-  - caption: Explainable AI
+  - caption: Attachments
     chapters:
-    - file: SHAP_car_structured_data_regression
+    - file: model_1_Keras
+    - file: model_1_SK-learn
+    - file: model_2_SK-learn
 
 
