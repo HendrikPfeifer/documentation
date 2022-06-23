@@ -3,11 +3,11 @@
 
 # # Keras 
 # 
-# #### classification-based approach with deep neural network
+# ##### Classification-based approach with deep neural network
 
 # ## Load Packages
 
-# In[34]:
+# In[2]:
 
 
 import numpy as np
@@ -431,7 +431,7 @@ print("MAE:", round(accuracy, 2))
 model.save('my_car_model-mean-absolute-3')
 
 
-# In[78]:
+# In[4]:
 
 
 reloaded_model = tf.keras.models.load_model('my_car_model-mean-absolute-3')

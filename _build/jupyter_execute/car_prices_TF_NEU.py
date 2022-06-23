@@ -3,7 +3,7 @@
 
 # # TensorFlow
 # 
-# ### Models for: Linear Regression (Simple Regression), Linear Regression (Multiple Regression) and DNN Regression (Multiple Regression)
+# #### Models for: Linear Regression (Simple Regression), Linear Regression (Multiple Regression) and DNN Regression (Multiple Regression)
 
 # ## Setup
 

@@ -53,7 +53,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Data preperation" href="03_data_preperation.html" />
+    <link rel="next" title="Data preparation" href="03_data_preparation.html" />
     <link rel="prev" title="Business Case" href="01_business_case.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -100,23 +100,30 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  Content
+  Business Understanding
  </span>
 </p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="01_business_case.html">
    Business Case
   </a>
  </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Data
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Data analysis
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="03_data_preperation.html">
-   Data preperation
+  <a class="reference internal" href="03_data_preparation.html">
+   Data preparation
   </a>
  </li>
 </ul>
@@ -127,23 +134,18 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="model_1_Keras.html">
-   1st Keras model
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="car_prices_Keras3.html">
-   2nd Keras Model
+   Keras
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="model_1_SK-learn.html">
-   1st SK-learn model
+  <a class="reference internal" href="car_prices_TF_NEU.html">
+   TensorFlow
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="model_2_SK-learn.html">
-   2nd SK-learn model
+  <a class="reference internal" href="car_prices_SKlearn_multiple.html">
+   Scikit-Learn
   </a>
  </li>
 </ul>
@@ -155,7 +157,19 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="hyperparameter_keras.html">
-   Tuning Keras
+   Keras Tuner
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Explainable AI
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="SHAP_car_structured_data_regression.html">
+   SHAP
   </a>
  </li>
 </ul>
@@ -173,7 +187,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  Airflow
+  Data Pipelines
  </span>
 </p>
 <ul class="nav bd-sidenav">
@@ -195,13 +209,23 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  Explainable AI
+  Attachments
  </span>
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="SHAP_car_structured_data_regression.html">
-   SHAP
+  <a class="reference internal" href="model_1_Keras.html">
+   1st Keras model
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="model_1_SK-learn.html">
+   1st scikit-learn model
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="model_2_SK-learn.html">
+   2nd scikit-learn model
   </a>
  </li>
 </ul>
@@ -484,9 +508,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># show first two rows to check if the dataset is imported correctly </span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># show first five rows to check if the dataset is imported correctly </span>
 
-<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -565,6 +589,63 @@ const thebe_selector_output = ".output, .cell_output"
       <td>20800</td>
       <td>21500</td>
       <td>Tue Dec 16 2014 12:30:00 GMT-0800 (PST)</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2014</td>
+      <td>BMW</td>
+      <td>3 Series</td>
+      <td>328i SULEV</td>
+      <td>Sedan</td>
+      <td>automatic</td>
+      <td>wba3c1c51ek116351</td>
+      <td>ca</td>
+      <td>4.5</td>
+      <td>1331.0</td>
+      <td>gray</td>
+      <td>black</td>
+      <td>financial services remarketing (lease)</td>
+      <td>31900</td>
+      <td>30000</td>
+      <td>Thu Jan 15 2015 04:30:00 GMT-0800 (PST)</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2015</td>
+      <td>Volvo</td>
+      <td>S60</td>
+      <td>T5</td>
+      <td>Sedan</td>
+      <td>automatic</td>
+      <td>yv1612tb4f1310987</td>
+      <td>ca</td>
+      <td>4.1</td>
+      <td>14282.0</td>
+      <td>white</td>
+      <td>black</td>
+      <td>volvo na rep/world omni</td>
+      <td>27500</td>
+      <td>27750</td>
+      <td>Thu Jan 29 2015 04:30:00 GMT-0800 (PST)</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2014</td>
+      <td>BMW</td>
+      <td>6 Series Gran Coupe</td>
+      <td>650i</td>
+      <td>Sedan</td>
+      <td>automatic</td>
+      <td>wba6b2c57ed129731</td>
+      <td>ca</td>
+      <td>4.3</td>
+      <td>2641.0</td>
+      <td>gray</td>
+      <td>black</td>
+      <td>financial services remarketing (lease)</td>
+      <td>66000</td>
+      <td>67000</td>
+      <td>Thu Dec 18 2014 12:30:00 GMT-0800 (PST)</td>
     </tr>
   </tbody>
 </table>
@@ -1765,10 +1846,10 @@ sellingprice -0.577385     0.983492      1.000000
             <p class="prev-next-title">Business Case</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="03_data_preperation.html" title="next page">
+    <a class='right-next' id="next-link" href="03_data_preparation.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Data preperation</p>
+        <p class="prev-next-title">Data preparation</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

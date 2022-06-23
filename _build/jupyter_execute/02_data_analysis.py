@@ -7,7 +7,7 @@
 
 # ### Load packages
 
-# In[20]:
+# In[2]:
 
 
 import pandas as pd
@@ -20,7 +20,7 @@ import matplotlib.pyplot as plt
 
 # ### Import dataset
 
-# In[21]:
+# In[3]:
 
 
 # import dataset and save it as df
@@ -30,12 +30,12 @@ df = pd.read_csv("car_prices.csv", on_bad_lines="skip")
 # on_bad_lines="skip" otherwise it caused a problem
 
 
-# In[22]:
+# In[4]:
 
 
-# show first two rows to check if the dataset is imported correctly 
+# show first five rows to check if the dataset is imported correctly 
 
-df.head(2)
+df.head(5)
 
 
 # - year = year the car was build

@@ -53,8 +53,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="1st scikit-learn model" href="model_1_SK-learn.html" />
-    <link rel="prev" title="1st Keras model" href="model_1_Keras.html" />
+    <link rel="next" title="TensorFlow" href="car_prices_TF_NEU.html" />
+    <link rel="prev" title="Data preparation" href="03_data_preparation.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -100,7 +100,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  Content
+  Business Understanding
  </span>
 </p>
 <ul class="nav bd-sidenav">
@@ -109,14 +109,21 @@ const thebe_selector_output = ".output, .cell_output"
    Business Case
   </a>
  </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="02_data_analysis.html">
    Data analysis
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="03_data_preperation.html">
-   Data preperation
+  <a class="reference internal" href="03_data_preparation.html">
+   Data preparation
   </a>
  </li>
 </ul>
@@ -126,24 +133,19 @@ const thebe_selector_output = ".output, .cell_output"
  </span>
 </p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="model_1_Keras.html">
-   1st Keras model
-  </a>
- </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Keras
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="model_1_SK-learn.html">
-   1st scikit-learn model
+  <a class="reference internal" href="car_prices_TF_NEU.html">
+   TensorFlow
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="model_2_SK-learn.html">
-   2nd scikit-learn model
+  <a class="reference internal" href="car_prices_SKlearn_multiple.html">
+   Scikit-Learn
   </a>
  </li>
 </ul>
@@ -161,6 +163,18 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
+  Explainable AI
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="SHAP_car_structured_data_regression.html">
+   SHAP
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
   Deployment
  </span>
 </p>
@@ -173,7 +187,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  Airflow
+  Data Pipelines
  </span>
 </p>
 <ul class="nav bd-sidenav">
@@ -195,13 +209,23 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  Explainable AI
+  Attachments
  </span>
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="SHAP_car_structured_data_regression.html">
-   SHAP
+  <a class="reference internal" href="model_1_Keras.html">
+   1st Keras model
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="model_1_SK-learn.html">
+   1st scikit-learn model
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="model_2_SK-learn.html">
+   2nd scikit-learn model
   </a>
  </li>
 </ul>
@@ -315,7 +339,7 @@ const thebe_selector_output = ".output, .cell_output"
   <ul class="visible nav section-nav flex-column">
    <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#classification-based-approach-with-deep-neural-network">
-     classification-based approach with deep neural network
+     Classification-based approach with deep neural network
     </a>
    </li>
    <li class="toc-h2 nav-item toc-entry">
@@ -414,7 +438,7 @@ const thebe_selector_output = ".output, .cell_output"
   <ul class="visible nav section-nav flex-column">
    <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#classification-based-approach-with-deep-neural-network">
-     classification-based approach with deep neural network
+     Classification-based approach with deep neural network
     </a>
    </li>
    <li class="toc-h2 nav-item toc-entry">
@@ -498,7 +522,7 @@ const thebe_selector_output = ".output, .cell_output"
   <div class="tex2jax_ignore mathjax_ignore section" id="keras">
 <h1>Keras<a class="headerlink" href="#keras" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="classification-based-approach-with-deep-neural-network">
-<h2>classification-based approach with deep neural network<a class="headerlink" href="#classification-based-approach-with-deep-neural-network" title="Permalink to this headline">¶</a></h2>
+<h2>Classification-based approach with deep neural network<a class="headerlink" href="#classification-based-approach-with-deep-neural-network" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="load-packages">
 <h2>Load Packages<a class="headerlink" href="#load-packages" title="Permalink to this headline">¶</a></h2>
@@ -1470,6 +1494,12 @@ MAE: 1854.79
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-06-23 18:50:06.256943: I tensorflow/core/platform/cpu_feature_guard.cc:151] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  SSE4.1 SSE4.2 AVX AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1682,17 +1712,17 @@ MAE: 1854.79
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="model_1_Keras.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="03_data_preparation.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">1st Keras model</p>
+            <p class="prev-next-title">Data preparation</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="model_1_SK-learn.html" title="next page">
+    <a class='right-next' id="next-link" href="car_prices_TF_NEU.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">1st scikit-learn model</p>
+        <p class="prev-next-title">TensorFlow</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

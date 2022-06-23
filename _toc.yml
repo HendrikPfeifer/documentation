@@ -10,7 +10,7 @@ parts:
   - caption: Data
     chapters:
     - file: 02_data_analysis
-    - file: 03_data_preperation
+    - file: 03_data_preparation
   - caption: Models
     chapters:
     - file: car_prices_Keras3

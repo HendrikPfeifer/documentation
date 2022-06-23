@@ -3,10 +3,9 @@
 
 # # Scikit-Learn
 # 
-# ### Linear Regression-, and KNN-Model for Multiple Regression 
+# #### Linear Regression-, and KNN-Model for Multiple Regression 
 # 
 
-# # Data
 # ## Load packages
 
 # In[18]:
