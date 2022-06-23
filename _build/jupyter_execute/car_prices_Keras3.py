@@ -1,7 +1,9 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # 2nd Keras Model
+# # Keras 
+# 
+# #### classification-based approach with deep neural network
 
 # ## Load Packages
 
@@ -366,7 +368,7 @@ x = layers.Dense(32, activation="relu")(all_features)
 x = layers.Dropout(0.5)(x)
 
 # Output layer
-output = layers.Dense(1)(x) #sigmoid nur für Classifikation // bei regression keine activation
+output = layers.Dense(1)(x)
 
 # Group all layers 
 model = tf.keras.Model(all_inputs, output)

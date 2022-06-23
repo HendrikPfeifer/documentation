@@ -2,6 +2,8 @@
 # coding: utf-8
 
 # # 1st Keras model
+# 
+# ### A try modeling with tensorflow and keras
 
 # ### Load Packages
 

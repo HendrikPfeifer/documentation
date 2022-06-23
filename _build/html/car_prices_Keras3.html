@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>2nd Keras Model &#8212; MLOps Project SoSe 2022 - Documentation</title>
+    <title>Keras &#8212; MLOps Project SoSe 2022 - Documentation</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
   <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -53,7 +53,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="1st SK-learn model" href="model_1_SK-learn.html" />
+    <link rel="next" title="1st scikit-learn model" href="model_1_SK-learn.html" />
     <link rel="prev" title="1st Keras model" href="model_1_Keras.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -133,17 +133,17 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   2nd Keras Model
+   Keras
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="model_1_SK-learn.html">
-   1st SK-learn model
+   1st scikit-learn model
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="model_2_SK-learn.html">
-   2nd SK-learn model
+   2nd scikit-learn model
   </a>
  </li>
 </ul>
@@ -155,7 +155,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="hyperparameter_keras.html">
-   Tuning Keras
+   Keras Tuner
   </a>
  </li>
 </ul>
@@ -310,9 +310,14 @@ const thebe_selector_output = ".output, .cell_output"
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
-   2nd Keras Model
+   Keras
   </a>
   <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#classification-based-approach-with-deep-neural-network">
+     classification-based approach with deep neural network
+    </a>
+   </li>
    <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#load-packages">
      Load Packages
@@ -392,7 +397,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>2nd Keras Model</h1>
+                <h1>Keras</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -404,9 +409,14 @@ const thebe_selector_output = ".output, .cell_output"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
-   2nd Keras Model
+   Keras
   </a>
   <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#classification-based-approach-with-deep-neural-network">
+     classification-based approach with deep neural network
+    </a>
+   </li>
    <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#load-packages">
      Load Packages
@@ -485,8 +495,11 @@ const thebe_selector_output = ".output, .cell_output"
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="nd-keras-model">
-<h1>2nd Keras Model<a class="headerlink" href="#nd-keras-model" title="Permalink to this headline">¶</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="keras">
+<h1>Keras<a class="headerlink" href="#keras" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="classification-based-approach-with-deep-neural-network">
+<h2>classification-based approach with deep neural network<a class="headerlink" href="#classification-based-approach-with-deep-neural-network" title="Permalink to this headline">¶</a></h2>
+</div>
 <div class="section" id="load-packages">
 <h2>Load Packages<a class="headerlink" href="#load-packages" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
@@ -1161,7 +1174,7 @@ memory usage: 33.6 MB
 <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
 
 <span class="c1"># Output layer</span>
-<span class="n">output</span> <span class="o">=</span> <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span> <span class="c1">#sigmoid nur für Classifikation // bei regression keine activation</span>
+<span class="n">output</span> <span class="o">=</span> <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
 
 <span class="c1"># Group all layers </span>
 <span class="n">model</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Model</span><span class="p">(</span><span class="n">all_inputs</span><span class="p">,</span> <span class="n">output</span><span class="p">)</span>
@@ -1679,7 +1692,7 @@ MAE: 1854.79
     <a class='right-next' id="next-link" href="model_1_SK-learn.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">1st SK-learn model</p>
+        <p class="prev-next-title">1st scikit-learn model</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
