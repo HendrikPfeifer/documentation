@@ -1199,7 +1199,7 @@ memory usage: 33.6 MB
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># First layer</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">&quot;relu&quot;</span><span class="p">)(</span><span class="n">all_features</span><span class="p">)</span>
 
-<span class="c1"># Dropout to prevent overvitting - soll sich auf die wichtigsten konzentrieren</span>
+<span class="c1"># Dropout to prevent overvitting </span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
 
 <span class="c1"># Output layer</span>
