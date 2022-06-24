@@ -122,8 +122,8 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="03_data_preperation.html">
-   Data preperation
+  <a class="reference internal" href="03_data_preparation.html">
+   Data preparation
   </a>
  </li>
 </ul>
@@ -168,7 +168,7 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="SHAP_car_structured_data_regression.html">
+  <a class="reference internal" href="2-SHAP_car_structured_data_regression.html">
    SHAP
   </a>
  </li>
@@ -226,6 +226,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="model_2_SK-learn.html">
    2nd scikit-learn model
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="SHAP_car_structured_data_regression.html">
+   try SHAP
   </a>
  </li>
 </ul>
@@ -338,8 +343,8 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
   <ul class="visible nav section-nav flex-column">
    <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#linear-regression-and-knn-model-for-multiple-regression">
-     Linear Regression-, and KNN-Model for Multiple Regression
+    <a class="reference internal nav-link" href="#linear-regression-knn-model-and-random-forest-regressor-for-multiple-regression">
+     Linear Regression-, KNN-Model and Random Forest Regressor for Multiple Regression
     </a>
    </li>
    <li class="toc-h2 nav-item toc-entry">
@@ -369,11 +374,6 @@ const thebe_selector_output = ".output, .cell_output"
    Categorial or numeric?
   </a>
   <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#data-splitting">
-     Data splitting
-    </a>
-   </li>
    <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#data-preprocessing-pipeline">
      Data preprocessing pipeline
@@ -417,8 +417,8 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
   <ul class="visible nav section-nav flex-column">
    <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#linear-regression-and-knn-model-for-multiple-regression">
-     Linear Regression-, and KNN-Model for Multiple Regression
+    <a class="reference internal nav-link" href="#linear-regression-knn-model-and-random-forest-regressor-for-multiple-regression">
+     Linear Regression-, KNN-Model and Random Forest Regressor for Multiple Regression
     </a>
    </li>
    <li class="toc-h2 nav-item toc-entry">
@@ -449,11 +449,6 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
   <ul class="visible nav section-nav flex-column">
    <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#data-splitting">
-     Data splitting
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#data-preprocessing-pipeline">
      Data preprocessing pipeline
     </a>
@@ -481,8 +476,8 @@ const thebe_selector_output = ".output, .cell_output"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="scikit-learn">
 <h1>Scikit-Learn<a class="headerlink" href="#scikit-learn" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="linear-regression-and-knn-model-for-multiple-regression">
-<h2>Linear Regression-, and KNN-Model for Multiple Regression<a class="headerlink" href="#linear-regression-and-knn-model-for-multiple-regression" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="linear-regression-knn-model-and-random-forest-regressor-for-multiple-regression">
+<h2>Linear Regression-, KNN-Model and Random Forest Regressor for Multiple Regression<a class="headerlink" href="#linear-regression-knn-model-and-random-forest-regressor-for-multiple-regression" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="load-packages">
 <h2>Load packages<a class="headerlink" href="#load-packages" title="Permalink to this headline">¶</a></h2>
@@ -926,211 +921,6 @@ memory usage: 18.4 MB
 </table>
 </div></div></div>
 </div>
-<div class="section" id="data-splitting">
-<h2>Data splitting<a class="headerlink" href="#data-splitting" title="Permalink to this headline">¶</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">##nicht benötigt</span>
-<span class="n">train_dataset</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">frac</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">test_dataset</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">train_dataset</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
-
-<span class="n">train_dataset</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>year</th>
-      <th>brand</th>
-      <th>model</th>
-      <th>type</th>
-      <th>state</th>
-      <th>condition</th>
-      <th>miles</th>
-      <th>color</th>
-      <th>interior</th>
-      <th>seller</th>
-      <th>sellingprice</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>530723</th>
-      <td>2000</td>
-      <td>volvo</td>
-      <td>s40</td>
-      <td>sedan</td>
-      <td>fl</td>
-      <td>2.0</td>
-      <td>90938.0</td>
-      <td>gray</td>
-      <td>gray</td>
-      <td>vietnam veterans of america</td>
-      <td>325</td>
-    </tr>
-    <tr>
-      <th>309554</th>
-      <td>2012</td>
-      <td>honda</td>
-      <td>cr-v</td>
-      <td>suv</td>
-      <td>tn</td>
-      <td>3.8</td>
-      <td>35209.0</td>
-      <td>white</td>
-      <td>gray</td>
-      <td>wholesale inc # 2</td>
-      <td>19800</td>
-    </tr>
-    <tr>
-      <th>527934</th>
-      <td>2008</td>
-      <td>mercedes-benz</td>
-      <td>s-class</td>
-      <td>sedan</td>
-      <td>pa</td>
-      <td>4.0</td>
-      <td>70838.0</td>
-      <td>—</td>
-      <td>brown</td>
-      <td>r hollenshead auto sales inc</td>
-      <td>25250</td>
-    </tr>
-    <tr>
-      <th>44135</th>
-      <td>2010</td>
-      <td>dodge</td>
-      <td>grand caravan</td>
-      <td>minivan</td>
-      <td>qc</td>
-      <td>4.4</td>
-      <td>94913.0</td>
-      <td>red</td>
-      <td>black</td>
-      <td>goldstar motors</td>
-      <td>7800</td>
-    </tr>
-    <tr>
-      <th>429520</th>
-      <td>2014</td>
-      <td>nissan</td>
-      <td>pathfinder</td>
-      <td>suv</td>
-      <td>mo</td>
-      <td>3.7</td>
-      <td>39827.0</td>
-      <td>silver</td>
-      <td>black</td>
-      <td>avis corporation</td>
-      <td>21300</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>118707</th>
-      <td>2014</td>
-      <td>ford</td>
-      <td>e-series wagon</td>
-      <td>van</td>
-      <td>tx</td>
-      <td>3.5</td>
-      <td>29584.0</td>
-      <td>—</td>
-      <td>gray</td>
-      <td>avis budget group</td>
-      <td>18300</td>
-    </tr>
-    <tr>
-      <th>105346</th>
-      <td>2011</td>
-      <td>nissan</td>
-      <td>maxima</td>
-      <td>sedan</td>
-      <td>ca</td>
-      <td>2.3</td>
-      <td>48630.0</td>
-      <td>black</td>
-      <td>gold</td>
-      <td>spreen honda</td>
-      <td>14600</td>
-    </tr>
-    <tr>
-      <th>451157</th>
-      <td>2013</td>
-      <td>infiniti</td>
-      <td>g sedan</td>
-      <td>g sedan</td>
-      <td>nj</td>
-      <td>3.6</td>
-      <td>22285.0</td>
-      <td>black</td>
-      <td>black</td>
-      <td>nissan infiniti lt</td>
-      <td>20400</td>
-    </tr>
-    <tr>
-      <th>401984</th>
-      <td>2008</td>
-      <td>nissan</td>
-      <td>sentra</td>
-      <td>sedan</td>
-      <td>tn</td>
-      <td>1.9</td>
-      <td>111493.0</td>
-      <td>white</td>
-      <td>black</td>
-      <td>nissan motor acceptance corporation</td>
-      <td>3400</td>
-    </tr>
-    <tr>
-      <th>98497</th>
-      <td>2011</td>
-      <td>bmw</td>
-      <td>3 series</td>
-      <td>coupe</td>
-      <td>ca</td>
-      <td>2.0</td>
-      <td>23815.0</td>
-      <td>gray</td>
-      <td>black</td>
-      <td>financial services remarketing (lease)</td>
-      <td>17500</td>
-    </tr>
-  </tbody>
-</table>
-<p>426928 rows × 11 columns</p>
-</div></div></div>
-</div>
-</div>
 <div class="section" id="data-preprocessing-pipeline">
 <h2>Data preprocessing pipeline<a class="headerlink" href="#data-preprocessing-pipeline" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
@@ -1333,7 +1123,7 @@ Data columns (total 6 columns):
  4   condition  533660 non-null  category
  5   color      533660 non-null  category
 dtypes: category(5), float64(1)
-memory usage: 27.3 MB
+memory usage: 11.2 MB
 Missing values: 0
 </pre></div>
 </div>
@@ -1372,54 +1162,46 @@ Missing values: 0
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><style>#sk-ea1e2e20-ad1a-44f1-90df-c07b090c8a41 {color: black;background-color: white;}#sk-ea1e2e20-ad1a-44f1-90df-c07b090c8a41 pre{padding: 0;}#sk-ea1e2e20-ad1a-44f1-90df-c07b090c8a41 div.sk-toggleable {background-color: white;}#sk-ea1e2e20-ad1a-44f1-90df-c07b090c8a41 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-ea1e2e20-ad1a-44f1-90df-c07b090c8a41 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-ea1e2e20-ad1a-44f1-90df-c07b090c8a41 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-ea1e2e20-ad1a-44f1-90df-c07b090c8a41 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-ea1e2e20-ad1a-44f1-90df-c07b090c8a41 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-ea1e2e20-ad1a-44f1-90df-c07b090c8a41 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-ea1e2e20-ad1a-44f1-90df-c07b090c8a41 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-ea1e2e20-ad1a-44f1-90df-c07b090c8a41 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-ea1e2e20-ad1a-44f1-90df-c07b090c8a41 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-ea1e2e20-ad1a-44f1-90df-c07b090c8a41 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-ea1e2e20-ad1a-44f1-90df-c07b090c8a41 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-ea1e2e20-ad1a-44f1-90df-c07b090c8a41 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-ea1e2e20-ad1a-44f1-90df-c07b090c8a41 div.sk-estimator:hover {background-color: #d4ebff;}#sk-ea1e2e20-ad1a-44f1-90df-c07b090c8a41 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-ea1e2e20-ad1a-44f1-90df-c07b090c8a41 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-ea1e2e20-ad1a-44f1-90df-c07b090c8a41 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 2em;bottom: 0;left: 50%;}#sk-ea1e2e20-ad1a-44f1-90df-c07b090c8a41 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;}#sk-ea1e2e20-ad1a-44f1-90df-c07b090c8a41 div.sk-item {z-index: 1;}#sk-ea1e2e20-ad1a-44f1-90df-c07b090c8a41 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;}#sk-ea1e2e20-ad1a-44f1-90df-c07b090c8a41 div.sk-parallel::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 2em;bottom: 0;left: 50%;}#sk-ea1e2e20-ad1a-44f1-90df-c07b090c8a41 div.sk-parallel-item {display: flex;flex-direction: column;position: relative;background-color: white;}#sk-ea1e2e20-ad1a-44f1-90df-c07b090c8a41 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-ea1e2e20-ad1a-44f1-90df-c07b090c8a41 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-ea1e2e20-ad1a-44f1-90df-c07b090c8a41 div.sk-parallel-item:only-child::after {width: 0;}#sk-ea1e2e20-ad1a-44f1-90df-c07b090c8a41 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;position: relative;}#sk-ea1e2e20-ad1a-44f1-90df-c07b090c8a41 div.sk-label label {font-family: monospace;font-weight: bold;background-color: white;display: inline-block;line-height: 1.2em;}#sk-ea1e2e20-ad1a-44f1-90df-c07b090c8a41 div.sk-label-container {position: relative;z-index: 2;text-align: center;}#sk-ea1e2e20-ad1a-44f1-90df-c07b090c8a41 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-ea1e2e20-ad1a-44f1-90df-c07b090c8a41 div.sk-text-repr-fallback {display: none;}</style><div id="sk-ea1e2e20-ad1a-44f1-90df-c07b090c8a41" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>Pipeline(steps=[(&#x27;preprocessor&#x27;,
+<div class="output text_html"><style>#sk-b34933f5-749d-45a7-9e39-cf422b1d0b0c {color: black;background-color: white;}#sk-b34933f5-749d-45a7-9e39-cf422b1d0b0c pre{padding: 0;}#sk-b34933f5-749d-45a7-9e39-cf422b1d0b0c div.sk-toggleable {background-color: white;}#sk-b34933f5-749d-45a7-9e39-cf422b1d0b0c label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-b34933f5-749d-45a7-9e39-cf422b1d0b0c label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-b34933f5-749d-45a7-9e39-cf422b1d0b0c label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-b34933f5-749d-45a7-9e39-cf422b1d0b0c div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-b34933f5-749d-45a7-9e39-cf422b1d0b0c div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-b34933f5-749d-45a7-9e39-cf422b1d0b0c div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-b34933f5-749d-45a7-9e39-cf422b1d0b0c input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-b34933f5-749d-45a7-9e39-cf422b1d0b0c input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-b34933f5-749d-45a7-9e39-cf422b1d0b0c div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-b34933f5-749d-45a7-9e39-cf422b1d0b0c div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-b34933f5-749d-45a7-9e39-cf422b1d0b0c input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-b34933f5-749d-45a7-9e39-cf422b1d0b0c div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-b34933f5-749d-45a7-9e39-cf422b1d0b0c div.sk-estimator:hover {background-color: #d4ebff;}#sk-b34933f5-749d-45a7-9e39-cf422b1d0b0c div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-b34933f5-749d-45a7-9e39-cf422b1d0b0c div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-b34933f5-749d-45a7-9e39-cf422b1d0b0c div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 2em;bottom: 0;left: 50%;}#sk-b34933f5-749d-45a7-9e39-cf422b1d0b0c div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;}#sk-b34933f5-749d-45a7-9e39-cf422b1d0b0c div.sk-item {z-index: 1;}#sk-b34933f5-749d-45a7-9e39-cf422b1d0b0c div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;}#sk-b34933f5-749d-45a7-9e39-cf422b1d0b0c div.sk-parallel::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 2em;bottom: 0;left: 50%;}#sk-b34933f5-749d-45a7-9e39-cf422b1d0b0c div.sk-parallel-item {display: flex;flex-direction: column;position: relative;background-color: white;}#sk-b34933f5-749d-45a7-9e39-cf422b1d0b0c div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-b34933f5-749d-45a7-9e39-cf422b1d0b0c div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-b34933f5-749d-45a7-9e39-cf422b1d0b0c div.sk-parallel-item:only-child::after {width: 0;}#sk-b34933f5-749d-45a7-9e39-cf422b1d0b0c div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;position: relative;}#sk-b34933f5-749d-45a7-9e39-cf422b1d0b0c div.sk-label label {font-family: monospace;font-weight: bold;background-color: white;display: inline-block;line-height: 1.2em;}#sk-b34933f5-749d-45a7-9e39-cf422b1d0b0c div.sk-label-container {position: relative;z-index: 2;text-align: center;}#sk-b34933f5-749d-45a7-9e39-cf422b1d0b0c div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-b34933f5-749d-45a7-9e39-cf422b1d0b0c div.sk-text-repr-fallback {display: none;}</style><div id="sk-b34933f5-749d-45a7-9e39-cf422b1d0b0c" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>Pipeline(steps=[(&#x27;preprocessor&#x27;,
                  ColumnTransformer(transformers=[(&#x27;num&#x27;,
                                                   Pipeline(steps=[(&#x27;imputer&#x27;,
                                                                    SimpleImputer(strategy=&#x27;median&#x27;)),
                                                                   (&#x27;scaler&#x27;,
                                                                    StandardScaler())]),
-                                                  &lt;sklearn.compose._column_transformer.make_column_selector object at 0x7faae83e5b20&gt;),
+                                                  &lt;sklearn.compose._column_transformer.make_column_selector object at 0x7f7b2d48cfa0&gt;),
                                                  (&#x27;cat&#x27;,
                                                   Pipeline(steps=[(&#x27;imputer&#x27;,
                                                                    SimpleImputer(fill_value=&#x27;missing&#x27;,
                                                                                  strategy=&#x27;constant&#x27;)),
                                                                   (&#x27;onehot&#x27;,
                                                                    OneHotEncoder(handle_unknown=&#x27;ignore&#x27;))]),
-                                                  &lt;sklearn.compose._column_transformer.make_column_selector object at 0x7faae83e5be0&gt;)])),
-                (&#x27;lm&#x27;, LinearRegression())])</pre><b>Please rerun this cell to show the HTML repr or trust the notebook.</b></div><div class="sk-container" hidden><div class="sk-item sk-dashed-wrapped"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="bf9fcbb1-87a7-45da-9b6d-3dcc71a53545" type="checkbox" ><label for="bf9fcbb1-87a7-45da-9b6d-3dcc71a53545" class="sk-toggleable__label sk-toggleable__label-arrow">Pipeline</label><div class="sk-toggleable__content"><pre>Pipeline(steps=[(&#x27;preprocessor&#x27;,
+                                                  &lt;sklearn.compose._column_transformer.make_column_selector object at 0x7f7b41535c70&gt;)])),
+                (&#x27;lm&#x27;, LinearRegression())])</pre><b>Please rerun this cell to show the HTML repr or trust the notebook.</b></div><div class="sk-container" hidden><div class="sk-item sk-dashed-wrapped"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="65faed9c-9dfe-44d4-80b5-02fa455f4123" type="checkbox" ><label for="65faed9c-9dfe-44d4-80b5-02fa455f4123" class="sk-toggleable__label sk-toggleable__label-arrow">Pipeline</label><div class="sk-toggleable__content"><pre>Pipeline(steps=[(&#x27;preprocessor&#x27;,
                  ColumnTransformer(transformers=[(&#x27;num&#x27;,
                                                   Pipeline(steps=[(&#x27;imputer&#x27;,
                                                                    SimpleImputer(strategy=&#x27;median&#x27;)),
                                                                   (&#x27;scaler&#x27;,
                                                                    StandardScaler())]),
-                                                  &lt;sklearn.compose._column_transformer.make_column_selector object at 0x7faae83e5b20&gt;),
+                                                  &lt;sklearn.compose._column_transformer.make_column_selector object at 0x7f7b2d48cfa0&gt;),
                                                  (&#x27;cat&#x27;,
                                                   Pipeline(steps=[(&#x27;imputer&#x27;,
                                                                    SimpleImputer(fill_value=&#x27;missing&#x27;,
                                                                                  strategy=&#x27;constant&#x27;)),
                                                                   (&#x27;onehot&#x27;,
                                                                    OneHotEncoder(handle_unknown=&#x27;ignore&#x27;))]),
-                                                  &lt;sklearn.compose._column_transformer.make_column_selector object at 0x7faae83e5be0&gt;)])),
-                (&#x27;lm&#x27;, LinearRegression())])</pre></div></div></div><div class="sk-serial"><div class="sk-item sk-dashed-wrapped"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="4e36a6a9-c060-4206-958a-ba04c5fb53b2" type="checkbox" ><label for="4e36a6a9-c060-4206-958a-ba04c5fb53b2" class="sk-toggleable__label sk-toggleable__label-arrow">preprocessor: ColumnTransformer</label><div class="sk-toggleable__content"><pre>ColumnTransformer(transformers=[(&#x27;num&#x27;,
+                                                  &lt;sklearn.compose._column_transformer.make_column_selector object at 0x7f7b41535c70&gt;)])),
+                (&#x27;lm&#x27;, LinearRegression())])</pre></div></div></div><div class="sk-serial"><div class="sk-item sk-dashed-wrapped"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="6d740cca-0b98-41da-8a67-7db97dfcc393" type="checkbox" ><label for="6d740cca-0b98-41da-8a67-7db97dfcc393" class="sk-toggleable__label sk-toggleable__label-arrow">preprocessor: ColumnTransformer</label><div class="sk-toggleable__content"><pre>ColumnTransformer(transformers=[(&#x27;num&#x27;,
                                  Pipeline(steps=[(&#x27;imputer&#x27;,
                                                   SimpleImputer(strategy=&#x27;median&#x27;)),
                                                  (&#x27;scaler&#x27;, StandardScaler())]),
-                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x7faae83e5b20&gt;),
+                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x7f7b2d48cfa0&gt;),
                                 (&#x27;cat&#x27;,
                                  Pipeline(steps=[(&#x27;imputer&#x27;,
                                                   SimpleImputer(fill_value=&#x27;missing&#x27;,
                                                                 strategy=&#x27;constant&#x27;)),
                                                  (&#x27;onehot&#x27;,
                                                   OneHotEncoder(handle_unknown=&#x27;ignore&#x27;))]),
-                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x7faae83e5be0&gt;)])</pre></div></div></div><div class="sk-parallel"><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="f4e2242c-468e-40cc-9a38-c6c4084c1777" type="checkbox" ><label for="f4e2242c-468e-40cc-9a38-c6c4084c1777" class="sk-toggleable__label sk-toggleable__label-arrow">num</label><div class="sk-toggleable__content"><pre>&lt;sklearn.compose._column_transformer.make_column_selector object at 0x7faae83e5b20&gt;</pre></div></div></div><div class="sk-serial"><div class="sk-item"><div class="sk-serial"><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="5d8c1a97-f65d-410c-b03e-89cb2e0f5330" type="checkbox" ><label for="5d8c1a97-f65d-410c-b03e-89cb2e0f5330" class="sk-toggleable__label sk-toggleable__label-arrow">SimpleImputer</label><div class="sk-toggleable__content"><pre>SimpleImputer(strategy=&#x27;median&#x27;)</pre></div></div></div><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="0281b0b2-be98-4d10-94c1-4ccfba3604c7" type="checkbox" ><label for="0281b0b2-be98-4d10-94c1-4ccfba3604c7" class="sk-toggleable__label sk-toggleable__label-arrow">StandardScaler</label><div class="sk-toggleable__content"><pre>StandardScaler()</pre></div></div></div></div></div></div></div></div><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="23eae3c8-7c47-4e7b-9eaa-3d0f8f2f4854" type="checkbox" ><label for="23eae3c8-7c47-4e7b-9eaa-3d0f8f2f4854" class="sk-toggleable__label sk-toggleable__label-arrow">cat</label><div class="sk-toggleable__content"><pre>&lt;sklearn.compose._column_transformer.make_column_selector object at 0x7faae83e5be0&gt;</pre></div></div></div><div class="sk-serial"><div class="sk-item"><div class="sk-serial"><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="46920ef4-d6c6-4ce3-be26-7c59972d828c" type="checkbox" ><label for="46920ef4-d6c6-4ce3-be26-7c59972d828c" class="sk-toggleable__label sk-toggleable__label-arrow">SimpleImputer</label><div class="sk-toggleable__content"><pre>SimpleImputer(fill_value=&#x27;missing&#x27;, strategy=&#x27;constant&#x27;)</pre></div></div></div><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="9d2f9164-1afd-46f9-a5db-9d8bf461a008" type="checkbox" ><label for="9d2f9164-1afd-46f9-a5db-9d8bf461a008" class="sk-toggleable__label sk-toggleable__label-arrow">OneHotEncoder</label><div class="sk-toggleable__content"><pre>OneHotEncoder(handle_unknown=&#x27;ignore&#x27;)</pre></div></div></div></div></div></div></div></div></div></div><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="3d47fd71-4e09-4607-9d03-a6433e684d16" type="checkbox" ><label for="3d47fd71-4e09-4607-9d03-a6433e684d16" class="sk-toggleable__label sk-toggleable__label-arrow">LinearRegression</label><div class="sk-toggleable__content"><pre>LinearRegression()</pre></div></div></div></div></div></div></div></div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Obtain model coefficients</span>
-<span class="c1">#lm_pipe.named_steps[&#39;lm&#39;].coef_</span>
-</pre></div>
-</div>
-</div>
+                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x7f7b41535c70&gt;)])</pre></div></div></div><div class="sk-parallel"><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="7285d411-66ce-48df-a7c3-f0510a5094e5" type="checkbox" ><label for="7285d411-66ce-48df-a7c3-f0510a5094e5" class="sk-toggleable__label sk-toggleable__label-arrow">num</label><div class="sk-toggleable__content"><pre>&lt;sklearn.compose._column_transformer.make_column_selector object at 0x7f7b2d48cfa0&gt;</pre></div></div></div><div class="sk-serial"><div class="sk-item"><div class="sk-serial"><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="67b2c3ad-e7a5-4f4f-9af6-0df5121c1da4" type="checkbox" ><label for="67b2c3ad-e7a5-4f4f-9af6-0df5121c1da4" class="sk-toggleable__label sk-toggleable__label-arrow">SimpleImputer</label><div class="sk-toggleable__content"><pre>SimpleImputer(strategy=&#x27;median&#x27;)</pre></div></div></div><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="208492cb-7ceb-478e-8e12-7d6ee0f9d9c3" type="checkbox" ><label for="208492cb-7ceb-478e-8e12-7d6ee0f9d9c3" class="sk-toggleable__label sk-toggleable__label-arrow">StandardScaler</label><div class="sk-toggleable__content"><pre>StandardScaler()</pre></div></div></div></div></div></div></div></div><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="74e5fa17-94e3-4af9-b4d1-e240c2a6c88b" type="checkbox" ><label for="74e5fa17-94e3-4af9-b4d1-e240c2a6c88b" class="sk-toggleable__label sk-toggleable__label-arrow">cat</label><div class="sk-toggleable__content"><pre>&lt;sklearn.compose._column_transformer.make_column_selector object at 0x7f7b41535c70&gt;</pre></div></div></div><div class="sk-serial"><div class="sk-item"><div class="sk-serial"><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="2e46fd72-1377-4f6f-b2ec-13a0b5394956" type="checkbox" ><label for="2e46fd72-1377-4f6f-b2ec-13a0b5394956" class="sk-toggleable__label sk-toggleable__label-arrow">SimpleImputer</label><div class="sk-toggleable__content"><pre>SimpleImputer(fill_value=&#x27;missing&#x27;, strategy=&#x27;constant&#x27;)</pre></div></div></div><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="361cf7ff-bb18-4339-aaa8-4baaba3be941" type="checkbox" ><label for="361cf7ff-bb18-4339-aaa8-4baaba3be941" class="sk-toggleable__label sk-toggleable__label-arrow">OneHotEncoder</label><div class="sk-toggleable__content"><pre>OneHotEncoder(handle_unknown=&#x27;ignore&#x27;)</pre></div></div></div></div></div></div></div></div></div></div><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="0441d000-659d-40d6-b416-6545fdbbf8f5" type="checkbox" ><label for="0441d000-659d-40d6-b416-6545fdbbf8f5" class="sk-toggleable__label sk-toggleable__label-arrow">LinearRegression</label><div class="sk-toggleable__content"><pre>LinearRegression()</pre></div></div></div></div></div></div></div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">

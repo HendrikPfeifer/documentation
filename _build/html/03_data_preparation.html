@@ -168,7 +168,7 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="SHAP_car_structured_data_regression.html">
+  <a class="reference internal" href="2-SHAP_car_structured_data_regression.html">
    SHAP
   </a>
  </li>
@@ -226,6 +226,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="model_2_SK-learn.html">
    2nd scikit-learn model
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="SHAP_car_structured_data_regression.html">
+   try SHAP
   </a>
  </li>
 </ul>
@@ -462,7 +467,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># transform into categorial variables</span>
 
-<span class="k">for</span> <span class="n">cat</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="s2">&quot;brand&quot;</span><span class="p">,</span> <span class="s2">&quot;model&quot;</span><span class="p">,</span> <span class="s2">&quot;version&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">,</span> <span class="s2">&quot;drivetrain&quot;</span><span class="p">,</span> <span class="s2">&quot;code&quot;</span><span class="p">,</span> <span class="s2">&quot;state&quot;</span><span class="p">,</span> <span class="s2">&quot;condition&quot;</span><span class="p">,</span> <span class="s2">&quot;color&quot;</span><span class="p">,</span> <span class="s2">&quot;interior&quot;</span><span class="p">,</span> <span class="s2">&quot;seller&quot;</span><span class="p">,</span> <span class="s2">&quot;saledate&quot;</span><span class="p">]:</span>
+<span class="k">for</span> <span class="n">cat</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="s2">&quot;brand&quot;</span><span class="p">,</span> <span class="s2">&quot;model&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">,</span> <span class="s2">&quot;drivetrain&quot;</span><span class="p">,</span> <span class="s2">&quot;code&quot;</span><span class="p">,</span> <span class="s2">&quot;state&quot;</span><span class="p">,</span> <span class="s2">&quot;condition&quot;</span><span class="p">,</span> <span class="s2">&quot;color&quot;</span><span class="p">,</span> <span class="s2">&quot;interior&quot;</span><span class="p">,</span> <span class="s2">&quot;seller&quot;</span><span class="p">,</span> <span class="s2">&quot;saledate&quot;</span><span class="p">]:</span>
     <span class="n">df</span><span class="p">[</span><span class="n">cat</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">cat</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;category&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -472,7 +477,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># drop irrelevant features</span>
 
-<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s2">&quot;code&quot;</span><span class="p">,</span> <span class="s2">&quot;ratingprice&quot;</span><span class="p">,</span> <span class="s2">&quot;saledate&quot;</span><span class="p">,</span> <span class="s2">&quot;drivetrain&quot;</span><span class="p">,</span> <span class="s2">&quot;seller&quot;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s2">&quot;code&quot;</span><span class="p">,</span> <span class="s2">&quot;ratingprice&quot;</span><span class="p">,</span> <span class="s2">&quot;version&quot;</span><span class="p">,</span> <span class="s2">&quot;saledate&quot;</span><span class="p">,</span> <span class="s2">&quot;drivetrain&quot;</span><span class="p">,</span> <span class="s2">&quot;seller&quot;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -486,22 +491,21 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
 Int64Index: 472336 entries, 0 to 558810
-Data columns (total 11 columns):
+Data columns (total 10 columns):
  #   Column        Non-Null Count   Dtype   
 ---  ------        --------------   -----   
  0   year          472336 non-null  category
  1   brand         472336 non-null  category
  2   model         472336 non-null  category
- 3   version       472336 non-null  category
- 4   type          472336 non-null  category
- 5   state         472336 non-null  category
- 6   condition     472336 non-null  category
- 7   miles         472336 non-null  float64 
- 8   color         472336 non-null  category
- 9   interior      472336 non-null  category
- 10  sellingprice  472336 non-null  int64   
-dtypes: category(9), float64(1), int64(1)
-memory usage: 15.8 MB
+ 3   type          472336 non-null  category
+ 4   state         472336 non-null  category
+ 5   condition     472336 non-null  category
+ 6   miles         472336 non-null  float64 
+ 7   color         472336 non-null  category
+ 8   interior      472336 non-null  category
+ 9   sellingprice  472336 non-null  int64   
+dtypes: category(8), float64(1), int64(1)
+memory usage: 14.9 MB
 </pre></div>
 </div>
 </div>
@@ -534,7 +538,6 @@ memory usage: 15.8 MB
       <th>year</th>
       <th>brand</th>
       <th>model</th>
-      <th>version</th>
       <th>type</th>
       <th>state</th>
       <th>condition</th>
@@ -550,7 +553,6 @@ memory usage: 15.8 MB
       <td>2015</td>
       <td>kia</td>
       <td>sorento</td>
-      <td>lx</td>
       <td>suv</td>
       <td>ca</td>
       <td>5.0</td>
@@ -564,7 +566,6 @@ memory usage: 15.8 MB
       <td>2015</td>
       <td>kia</td>
       <td>sorento</td>
-      <td>lx</td>
       <td>suv</td>
       <td>ca</td>
       <td>5.0</td>
@@ -578,7 +579,6 @@ memory usage: 15.8 MB
       <td>2014</td>
       <td>bmw</td>
       <td>3 series</td>
-      <td>328i sulev</td>
       <td>sedan</td>
       <td>ca</td>
       <td>4.5</td>
@@ -592,7 +592,6 @@ memory usage: 15.8 MB
       <td>2015</td>
       <td>volvo</td>
       <td>s60</td>
-      <td>t5</td>
       <td>sedan</td>
       <td>ca</td>
       <td>4.1</td>
@@ -606,7 +605,6 @@ memory usage: 15.8 MB
       <td>2014</td>
       <td>bmw</td>
       <td>6 series gran coupe</td>
-      <td>650i</td>
       <td>sedan</td>
       <td>ca</td>
       <td>4.3</td>

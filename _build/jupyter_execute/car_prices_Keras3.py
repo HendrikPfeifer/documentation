@@ -364,7 +364,7 @@ all_inputs
 # First layer
 x = layers.Dense(32, activation="relu")(all_features)
 
-# Dropout to prevent overvitting - soll sich auf die wichtigsten konzentrieren
+# Dropout to prevent overvitting 
 x = layers.Dropout(0.5)(x)
 
 # Output layer
@@ -417,7 +417,7 @@ model.fit(ds_train,
 # In[76]:
 
 
-#im "echten" die testdaten nehmen
+#Evaluate model with test-data
 loss, accuracy = model.evaluate(ds_test)
 
 print("MAE:", round(accuracy, 2))

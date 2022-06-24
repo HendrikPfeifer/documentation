@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # try SHAP 
+# # SHAP 
 # ## with structured data regression
 # 
 # **Explainable AI with TensorFlow, Keras and SHAP**
@@ -146,10 +146,10 @@ X_train.head()
 # In[16]:
 
 
-scaler = StandardScaler().fit(X_train[list_numerical]) 
+#scaler = StandardScaler().fit(X_train[list_numerical]) 
 
-X_train[list_numerical] = scaler.transform(X_train[list_numerical])
-X_test[list_numerical] = scaler.transform(X_test[list_numerical])
+#X_train[list_numerical] = scaler.transform(X_train[list_numerical])
+#X_test[list_numerical] = scaler.transform(X_test[list_numerical])
 
 
 # ## Model
@@ -186,7 +186,7 @@ callback = tf.keras.callbacks.EarlyStopping(monitor='loss', patience=3)
 
 
 model.fit(X_train, y_train, 
-         epochs=50,
+         epochs=10,
          validation_data=(X_test, y_test), 
          callbacks=[callback]
          )
@@ -219,7 +219,7 @@ print("MAE:", accuracy)
 # In[23]:
 
 
-model.save('shap_car_model-1')
+model.save('shap_car_model-2')
 
 
 # - Load model
@@ -227,7 +227,7 @@ model.save('shap_car_model-1')
 # In[24]:
 
 
-reloaded_model = tf.keras.models.load_model('shap_car_model-1')
+reloaded_model = tf.keras.models.load_model('shap_car_model-2')
 
 
 # In[25]:
@@ -262,7 +262,7 @@ shap_values = explainer.shap_values(X_train.iloc[20,:], nsamples=500)
 
 # The so called force plot below shows how each feature contributes to push the model output from the base value (the average model output over the training dataset we passed) to the model output. Features pushing the prediction higher are shown in red, those pushing the prediction lower are in blue. To learn more about force plots, take a look at this [Nature BME paper](https://www.nature.com/articles/s41551-018-0304-0.epdf?author_access_token=vSPt7ryUfdSCv4qcyeEuCdRgN0jAjWel9jnR3ZoTv0PdqacSN9qNY_fC0jWkIQUd0L2zaj3bbIQEdrTqCczGWv2brU5rTJPxyss1N4yTIHpnSv5_nBVJoUbvejyvvjrGTb2odwWKT2Bfvl0ExQKhZw%3D%3D) from Lundberg et al. (2018).
 
-# In[29]:
+# In[32]:
 
 
 shap.force_plot(explainer.expected_value[0], shap_values[0], X_train.iloc[20,:])

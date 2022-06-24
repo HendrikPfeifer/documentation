@@ -20,14 +20,14 @@
 
 # ### Load packages
 
-# In[10]:
+# In[1]:
 
 
 import pandas as pd
 import numpy as np
 
 
-# In[11]:
+# In[2]:
 
 
 # import dataset and save it as df
@@ -35,7 +35,7 @@ import numpy as np
 df = pd.read_csv("car_prices.csv", on_bad_lines="skip")
 
 
-# In[12]:
+# In[3]:
 
 
 # drop missing vales (dataset is still big enough)
@@ -43,7 +43,7 @@ df = pd.read_csv("car_prices.csv", on_bad_lines="skip")
 df = df.dropna()
 
 
-# In[13]:
+# In[4]:
 
 
 # rename colums for better understanding (as described above)
@@ -59,7 +59,7 @@ df = df.rename(columns={
     )
 
 
-# In[14]:
+# In[5]:
 
 
 # transform into lowercase
@@ -75,30 +75,30 @@ df["interior"] = df["interior"].str.lower()
 df["seller"] = df["seller"].str.lower()
 
 
-# In[15]:
+# In[6]:
 
 
 # transform into categorial variables
 
-for cat in ["year", "brand", "model", "version", "type", "drivetrain", "code", "state", "condition", "color", "interior", "seller", "saledate"]:
+for cat in ["year", "brand", "model", "type", "drivetrain", "code", "state", "condition", "color", "interior", "seller", "saledate"]:
     df[cat] = df[cat].astype("category")
 
 
-# In[16]:
+# In[8]:
 
 
 # drop irrelevant features
 
-df = df.drop(["code", "ratingprice", "saledate", "drivetrain", "seller"], axis=1)
+df = df.drop(["code", "ratingprice", "version", "saledate", "drivetrain", "seller"], axis=1)
 
 
-# In[17]:
+# In[9]:
 
 
 df.info()
 
 
-# In[18]:
+# In[10]:
 
 
 df.head()

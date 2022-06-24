@@ -3,12 +3,12 @@
 
 # # Scikit-Learn
 # 
-# #### Linear Regression-, and KNN-Model for Multiple Regression 
+# #### Linear Regression-, KNN-Model and Random Forest Regressor for Multiple Regression 
 # 
 
 # ## Load packages
 
-# In[18]:
+# In[1]:
 
 
 get_ipython().run_line_magic('matplotlib', 'inline')
@@ -25,13 +25,13 @@ sns.set_theme()
 
 # ## Import Dataset
 
-# In[19]:
+# In[2]:
 
 
 raw_dataset = pd.read_csv("car_prices.csv", on_bad_lines="skip")
 
 
-# In[20]:
+# In[3]:
 
 
 df = raw_dataset.copy()
@@ -39,19 +39,19 @@ df = raw_dataset.copy()
 
 # ## Data inspection
 
-# In[21]:
+# In[4]:
 
 
 df.head(2)
 
 
-# In[22]:
+# In[5]:
 
 
 df.info()
 
 
-# In[23]:
+# In[6]:
 
 
 print(df.isnull().sum())
@@ -59,7 +59,7 @@ print(df.isnull().sum())
 
 # ## Data transformation
 
-# In[24]:
+# In[7]:
 
 
 # drop column with too many missing values
@@ -69,20 +69,20 @@ df = df.drop(['transmission'], axis=1)
 df = df.dropna()
 
 
-# In[25]:
+# In[8]:
 
 
 # Drop irrelevant features
 df = df.drop(['trim', 'vin', 'mmr', 'saledate'], axis=1)
 
 
-# In[26]:
+# In[9]:
 
 
 print(df.isnull().sum())
 
 
-# In[27]:
+# In[10]:
 
 
 # rename columns
@@ -94,13 +94,13 @@ df = df.rename(columns={
     )
 
 
-# In[28]:
+# In[11]:
 
 
 df.info()
 
 
-# In[29]:
+# In[12]:
 
 
 # transform into lowercase
@@ -126,7 +126,7 @@ df["type"] = df["type"].str.lower()
 # * sellingprice = numeric
 # * saledate = categorial
 
-# In[30]:
+# In[13]:
 
 
 # transform to categorical:
@@ -135,34 +135,22 @@ for cat in ["year", "brand", "model", "type", "state", "condition", "color", "in
     df[cat] = df[cat].astype("category")
 
 
-# In[31]:
+# In[14]:
 
 
 df.info()
 
 
-# In[32]:
+# In[15]:
 
 
 # summary statistics for all categorical columns
 df.describe(include=['category']).transpose()
 
 
-# ## Data splitting
-
-# In[33]:
-
-
-##nicht benötigt
-train_dataset = df.sample(frac=0.8, random_state=0)
-test_dataset = df.drop(train_dataset.index)
-
-train_dataset
-
-
 # ## Data preprocessing pipeline
 
-# In[34]:
+# In[16]:
 
 
 # Modules
@@ -174,7 +162,7 @@ from sklearn import set_config
 from sklearn.preprocessing import StandardScaler, OneHotEncoder
 
 
-# In[35]:
+# In[17]:
 
 
 # for numeric features
@@ -184,7 +172,7 @@ numeric_transformer = Pipeline(steps=[
     ])
 
 
-# In[36]:
+# In[18]:
 
 
 # for categorical features  
@@ -194,7 +182,7 @@ categorical_transformer = Pipeline(steps=[
     ])
 
 
-# In[37]:
+# In[19]:
 
 
 # Pipeline
@@ -204,7 +192,7 @@ preprocessor = ColumnTransformer(transformers=[
         ])
 
 
-# In[38]:
+# In[20]:
 
 
 df.head()
@@ -214,7 +202,7 @@ df.head()
 
 # # Multiple Regression
 
-# In[39]:
+# In[21]:
 
 
 # Select features for multiple regression
@@ -235,7 +223,7 @@ print("Missing values:",X.isnull().any(axis = 1).sum())
 y = df["sellingprice"]
 
 
-# In[40]:
+# In[22]:
 
 
 from sklearn.model_selection import train_test_split
@@ -244,7 +232,7 @@ from sklearn.model_selection import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
 
-# In[41]:
+# In[23]:
 
 
 from sklearn.linear_model import LinearRegression
@@ -256,7 +244,7 @@ lm_pipe = Pipeline(steps=[
                         ])
 
 
-# In[68]:
+# In[24]:
 
 
 # show pipeline
@@ -265,20 +253,13 @@ set_config(display="diagram")
 lm_pipe.fit(X_train, y_train)
 
 
-# In[69]:
-
-
-# Obtain model coefficients
-#lm_pipe.named_steps['lm'].coef_
-
-
-# In[70]:
+# In[25]:
 
 
 y_pred = lm_pipe.predict(X_test)
 
 
-# In[71]:
+# In[26]:
 
 
 from sklearn.metrics import r2_score
@@ -286,7 +267,7 @@ from sklearn.metrics import r2_score
 r2_score(y_test, y_pred)
 
 
-# In[45]:
+# In[27]:
 
 
 from sklearn.metrics import mean_squared_error
@@ -294,13 +275,13 @@ from sklearn.metrics import mean_squared_error
 mean_squared_error(y_test, y_pred)
 
 
-# In[46]:
+# In[28]:
 
 
 mean_squared_error(y_test, y_pred, squared=False)
 
 
-# In[47]:
+# In[29]:
 
 
 from sklearn.metrics import mean_absolute_error

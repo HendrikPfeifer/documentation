@@ -21,7 +21,7 @@ parts:
     - file: hyperparameter_keras
   - caption: Explainable AI
     chapters:
-    - file: SHAP_car_structured_data_regression
+    - file: 2-SHAP_car_structured_data_regression
   - caption: Deployment
     chapters:
     - file: streamlit
@@ -35,4 +35,6 @@ parts:
     - file: model_1_Keras
     - file: model_1_SK-learn
     - file: model_2_SK-learn
+    - file: SHAP_car_structured_data_regression
+
 
