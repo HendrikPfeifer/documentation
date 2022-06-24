@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SHAP &#8212; MLOps Project SoSe 2022 - Documentation</title>
+    <title>try SHAP &#8212; MLOps Project SoSe 2022 - Documentation</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
   <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -53,7 +53,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Airflow - Prediction" href="08_airflow_prediction.html" />
+    <link rel="prev" title="2nd scikit-learn model" href="model_2_SK-learn.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -99,7 +99,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  Content
+  Business Understanding
  </span>
 </p>
 <ul class="nav bd-sidenav">
@@ -108,14 +108,21 @@ const thebe_selector_output = ".output, .cell_output"
    Business Case
   </a>
  </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="02_data_analysis.html">
    Data analysis
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="03_data_preperation.html">
-   Data preperation
+  <a class="reference internal" href="03_data_preparation.html">
+   Data preparation
   </a>
  </li>
 </ul>
@@ -126,23 +133,18 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="model_1_Keras.html">
-   1st Keras model
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="car_prices_Keras3.html">
-   2nd Keras Model
+   Keras
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="model_1_SK-learn.html">
-   1st SK-learn model
+  <a class="reference internal" href="car_prices_TF_NEU.html">
+   TensorFlow
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="model_2_SK-learn.html">
-   2nd SK-learn model
+  <a class="reference internal" href="car_prices_SKlearn_multiple.html">
+   Scikit-Learn
   </a>
  </li>
 </ul>
@@ -154,7 +156,19 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="hyperparameter_keras.html">
-   Tuning Keras
+   Keras Tuner
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Explainable AI
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-SHAP_car_structured_data_regression.html">
+   SHAP
   </a>
  </li>
 </ul>
@@ -172,7 +186,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  Airflow
+  Data Pipelines
  </span>
 </p>
 <ul class="nav bd-sidenav">
@@ -194,13 +208,28 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  Explainable AI
+  Attachments
  </span>
 </p>
 <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="model_1_Keras.html">
+   1st Keras model
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="model_1_SK-learn.html">
+   1st scikit-learn model
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="model_2_SK-learn.html">
+   2nd scikit-learn model
+  </a>
+ </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   SHAP
+   try SHAP
   </a>
  </li>
 </ul>
@@ -360,7 +389,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id1">
+  <a class="reference internal nav-link" href="#shap">
    SHAP
   </a>
   <ul class="nav section-nav flex-column">
@@ -381,7 +410,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>SHAP</h1>
+                <h1>try SHAP</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -444,7 +473,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id1">
+  <a class="reference internal nav-link" href="#shap">
    SHAP
   </a>
   <ul class="nav section-nav flex-column">
@@ -464,8 +493,8 @@ const thebe_selector_output = ".output, .cell_output"
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="shap">
-<h1>SHAP<a class="headerlink" href="#shap" title="Permalink to this headline">¶</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="try-shap">
+<h1>try SHAP<a class="headerlink" href="#try-shap" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="with-structured-data-regression">
 <h2>with structured data regression<a class="headerlink" href="#with-structured-data-regression" title="Permalink to this headline">¶</a></h2>
 <p><strong>Explainable AI with TensorFlow, Keras and SHAP</strong></p>
@@ -1274,8 +1303,8 @@ MAE: 2274.11962890625
 </div>
 </div>
 </div>
-<div class="section" id="id1">
-<h2>SHAP<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="shap">
+<h2>SHAP<a class="headerlink" href="#shap" title="Permalink to this headline">¶</a></h2>
 <p>We use our model and a selection of 50 samples from the dataset to represent “typical” feature values (the so called background distribution).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1384,11 +1413,11 @@ MAE: 2274.11962890625
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="08_airflow_prediction.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="model_2_SK-learn.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Airflow - Prediction</p>
+            <p class="prev-next-title">2nd scikit-learn model</p>
         </div>
     </a>
 </div>
