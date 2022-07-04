@@ -141,17 +141,6 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_
 X_train.head()
 
 
-# ### Feature preprocessing
-
-# In[16]:
-
-
-#scaler = StandardScaler().fit(X_train[list_numerical]) 
-
-#X_train[list_numerical] = scaler.transform(X_train[list_numerical])
-#X_test[list_numerical] = scaler.transform(X_test[list_numerical])
-
-
 # ## Model
 
 # Now we can build the model using the Keras sequential API:

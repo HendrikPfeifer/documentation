@@ -1,0 +1,2133 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TF-try &#8212; MLOps Project SoSe 2022 - Documentation</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="SHAP (try)" href="SHAP_car_structured_data_regression.html" />
+    <link rel="prev" title="2nd scikit-learn model" href="model_2_SK-learn.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/hdm-logo.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">MLOps Project SoSe 2022 - Documentation</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Dieses Buch durchsuchen ..." aria-label="Dieses Buch durchsuchen ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Welcome
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Business Understanding
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01_business_case.html">
+   Business Case
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="02_data_analysis.html">
+   Data analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03_data_preparation.html">
+   Data preparation
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Models
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="car_prices_Keras3.html">
+   Keras
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="car_prices_TF_NEU.html">
+   TensorFlow
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="car_prices_SKlearn_multiple.html">
+   Scikit-Learn
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Hyperparameter Tuning
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="hyperparameter_keras.html">
+   Keras Tuner
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Explainable AI
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-SHAP_car_structured_data_regression.html">
+   SHAP
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Deployment
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="streamlit.html">
+   Streamlit
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Data Pipelines
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="06_airflow_data.html">
+   Airflow - Data Preperation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07_airflow_model.html">
+   Airflow - Model Building
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="08_airflow_prediction.html">
+   Airflow - Prediction
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Attachments
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="data_prep.html">
+   Data Prep Test
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="model_1_Keras.html">
+   1st Keras model
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="model_1_SK-learn.html">
+   1st scikit-learn model
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="model_2_SK-learn.html">
+   2nd scikit-learn model
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   TF-try
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="SHAP_car_structured_data_regression.html">
+   SHAP  (try)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="shap_car.html">
+   SHAP (test)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="shap-sklearn.html">
+   SHAP SKlearn 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="shap-sklearn_2.html">
+   SHAP SKlearn 2
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Navigation umschalten" aria-controls="site-navigation"
+                title="Navigation umschalten" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Laden Sie diese Seite herunter"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/car_prices-TF.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Quelldatei herunterladen" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="In PDF drucken"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Quell-Repository"><i
+                    class="fab fa-github"></i>Repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fcar_prices-TF.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Öffnen Sie ein Problem"><i class="fas fa-lightbulb"></i>offenes Thema</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Vollbildmodus"
+        title="Vollbildmodus"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/car_prices-TF.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Starten Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Inhalt
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   TF-try
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#load-packages">
+   Load packages
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#import-dataset">
+   Import Dataset
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#get-an-overview">
+     Get an overview
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#clean-the-data">
+   Clean the data
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#remove-unnessecary-columns">
+     Remove unnessecary columns
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#rename-columns">
+     Rename columns
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#remove-missing-values">
+     Remove missing values
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#transform-in-lowercase">
+     Transform in lowercase
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#categorical-or-numeric">
+   Categorical or numeric?
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#prepare-the-data">
+     Prepare the data
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#split-the-data-into-training-and-test-sets">
+       Split the data into training and test sets
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#inspect-the-data">
+       Inspect the data
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#split-features-from-labels">
+       Split features from labels
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#normalization">
+     Normalization
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#the-normalization-layer">
+       The Normalization layer
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#linear-regression-with-multiple-inputs">
+       Linear regression with multiple inputs
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#regression-with-a-deep-neural-network-dnn">
+     Regression with a deep neural network (DNN)
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#regression-using-a-dnn-and-a-single-input">
+       Regression using a DNN and a single input
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#regression-using-a-dnn-and-multiple-inputs">
+       Regression using a DNN and multiple inputs
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#performance">
+     Performance
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#make-predictions">
+       Make predictions
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#conclusion">
+     Conclusion
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>TF-try</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Inhalt </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   TF-try
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#load-packages">
+   Load packages
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#import-dataset">
+   Import Dataset
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#get-an-overview">
+     Get an overview
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#clean-the-data">
+   Clean the data
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#remove-unnessecary-columns">
+     Remove unnessecary columns
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#rename-columns">
+     Rename columns
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#remove-missing-values">
+     Remove missing values
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#transform-in-lowercase">
+     Transform in lowercase
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#categorical-or-numeric">
+   Categorical or numeric?
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#prepare-the-data">
+     Prepare the data
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#split-the-data-into-training-and-test-sets">
+       Split the data into training and test sets
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#inspect-the-data">
+       Inspect the data
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#split-features-from-labels">
+       Split features from labels
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#normalization">
+     Normalization
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#the-normalization-layer">
+       The Normalization layer
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#linear-regression-with-multiple-inputs">
+       Linear regression with multiple inputs
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#regression-with-a-deep-neural-network-dnn">
+     Regression with a deep neural network (DNN)
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#regression-using-a-dnn-and-a-single-input">
+       Regression using a DNN and a single input
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#regression-using-a-dnn-and-multiple-inputs">
+       Regression using a DNN and multiple inputs
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#performance">
+     Performance
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#make-predictions">
+       Make predictions
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#conclusion">
+     Conclusion
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="tf-try">
+<h1>TF-try<a class="headerlink" href="#tf-try" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="load-packages">
+<h1>Load packages<a class="headerlink" href="#load-packages" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+
+<span class="c1"># Make NumPy printouts easier to read.</span>
+<span class="n">np</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">suppress</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+
+<span class="kn">from</span> <span class="nn">tensorflow</span> <span class="kn">import</span> <span class="n">keras</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras</span> <span class="kn">import</span> <span class="n">layers</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.7.1
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="import-dataset">
+<h1>Import Dataset<a class="headerlink" href="#import-dataset" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">raw_dataset</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;car_prices.csv&quot;</span><span class="p">,</span> <span class="n">on_bad_lines</span><span class="o">=</span><span class="s2">&quot;skip&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">raw_dataset</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>year</th>
+      <th>make</th>
+      <th>model</th>
+      <th>trim</th>
+      <th>body</th>
+      <th>transmission</th>
+      <th>vin</th>
+      <th>state</th>
+      <th>condition</th>
+      <th>odometer</th>
+      <th>color</th>
+      <th>interior</th>
+      <th>seller</th>
+      <th>mmr</th>
+      <th>sellingprice</th>
+      <th>saledate</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2015</td>
+      <td>Kia</td>
+      <td>Sorento</td>
+      <td>LX</td>
+      <td>SUV</td>
+      <td>automatic</td>
+      <td>5xyktca69fg566472</td>
+      <td>ca</td>
+      <td>5.0</td>
+      <td>16639.0</td>
+      <td>white</td>
+      <td>black</td>
+      <td>kia motors america, inc</td>
+      <td>20500</td>
+      <td>21500</td>
+      <td>Tue Dec 16 2014 12:30:00 GMT-0800 (PST)</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2015</td>
+      <td>Kia</td>
+      <td>Sorento</td>
+      <td>LX</td>
+      <td>SUV</td>
+      <td>automatic</td>
+      <td>5xyktca69fg561319</td>
+      <td>ca</td>
+      <td>5.0</td>
+      <td>9393.0</td>
+      <td>white</td>
+      <td>beige</td>
+      <td>kia motors america, inc</td>
+      <td>20800</td>
+      <td>21500</td>
+      <td>Tue Dec 16 2014 12:30:00 GMT-0800 (PST)</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="section" id="get-an-overview">
+<h2>Get an overview<a class="headerlink" href="#get-an-overview" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;We have </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">)</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2"> observations and </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span><span class="si">}</span><span class="s2"> columns in our dataset.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>We have 558,811 observations and 16 columns in our dataset.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;year&#39;, &#39;make&#39;, &#39;model&#39;, &#39;trim&#39;, &#39;body&#39;, &#39;transmission&#39;, &#39;vin&#39;, &#39;state&#39;,
+       &#39;condition&#39;, &#39;odometer&#39;, &#39;color&#39;, &#39;interior&#39;, &#39;seller&#39;, &#39;mmr&#39;,
+       &#39;sellingprice&#39;, &#39;saledate&#39;],
+      dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 558811 entries, 0 to 558810
+Data columns (total 16 columns):
+ #   Column        Non-Null Count   Dtype  
+---  ------        --------------   -----  
+ 0   year          558811 non-null  int64  
+ 1   make          548510 non-null  object 
+ 2   model         548412 non-null  object 
+ 3   trim          548160 non-null  object 
+ 4   body          545616 non-null  object 
+ 5   transmission  493458 non-null  object 
+ 6   vin           558811 non-null  object 
+ 7   state         558811 non-null  object 
+ 8   condition     547017 non-null  float64
+ 9   odometer      558717 non-null  float64
+ 10  color         558062 non-null  object 
+ 11  interior      558062 non-null  object 
+ 12  seller        558811 non-null  object 
+ 13  mmr           558811 non-null  int64  
+ 14  sellingprice  558811 non-null  int64  
+ 15  saledate      558811 non-null  object 
+dtypes: float64(2), int64(3), object(11)
+memory usage: 68.2+ MB
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="clean-the-data">
+<h1>Clean the data<a class="headerlink" href="#clean-the-data" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="remove-unnessecary-columns">
+<h2>Remove unnessecary columns<a class="headerlink" href="#remove-unnessecary-columns" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>trim</p></li>
+<li><p>vin</p></li>
+<li><p>mmr</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s2">&quot;trim&quot;</span><span class="p">,</span> <span class="s2">&quot;vin&quot;</span><span class="p">,</span> <span class="s2">&quot;mmr&quot;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 558811 entries, 0 to 558810
+Data columns (total 13 columns):
+ #   Column        Non-Null Count   Dtype  
+---  ------        --------------   -----  
+ 0   year          558811 non-null  int64  
+ 1   make          548510 non-null  object 
+ 2   model         548412 non-null  object 
+ 3   body          545616 non-null  object 
+ 4   transmission  493458 non-null  object 
+ 5   state         558811 non-null  object 
+ 6   condition     547017 non-null  float64
+ 7   odometer      558717 non-null  float64
+ 8   color         558062 non-null  object 
+ 9   interior      558062 non-null  object 
+ 10  seller        558811 non-null  object 
+ 11  sellingprice  558811 non-null  int64  
+ 12  saledate      558811 non-null  object 
+dtypes: float64(2), int64(2), object(9)
+memory usage: 55.4+ MB
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="rename-columns">
+<h2>Rename columns<a class="headerlink" href="#rename-columns" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span>
+<span class="s2">&quot;make&quot;</span> <span class="p">:</span> <span class="s2">&quot;brand&quot;</span><span class="p">,</span>
+<span class="s2">&quot;body&quot;</span> <span class="p">:</span> <span class="s2">&quot;type&quot;</span><span class="p">,</span>
+<span class="s2">&quot;transmission&quot;</span> <span class="p">:</span> <span class="s2">&quot;drivetrain&quot;</span><span class="p">,</span>
+<span class="s2">&quot;odometer&quot;</span> <span class="p">:</span> <span class="s2">&quot;miles&quot;</span><span class="p">}</span> 
+    <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="remove-missing-values">
+<h2>Remove missing values<a class="headerlink" href="#remove-missing-values" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check for missing values</span>
+<span class="n">df</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>year                0
+brand           10301
+model           10399
+type            13195
+drivetrain      65353
+state               0
+condition       11794
+miles              94
+color             749
+interior          749
+seller              0
+sellingprice        0
+saledate            0
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Drop missing values</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check missing values again</span>
+<span class="n">df</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>year            0
+brand           0
+model           0
+type            0
+drivetrain      0
+state           0
+condition       0
+miles           0
+color           0
+interior        0
+seller          0
+sellingprice    0
+saledate        0
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="transform-in-lowercase">
+<h2>Transform in lowercase<a class="headerlink" href="#transform-in-lowercase" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;brand&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;brand&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;model&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;model&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;brand&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0      kia
+1      kia
+2      bmw
+3    volvo
+4      bmw
+Name: brand, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="categorical-or-numeric">
+<h1>Categorical or numeric?<a class="headerlink" href="#categorical-or-numeric" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>year = categorial</p></li>
+<li><p>brand = categorial</p></li>
+<li><p>model = categorial</p></li>
+<li><p>type = categorial</p></li>
+<li><p>drivetrain = categorial</p></li>
+<li><p>state = categorial</p></li>
+<li><p>condition = categorial</p></li>
+<li><p>miles = numeric</p></li>
+<li><p>color = categorial</p></li>
+<li><p>interior = categorial</p></li>
+<li><p>seller = categorial</p></li>
+<li><p>ratingprice = numeric</p></li>
+<li><p>sellingprice = numeric</p></li>
+<li><p>saledate = categorial</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Transform into categorical</span>
+
+<span class="k">for</span> <span class="n">cat</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="s2">&quot;brand&quot;</span><span class="p">,</span> <span class="s2">&quot;model&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">,</span> <span class="s2">&quot;drivetrain&quot;</span><span class="p">,</span> <span class="s2">&quot;state&quot;</span><span class="p">,</span> <span class="s2">&quot;condition&quot;</span><span class="p">,</span> <span class="s2">&quot;color&quot;</span><span class="p">,</span> <span class="s2">&quot;interior&quot;</span><span class="p">,</span> <span class="s2">&quot;seller&quot;</span><span class="p">,</span> <span class="s2">&quot;saledate&quot;</span><span class="p">]:</span>
+    <span class="n">df</span><span class="p">[</span><span class="n">cat</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">cat</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;category&quot;</span><span class="p">)</span>
+
+
+<span class="n">df</span><span class="o">.</span><span class="n">dtypes</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>year            category
+brand           category
+model           category
+type            category
+drivetrain      category
+state           category
+condition       category
+miles            float64
+color           category
+interior        category
+seller          category
+sellingprice       int64
+saledate        category
+dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;sellingprice&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;sellingprice&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="prepare-the-data">
+<h2>Prepare the data<a class="headerlink" href="#prepare-the-data" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># list of all numerical data</span>
+<span class="n">list_num</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">number</span><span class="p">])</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+
+<span class="c1"># list of all categorical data</span>
+<span class="n">list_cat</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;category&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">list_num</span><span class="p">,</span> <span class="n">list_cat</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;miles&#39;, &#39;sellingprice&#39;] [&#39;year&#39;, &#39;brand&#39;, &#39;model&#39;, &#39;type&#39;, &#39;drivetrain&#39;, &#39;state&#39;, &#39;condition&#39;, &#39;color&#39;, &#39;interior&#39;, &#39;seller&#39;, &#39;saledate&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="split-the-data-into-training-and-test-sets">
+<h3>Split the data into training and test sets<a class="headerlink" href="#split-the-data-into-training-and-test-sets" title="Permalink to this headline">¶</a></h3>
+<p>Now, split the dataset into a training set and a test set. You will use the test set in the final evaluation of your models.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_train</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">frac</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">df_test</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">df_train</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="inspect-the-data">
+<h3>Inspect the data<a class="headerlink" href="#inspect-the-data" title="Permalink to this headline">¶</a></h3>
+<p>Review the joint distribution of a few pairs of columns from the training set.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">df_train</span><span class="p">[[</span><span class="s1">&#39;sellingprice&#39;</span><span class="p">,</span> <span class="s1">&#39;miles&#39;</span><span class="p">]],</span> <span class="n">diag_kind</span><span class="o">=</span><span class="s1">&#39;kde&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7fd907d91ca0&gt;
+</pre></div>
+</div>
+<img alt="_images/car_prices-TF_32_1.png" src="_images/car_prices-TF_32_1.png" />
+</div>
+</div>
+<p>Let’s also check the overall statistics. Note how each feature covers a very different range:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_train</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>count</th>
+      <th>mean</th>
+      <th>std</th>
+      <th>min</th>
+      <th>25%</th>
+      <th>50%</th>
+      <th>75%</th>
+      <th>max</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>miles</th>
+      <td>377869.0</td>
+      <td>66684.354459</td>
+      <td>51764.455886</td>
+      <td>1.0</td>
+      <td>28160.0</td>
+      <td>51091.0</td>
+      <td>96636.0</td>
+      <td>999999.0</td>
+    </tr>
+    <tr>
+      <th>sellingprice</th>
+      <td>377869.0</td>
+      <td>13680.539830</td>
+      <td>9596.135230</td>
+      <td>1.0</td>
+      <td>7200.0</td>
+      <td>12200.0</td>
+      <td>18200.0</td>
+      <td>230000.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="split-features-from-labels">
+<h3>Split features from labels<a class="headerlink" href="#split-features-from-labels" title="Permalink to this headline">¶</a></h3>
+<p>Separate the target value—the “label”—from the features. This label is the value that you will train the model to predict.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_features</span> <span class="o">=</span> <span class="n">df_train</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">test_features</span> <span class="o">=</span> <span class="n">df_test</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="n">train_labels</span> <span class="o">=</span> <span class="n">train_features</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;sellingprice&#39;</span><span class="p">)</span>
+<span class="n">test_labels</span> <span class="o">=</span> <span class="n">test_features</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;sellingprice&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="normalization">
+<h2>Normalization<a class="headerlink" href="#normalization" title="Permalink to this headline">¶</a></h2>
+<p>In the table of statistics it’s easy to see how different the ranges of each feature are:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#train_features =train_features.to_numpy()</span>
+<span class="n">train_features</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">convert_to_tensor</span><span class="p">(</span><span class="n">train_features</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">train_features</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="nn">/var/folders/9r/ym9jxwt15b70q43zrdvqgmdh0000gn/T/ipykernel_16450/1109763281.py</span> in <span class="ni">&lt;cell line: 2&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#train_features =train_features.to_numpy()</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">train_features</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">convert_to_tensor</span><span class="p">(</span><span class="n">train_features</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> 
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">train_features</span><span class="p">))</span>
+
+<span class="nn">~/opt/anaconda3/envs/tf/lib/python3.8/site-packages/tensorflow/python/util/traceback_utils.py</span> in <span class="ni">error_handler</span><span class="nt">(*args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">151</span>     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">152</span>       <span class="n">filtered_tb</span> <span class="o">=</span> <span class="n">_process_traceback_frames</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">__traceback__</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">153</span>       <span class="k">raise</span> <span class="n">e</span><span class="o">.</span><span class="n">with_traceback</span><span class="p">(</span><span class="n">filtered_tb</span><span class="p">)</span> <span class="kn">from</span> <span class="bp">None</span>
+<span class="g g-Whitespace">    </span><span class="mi">154</span>     <span class="k">finally</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">155</span>       <span class="k">del</span> <span class="n">filtered_tb</span>
+
+<span class="nn">~/opt/anaconda3/envs/tf/lib/python3.8/site-packages/tensorflow/python/framework/constant_op.py</span> in <span class="ni">convert_to_eager_tensor</span><span class="nt">(value, ctx, dtype)</span>
+<span class="g g-Whitespace">    </span><span class="mi">104</span>       <span class="n">dtype</span> <span class="o">=</span> <span class="n">dtypes</span><span class="o">.</span><span class="n">as_dtype</span><span class="p">(</span><span class="n">dtype</span><span class="p">)</span><span class="o">.</span><span class="n">as_datatype_enum</span>
+<span class="g g-Whitespace">    </span><span class="mi">105</span>   <span class="n">ctx</span><span class="o">.</span><span class="n">ensure_initialized</span><span class="p">()</span>
+<span class="ne">--&gt; </span><span class="mi">106</span>   <span class="k">return</span> <span class="n">ops</span><span class="o">.</span><span class="n">EagerTensor</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">ctx</span><span class="o">.</span><span class="n">device_name</span><span class="p">,</span> <span class="n">dtype</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">107</span> 
+<span class="g g-Whitespace">    </span><span class="mi">108</span> 
+
+<span class="ne">ValueError</span>: Failed to convert a NumPy array to a Tensor (Unsupported object type int).
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_features</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1996, &#39;toyota&#39;, &#39;camry&#39;, ..., &#39;gray&#39;,
+        &#39;purple heart services inc&#39;,
+        &#39;Tue Feb 17 2015 04:30:00 GMT-0800 (PST)&#39;],
+       [2011, &#39;nissan&#39;, &#39;altima&#39;, ..., &#39;black&#39;,
+        &#39;remarketing by ge/flagship credit acceptance&#39;,
+        &#39;Tue Feb 10 2015 01:30:00 GMT-0800 (PST)&#39;],
+       [2009, &#39;honda&#39;, &#39;accord&#39;, ..., &#39;gray&#39;,
+        &#39;ahfc/honda lease trust/hvt, inc.&#39;,
+        &#39;Thu Dec 18 2014 10:00:00 GMT-0800 (PST)&#39;],
+       ...,
+       [2002, &#39;jeep&#39;, &#39;grand cherokee&#39;, ..., &#39;gray&#39;,
+        &#39;langley management services, llc&#39;,
+        &#39;Thu Jan 29 2015 01:00:00 GMT-0800 (PST)&#39;],
+       [2003, &#39;gmc&#39;, &#39;sierra 1500&#39;, ..., &#39;gray&#39;, &#39;dt credit corporation&#39;,
+        &#39;Tue Jan 20 2015 01:30:00 GMT-0800 (PST)&#39;],
+       [2010, &#39;chevrolet&#39;, &#39;camaro&#39;, ..., &#39;black&#39;,
+        &#39;national auto lenders inc&#39;,
+        &#39;Thu Feb 12 2015 03:00:00 GMT-0800 (PST)&#39;]], dtype=object)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_train</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span><span class="o">.</span><span class="n">transpose</span><span class="p">()[[</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="s1">&#39;std&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mean</th>
+      <th>std</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>miles</th>
+      <td>66684.354459</td>
+      <td>51764.455886</td>
+    </tr>
+    <tr>
+      <th>sellingprice</th>
+      <td>13680.539830</td>
+      <td>9596.135230</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>It is good practice to normalize features that use different scales and ranges.</p>
+<p>One reason this is important is because the features are multiplied by the model weights. So, the scale of the outputs and the scale of the gradients are affected by the scale of the inputs.</p>
+<p>Although a model <em>might</em> converge without feature normalization, normalization makes training much more stable.</p>
+<p>Note: There is no advantage to normalizing the one-hot features—it is done here for simplicity. For more details on how to use the preprocessing layers, refer to the <a class="reference external" href="https://www.tensorflow.org/guide/keras/preprocessing_layers">Working with preprocessing layers</a> guide and the <span class="xref myst">Classify structured data using Keras preprocessing layers</span> tutorial.</p>
+<div class="section" id="the-normalization-layer">
+<h3>The Normalization layer<a class="headerlink" href="#the-normalization-layer" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">tf.keras.layers.Normalization</span></code> is a clean and simple way to add feature normalization into your model.</p>
+<p>The first step is to create the layer:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">normalizer</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Normalization</span><span class="p">(</span><span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Then, fit the state of the preprocessing layer to the data by calling <code class="docutils literal notranslate"><span class="pre">Normalization.adapt</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tf</span><span class="o">.</span><span class="n">dtypes</span><span class="o">.</span><span class="n">DType</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">/var/folders/9r/ym9jxwt15b70q43zrdvqgmdh0000gn/T/ipykernel_16450/2788191245.py</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">tf</span><span class="o">.</span><span class="n">dtypes</span><span class="o">.</span><span class="n">DType</span><span class="p">()</span>
+
+<span class="ne">TypeError</span>: __init__(): incompatible constructor arguments. The following argument types are supported:
+<span class="g g-Whitespace">    </span><span class="mi">1</span><span class="o">.</span> <span class="n">tensorflow</span><span class="o">.</span><span class="n">python</span><span class="o">.</span><span class="n">framework</span><span class="o">.</span><span class="n">_dtypes</span><span class="o">.</span><span class="n">DType</span><span class="p">(</span><span class="n">arg0</span><span class="p">:</span> <span class="nb">object</span><span class="p">)</span>
+
+<span class="n">Invoked</span> <span class="k">with</span><span class="p">:</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">normalizer</span><span class="o">.</span><span class="n">adapt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">train_features</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-04-25 13:22:11.847314: I tensorflow/core/platform/cpu_feature_guard.cc:151] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="nn">/var/folders/9r/ym9jxwt15b70q43zrdvqgmdh0000gn/T/ipykernel_16450/814693616.py</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">normalizer</span><span class="o">.</span><span class="n">adapt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">train_features</span><span class="p">))</span>
+
+<span class="nn">~/opt/anaconda3/envs/tf/lib/python3.8/site-packages/keras/engine/base_preprocessing_layer.py</span> in <span class="ni">adapt</span><span class="nt">(self, data, batch_size, steps)</span>
+<span class="g g-Whitespace">    </span><span class="mi">231</span>     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">built</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">232</span>       <span class="bp">self</span><span class="o">.</span><span class="n">reset_state</span><span class="p">()</span>
+<span class="ne">--&gt; </span><span class="mi">233</span>     <span class="n">data_handler</span> <span class="o">=</span> <span class="n">data_adapter</span><span class="o">.</span><span class="n">DataHandler</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">234</span>         <span class="n">data</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">235</span>         <span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">,</span>
+
+<span class="nn">~/opt/anaconda3/envs/tf/lib/python3.8/site-packages/keras/engine/data_adapter.py</span> in <span class="ni">__init__</span><span class="nt">(self, x, y, sample_weight, batch_size, steps_per_epoch, initial_epoch, epochs, shuffle, class_weight, max_queue_size, workers, use_multiprocessing, model, steps_per_execution, distribute)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1151</span> 
+<span class="g g-Whitespace">   </span><span class="mi">1152</span>     <span class="n">adapter_cls</span> <span class="o">=</span> <span class="n">select_data_adapter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">1153</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_adapter</span> <span class="o">=</span> <span class="n">adapter_cls</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1154</span>         <span class="n">x</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1155</span>         <span class="n">y</span><span class="p">,</span>
+
+<span class="nn">~/opt/anaconda3/envs/tf/lib/python3.8/site-packages/keras/engine/data_adapter.py</span> in <span class="ni">__init__</span><span class="nt">(self, x, y, sample_weights, sample_weight_modes, batch_size, epochs, steps, shuffle, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">233</span>                <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">234</span>     <span class="nb">super</span><span class="p">(</span><span class="n">TensorLikeDataAdapter</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">235</span>     <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">sample_weights</span> <span class="o">=</span> <span class="n">_process_tensorlike</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">sample_weights</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">236</span>     <span class="n">sample_weight_modes</span> <span class="o">=</span> <span class="n">broadcast_sample_weight_modes</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">237</span>         <span class="n">sample_weights</span><span class="p">,</span> <span class="n">sample_weight_modes</span><span class="p">)</span>
+
+<span class="nn">~/opt/anaconda3/envs/tf/lib/python3.8/site-packages/keras/engine/data_adapter.py</span> in <span class="ni">_process_tensorlike</span><span class="nt">(inputs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1045</span>     <span class="k">return</span> <span class="n">x</span>
+<span class="g g-Whitespace">   </span><span class="mi">1046</span> 
+<span class="ne">-&gt; </span><span class="mi">1047</span>   <span class="n">inputs</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nest</span><span class="o">.</span><span class="n">map_structure</span><span class="p">(</span><span class="n">_convert_single_tensor</span><span class="p">,</span> <span class="n">inputs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1048</span>   <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">__internal__</span><span class="o">.</span><span class="n">nest</span><span class="o">.</span><span class="n">list_to_tuple</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1049</span> 
+
+<span class="nn">~/opt/anaconda3/envs/tf/lib/python3.8/site-packages/tensorflow/python/util/nest.py</span> in <span class="ni">map_structure</span><span class="nt">(func, *structure, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">867</span> 
+<span class="g g-Whitespace">    </span><span class="mi">868</span>   <span class="k">return</span> <span class="n">pack_sequence_as</span><span class="p">(</span>
+<span class="ne">--&gt; </span><span class="mi">869</span>       <span class="n">structure</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">entries</span><span class="p">],</span>
+<span class="g g-Whitespace">    </span><span class="mi">870</span>       <span class="n">expand_composites</span><span class="o">=</span><span class="n">expand_composites</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">871</span> 
+
+<span class="nn">~/opt/anaconda3/envs/tf/lib/python3.8/site-packages/tensorflow/python/util/nest.py</span> in <span class="ni">&lt;listcomp&gt;</span><span class="nt">(.0)</span>
+<span class="g g-Whitespace">    </span><span class="mi">867</span> 
+<span class="g g-Whitespace">    </span><span class="mi">868</span>   <span class="k">return</span> <span class="n">pack_sequence_as</span><span class="p">(</span>
+<span class="ne">--&gt; </span><span class="mi">869</span>       <span class="n">structure</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">entries</span><span class="p">],</span>
+<span class="g g-Whitespace">    </span><span class="mi">870</span>       <span class="n">expand_composites</span><span class="o">=</span><span class="n">expand_composites</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">871</span> 
+
+<span class="nn">~/opt/anaconda3/envs/tf/lib/python3.8/site-packages/keras/engine/data_adapter.py</span> in <span class="ni">_convert_single_tensor</span><span class="nt">(x)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1040</span>       <span class="k">if</span> <span class="nb">issubclass</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">type</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">floating</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1041</span>         <span class="n">dtype</span> <span class="o">=</span> <span class="n">backend</span><span class="o">.</span><span class="n">floatx</span><span class="p">()</span>
+<span class="ne">-&gt; </span><span class="mi">1042</span>       <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">convert_to_tensor</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1043</span>     <span class="k">elif</span> <span class="n">_is_scipy_sparse</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1044</span>       <span class="k">return</span> <span class="n">_scipy_sparse_to_sparse_tensor</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="nn">~/opt/anaconda3/envs/tf/lib/python3.8/site-packages/tensorflow/python/util/traceback_utils.py</span> in <span class="ni">error_handler</span><span class="nt">(*args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">151</span>     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">152</span>       <span class="n">filtered_tb</span> <span class="o">=</span> <span class="n">_process_traceback_frames</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">__traceback__</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">153</span>       <span class="k">raise</span> <span class="n">e</span><span class="o">.</span><span class="n">with_traceback</span><span class="p">(</span><span class="n">filtered_tb</span><span class="p">)</span> <span class="kn">from</span> <span class="bp">None</span>
+<span class="g g-Whitespace">    </span><span class="mi">154</span>     <span class="k">finally</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">155</span>       <span class="k">del</span> <span class="n">filtered_tb</span>
+
+<span class="nn">~/opt/anaconda3/envs/tf/lib/python3.8/site-packages/tensorflow/python/framework/constant_op.py</span> in <span class="ni">convert_to_eager_tensor</span><span class="nt">(value, ctx, dtype)</span>
+<span class="g g-Whitespace">    </span><span class="mi">104</span>       <span class="n">dtype</span> <span class="o">=</span> <span class="n">dtypes</span><span class="o">.</span><span class="n">as_dtype</span><span class="p">(</span><span class="n">dtype</span><span class="p">)</span><span class="o">.</span><span class="n">as_datatype_enum</span>
+<span class="g g-Whitespace">    </span><span class="mi">105</span>   <span class="n">ctx</span><span class="o">.</span><span class="n">ensure_initialized</span><span class="p">()</span>
+<span class="ne">--&gt; </span><span class="mi">106</span>   <span class="k">return</span> <span class="n">ops</span><span class="o">.</span><span class="n">EagerTensor</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">ctx</span><span class="o">.</span><span class="n">device_name</span><span class="p">,</span> <span class="n">dtype</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">107</span> 
+<span class="g g-Whitespace">    </span><span class="mi">108</span> 
+
+<span class="ne">ValueError</span>: Failed to convert a NumPy array to a Tensor (Unsupported object type int).
+</pre></div>
+</div>
+</div>
+</div>
+<p>Calculate the mean and variance, and store them in the layer:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">normalizer</span><span class="o">.</span><span class="n">mean</span><span class="o">.</span><span class="n">numpy</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="nn">/var/folders/9r/ym9jxwt15b70q43zrdvqgmdh0000gn/T/ipykernel_16450/2537415389.py</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="n">normalizer</span><span class="o">.</span><span class="n">mean</span><span class="o">.</span><span class="n">numpy</span><span class="p">())</span>
+
+<span class="ne">AttributeError</span>: &#39;Normalization&#39; object has no attribute &#39;mean&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>When the layer is called, it returns the input data, with each feature independently normalized:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">first</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">train_features</span><span class="p">[:</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="k">with</span> <span class="n">np</span><span class="o">.</span><span class="n">printoptions</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">suppress</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;First example:&#39;</span><span class="p">,</span> <span class="n">first</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">()</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Normalized:&#39;</span><span class="p">,</span> <span class="n">normalizer</span><span class="p">(</span><span class="n">first</span><span class="p">)</span><span class="o">.</span><span class="n">numpy</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>First example: [[1996 &#39;toyota&#39; &#39;camry&#39; &#39;sedan&#39; &#39;automatic&#39; &#39;md&#39; 2.0 214227.0 &#39;red&#39;
+  &#39;gray&#39; &#39;purple heart services inc&#39;
+  &#39;Tue Feb 17 2015 04:30:00 GMT-0800 (PST)&#39;]]
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="nn">/var/folders/9r/ym9jxwt15b70q43zrdvqgmdh0000gn/T/ipykernel_16450/3329020667.py</span> in <span class="ni">&lt;cell line: 3&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span>   <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;First example:&#39;</span><span class="p">,</span> <span class="n">first</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span>   <span class="nb">print</span><span class="p">()</span>
+<span class="ne">----&gt; </span><span class="mi">6</span>   <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Normalized:&#39;</span><span class="p">,</span> <span class="n">normalizer</span><span class="p">(</span><span class="n">first</span><span class="p">)</span><span class="o">.</span><span class="n">numpy</span><span class="p">())</span>
+
+<span class="nn">~/opt/anaconda3/envs/tf/lib/python3.8/site-packages/keras/utils/traceback_utils.py</span> in <span class="ni">error_handler</span><span class="nt">(*args, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">65</span>     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>  <span class="c1"># pylint: disable=broad-except</span>
+<span class="g g-Whitespace">     </span><span class="mi">66</span>       <span class="n">filtered_tb</span> <span class="o">=</span> <span class="n">_process_traceback_frames</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">__traceback__</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">67</span>       <span class="k">raise</span> <span class="n">e</span><span class="o">.</span><span class="n">with_traceback</span><span class="p">(</span><span class="n">filtered_tb</span><span class="p">)</span> <span class="kn">from</span> <span class="bp">None</span>
+<span class="g g-Whitespace">     </span><span class="mi">68</span>     <span class="k">finally</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">69</span>       <span class="k">del</span> <span class="n">filtered_tb</span>
+
+<span class="nn">~/opt/anaconda3/envs/tf/lib/python3.8/site-packages/tensorflow/python/framework/constant_op.py</span> in <span class="ni">convert_to_eager_tensor</span><span class="nt">(value, ctx, dtype)</span>
+<span class="g g-Whitespace">    </span><span class="mi">104</span>       <span class="n">dtype</span> <span class="o">=</span> <span class="n">dtypes</span><span class="o">.</span><span class="n">as_dtype</span><span class="p">(</span><span class="n">dtype</span><span class="p">)</span><span class="o">.</span><span class="n">as_datatype_enum</span>
+<span class="g g-Whitespace">    </span><span class="mi">105</span>   <span class="n">ctx</span><span class="o">.</span><span class="n">ensure_initialized</span><span class="p">()</span>
+<span class="ne">--&gt; </span><span class="mi">106</span>   <span class="k">return</span> <span class="n">ops</span><span class="o">.</span><span class="n">EagerTensor</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">ctx</span><span class="o">.</span><span class="n">device_name</span><span class="p">,</span> <span class="n">dtype</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">107</span> 
+<span class="g g-Whitespace">    </span><span class="mi">108</span> 
+
+<span class="ne">ValueError</span>: Failed to convert a NumPy array to a Tensor (Unsupported object type int).
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="linear-regression-with-multiple-inputs">
+<h3>Linear regression with multiple inputs<a class="headerlink" href="#linear-regression-with-multiple-inputs" title="Permalink to this headline">¶</a></h3>
+<p>You can use an almost identical setup to make predictions based on multiple inputs. This model still does the same <span class="math notranslate nohighlight">\(y = mx+b\)</span> except that <span class="math notranslate nohighlight">\(m\)</span> is a matrix and <span class="math notranslate nohighlight">\(b\)</span> is a vector.</p>
+<p>Create a two-step Keras Sequential model again with the first layer being <code class="docutils literal notranslate"><span class="pre">normalizer</span></code> (<code class="docutils literal notranslate"><span class="pre">tf.keras.layers.Normalization(axis=-1)</span></code>) you defined earlier and adapted to the whole dataset:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">linear_model</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Sequential</span><span class="p">([</span>
+    <span class="n">normalizer</span><span class="p">,</span>
+    <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="n">units</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>When you call <code class="docutils literal notranslate"><span class="pre">Model.predict</span></code> on a batch of inputs, it produces <code class="docutils literal notranslate"><span class="pre">units=1</span></code> outputs for each example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">linear_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">train_features</span><span class="p">[:</span><span class="mi">10</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="nn">/var/folders/9r/ym9jxwt15b70q43zrdvqgmdh0000gn/T/ipykernel_16450/1676977502.py</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">train_features</span><span class="p">[:</span><span class="mi">10</span><span class="p">])</span>
+
+<span class="nn">~/opt/anaconda3/envs/tf/lib/python3.8/site-packages/keras/utils/traceback_utils.py</span> in <span class="ni">error_handler</span><span class="nt">(*args, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">65</span>     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>  <span class="c1"># pylint: disable=broad-except</span>
+<span class="g g-Whitespace">     </span><span class="mi">66</span>       <span class="n">filtered_tb</span> <span class="o">=</span> <span class="n">_process_traceback_frames</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">__traceback__</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">67</span>       <span class="k">raise</span> <span class="n">e</span><span class="o">.</span><span class="n">with_traceback</span><span class="p">(</span><span class="n">filtered_tb</span><span class="p">)</span> <span class="kn">from</span> <span class="bp">None</span>
+<span class="g g-Whitespace">     </span><span class="mi">68</span>     <span class="k">finally</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">69</span>       <span class="k">del</span> <span class="n">filtered_tb</span>
+
+<span class="nn">~/opt/anaconda3/envs/tf/lib/python3.8/site-packages/tensorflow/python/framework/constant_op.py</span> in <span class="ni">convert_to_eager_tensor</span><span class="nt">(value, ctx, dtype)</span>
+<span class="g g-Whitespace">    </span><span class="mi">104</span>       <span class="n">dtype</span> <span class="o">=</span> <span class="n">dtypes</span><span class="o">.</span><span class="n">as_dtype</span><span class="p">(</span><span class="n">dtype</span><span class="p">)</span><span class="o">.</span><span class="n">as_datatype_enum</span>
+<span class="g g-Whitespace">    </span><span class="mi">105</span>   <span class="n">ctx</span><span class="o">.</span><span class="n">ensure_initialized</span><span class="p">()</span>
+<span class="ne">--&gt; </span><span class="mi">106</span>   <span class="k">return</span> <span class="n">ops</span><span class="o">.</span><span class="n">EagerTensor</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">ctx</span><span class="o">.</span><span class="n">device_name</span><span class="p">,</span> <span class="n">dtype</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">107</span> 
+<span class="g g-Whitespace">    </span><span class="mi">108</span> 
+
+<span class="ne">ValueError</span>: Failed to convert a NumPy array to a Tensor (Unsupported object type int).
+</pre></div>
+</div>
+</div>
+</div>
+<p>When you call the model, its weight matrices will be built—check that the <code class="docutils literal notranslate"><span class="pre">kernel</span></code> weights (the <span class="math notranslate nohighlight">\(m\)</span> in <span class="math notranslate nohighlight">\(y=mx+b\)</span>) have a shape of <code class="docutils literal notranslate"><span class="pre">(9,</span> <span class="pre">1)</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">linear_model</span><span class="o">.</span><span class="n">layers</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">kernel</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="nn">/var/folders/9r/ym9jxwt15b70q43zrdvqgmdh0000gn/T/ipykernel_16450/3170922228.py</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">layers</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">kernel</span>
+
+<span class="ne">AttributeError</span>: &#39;Dense&#39; object has no attribute &#39;kernel&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Configure the model with Keras <code class="docutils literal notranslate"><span class="pre">Model.compile</span></code> and train with <code class="docutils literal notranslate"><span class="pre">Model.fit</span></code> for 100 epochs:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">linear_model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span>
+    <span class="n">optimizer</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">optimizers</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.1</span><span class="p">),</span>
+    <span class="n">loss</span><span class="o">=</span><span class="s1">&#39;mean_absolute_error&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
+<span class="n">history</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span>
+    <span class="n">train_features</span><span class="p">,</span>
+    <span class="n">train_labels</span><span class="p">,</span>
+    <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="c1"># Suppress logging.</span>
+    <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+    <span class="c1"># Calculate validation results on 20% of the training data.</span>
+    <span class="n">validation_split</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">timed</span> <span class="n">exec</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+
+<span class="nn">~/opt/anaconda3/envs/tf/lib/python3.8/site-packages/keras/utils/traceback_utils.py</span> in <span class="ni">error_handler</span><span class="nt">(*args, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">65</span>     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>  <span class="c1"># pylint: disable=broad-except</span>
+<span class="g g-Whitespace">     </span><span class="mi">66</span>       <span class="n">filtered_tb</span> <span class="o">=</span> <span class="n">_process_traceback_frames</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">__traceback__</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">67</span>       <span class="k">raise</span> <span class="n">e</span><span class="o">.</span><span class="n">with_traceback</span><span class="p">(</span><span class="n">filtered_tb</span><span class="p">)</span> <span class="kn">from</span> <span class="bp">None</span>
+<span class="g g-Whitespace">     </span><span class="mi">68</span>     <span class="k">finally</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">69</span>       <span class="k">del</span> <span class="n">filtered_tb</span>
+
+<span class="nn">~/opt/anaconda3/envs/tf/lib/python3.8/site-packages/tensorflow/python/framework/constant_op.py</span> in <span class="ni">convert_to_eager_tensor</span><span class="nt">(value, ctx, dtype)</span>
+<span class="g g-Whitespace">    </span><span class="mi">104</span>       <span class="n">dtype</span> <span class="o">=</span> <span class="n">dtypes</span><span class="o">.</span><span class="n">as_dtype</span><span class="p">(</span><span class="n">dtype</span><span class="p">)</span><span class="o">.</span><span class="n">as_datatype_enum</span>
+<span class="g g-Whitespace">    </span><span class="mi">105</span>   <span class="n">ctx</span><span class="o">.</span><span class="n">ensure_initialized</span><span class="p">()</span>
+<span class="ne">--&gt; </span><span class="mi">106</span>   <span class="k">return</span> <span class="n">ops</span><span class="o">.</span><span class="n">EagerTensor</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">ctx</span><span class="o">.</span><span class="n">device_name</span><span class="p">,</span> <span class="n">dtype</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">107</span> 
+<span class="g g-Whitespace">    </span><span class="mi">108</span> 
+
+<span class="ne">ValueError</span>: Failed to convert a NumPy array to a Tensor (Unsupported object type int).
+</pre></div>
+</div>
+</div>
+</div>
+<p>Using all the inputs in this regression model achieves a much lower training and validation error than the <code class="docutils literal notranslate"><span class="pre">horsepower_model</span></code>, which had one input:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_loss</span><span class="p">(</span><span class="n">history</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/car_prices-TF_62_0.png" src="_images/car_prices-TF_62_0.png" />
+</div>
+</div>
+<p>Collect the results on the test set for later:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test_results</span><span class="p">[</span><span class="s1">&#39;linear_model&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span>
+    <span class="n">test_features</span><span class="p">,</span> <span class="n">test_labels</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="regression-with-a-deep-neural-network-dnn">
+<h2>Regression with a deep neural network (DNN)<a class="headerlink" href="#regression-with-a-deep-neural-network-dnn" title="Permalink to this headline">¶</a></h2>
+<p>In the previous section, you implemented two linear models for single and multiple inputs.</p>
+<p>Here, you will implement single-input and multiple-input DNN models.</p>
+<p>The code is basically the same except the model is expanded to include some “hidden” non-linear layers. The name “hidden” here just means not directly connected to the inputs or outputs.</p>
+<p>These models will contain a few more layers than the linear model:</p>
+<ul class="simple">
+<li><p>The normalization layer, as before (with <code class="docutils literal notranslate"><span class="pre">horsepower_normalizer</span></code> for a single-input model and <code class="docutils literal notranslate"><span class="pre">normalizer</span></code> for a multiple-input model).</p></li>
+<li><p>Two hidden, non-linear, <code class="docutils literal notranslate"><span class="pre">Dense</span></code> layers with the ReLU (<code class="docutils literal notranslate"><span class="pre">relu</span></code>) activation function nonlinearity.</p></li>
+<li><p>A linear <code class="docutils literal notranslate"><span class="pre">Dense</span></code> single-output layer.</p></li>
+</ul>
+<p>Both models will use the same training procedure so the <code class="docutils literal notranslate"><span class="pre">compile</span></code> method is included in the <code class="docutils literal notranslate"><span class="pre">build_and_compile_model</span></code> function below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">build_and_compile_model</span><span class="p">(</span><span class="n">norm</span><span class="p">):</span>
+  <span class="n">model</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">Sequential</span><span class="p">([</span>
+      <span class="n">norm</span><span class="p">,</span>
+      <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">),</span>
+      <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">),</span>
+      <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+  <span class="p">])</span>
+
+  <span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s1">&#39;mean_absolute_error&#39;</span><span class="p">,</span>
+                <span class="n">optimizer</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">optimizers</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="mf">0.001</span><span class="p">))</span>
+  <span class="k">return</span> <span class="n">model</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="regression-using-a-dnn-and-a-single-input">
+<h3>Regression using a DNN and a single input<a class="headerlink" href="#regression-using-a-dnn-and-a-single-input" title="Permalink to this headline">¶</a></h3>
+<p>Create a DNN model with only <code class="docutils literal notranslate"><span class="pre">'Horsepower'</span></code> as input and <code class="docutils literal notranslate"><span class="pre">horsepower_normalizer</span></code> (defined earlier) as the normalization layer:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dnn_horsepower_model</span> <span class="o">=</span> <span class="n">build_and_compile_model</span><span class="p">(</span><span class="n">horsepower_normalizer</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This model has quite a few more trainable parameters than the linear models:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dnn_horsepower_model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model: &quot;sequential_2&quot;
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>_________________________________________________________________
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Layer (type)                Output Shape              Param #   
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=================================================================
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> normalization_1 (Normalizat  (None, 1)                3         
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> ion)                                                            
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                                                                 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> dense_2 (Dense)             (None, 64)                128       
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                                                                 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> dense_3 (Dense)             (None, 64)                4160      
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                                                                 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> dense_4 (Dense)             (None, 1)                 65        
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                                                                 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=================================================================
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Total params: 4,356
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Trainable params: 4,353
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Non-trainable params: 3
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>_________________________________________________________________
+</pre></div>
+</div>
+</div>
+</div>
+<p>Train the model with Keras <code class="docutils literal notranslate"><span class="pre">Model.fit</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
+<span class="n">history</span> <span class="o">=</span> <span class="n">dnn_horsepower_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span>
+    <span class="n">train_features</span><span class="p">[</span><span class="s1">&#39;Horsepower&#39;</span><span class="p">],</span>
+    <span class="n">train_labels</span><span class="p">,</span>
+    <span class="n">validation_split</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
+    <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 4.83 s, sys: 829 ms, total: 5.66 s
+Wall time: 3.8 s
+</pre></div>
+</div>
+</div>
+</div>
+<p>This model does slightly better than the linear single-input <code class="docutils literal notranslate"><span class="pre">horsepower_model</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_loss</span><span class="p">(</span><span class="n">history</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/car_prices-TF_77_0.png" src="_images/car_prices-TF_77_0.png" />
+</div>
+</div>
+<p>If you plot the predictions as a function of <code class="docutils literal notranslate"><span class="pre">'Horsepower'</span></code>, you should notice how this model takes advantage of the nonlinearity provided by the hidden layers:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mi">250</span><span class="p">,</span> <span class="mi">251</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">dnn_horsepower_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_horsepower</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/car_prices-TF_80_0.png" src="_images/car_prices-TF_80_0.png" />
+</div>
+</div>
+<p>Collect the results on the test set for later:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test_results</span><span class="p">[</span><span class="s1">&#39;dnn_horsepower_model&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dnn_horsepower_model</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span>
+    <span class="n">test_features</span><span class="p">[</span><span class="s1">&#39;Horsepower&#39;</span><span class="p">],</span> <span class="n">test_labels</span><span class="p">,</span>
+    <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="regression-using-a-dnn-and-multiple-inputs">
+<h3>Regression using a DNN and multiple inputs<a class="headerlink" href="#regression-using-a-dnn-and-multiple-inputs" title="Permalink to this headline">¶</a></h3>
+<p>Repeat the previous process using all the inputs. The model’s performance slightly improves on the validation dataset.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dnn_model</span> <span class="o">=</span> <span class="n">build_and_compile_model</span><span class="p">(</span><span class="n">normalizer</span><span class="p">)</span>
+<span class="n">dnn_model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model: &quot;sequential_3&quot;
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>_________________________________________________________________
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Layer (type)                Output Shape              Param #   
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=================================================================
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> normalization (Normalizatio  (None, 9)                19        
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> n)                                                              
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                                                                 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> dense_5 (Dense)             (None, 64)                640       
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                                                                 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> dense_6 (Dense)             (None, 64)                4160      
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                                                                 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> dense_7 (Dense)             (None, 1)                 65        
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                                                                 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=================================================================
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Total params: 4,884
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Trainable params: 4,865
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Non-trainable params: 19
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>_________________________________________________________________
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
+<span class="n">history</span> <span class="o">=</span> <span class="n">dnn_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span>
+    <span class="n">train_features</span><span class="p">,</span>
+    <span class="n">train_labels</span><span class="p">,</span>
+    <span class="n">validation_split</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
+    <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 5.06 s, sys: 652 ms, total: 5.71 s
+Wall time: 3.82 s
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_loss</span><span class="p">(</span><span class="n">history</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/car_prices-TF_87_0.png" src="_images/car_prices-TF_87_0.png" />
+</div>
+</div>
+<p>Collect the results on the test set:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test_results</span><span class="p">[</span><span class="s1">&#39;dnn_model&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dnn_model</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">test_features</span><span class="p">,</span> <span class="n">test_labels</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="performance">
+<h2>Performance<a class="headerlink" href="#performance" title="Permalink to this headline">¶</a></h2>
+<p>Since all models have been trained, you can review their test set performance:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">test_results</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Mean absolute error [MPG]&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Mean absolute error [MPG]</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>horsepower_model</th>
+      <td>3.644899</td>
+    </tr>
+    <tr>
+      <th>linear_model</th>
+      <td>2.545512</td>
+    </tr>
+    <tr>
+      <th>dnn_horsepower_model</th>
+      <td>2.921918</td>
+    </tr>
+    <tr>
+      <th>dnn_model</th>
+      <td>1.687110</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>These results match the validation error observed during training.</p>
+<div class="section" id="make-predictions">
+<h3>Make predictions<a class="headerlink" href="#make-predictions" title="Permalink to this headline">¶</a></h3>
+<p>You can now make predictions with the <code class="docutils literal notranslate"><span class="pre">dnn_model</span></code> on the test set using Keras <code class="docutils literal notranslate"><span class="pre">Model.predict</span></code> and review the loss:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test_predictions</span> <span class="o">=</span> <span class="n">dnn_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">test_features</span><span class="p">)</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">(</span><span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">test_labels</span><span class="p">,</span> <span class="n">test_predictions</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;True Values [MPG]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Predictions [MPG]&#39;</span><span class="p">)</span>
+<span class="n">lims</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">50</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="n">lims</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="n">lims</span><span class="p">)</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">lims</span><span class="p">,</span> <span class="n">lims</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/car_prices-TF_95_0.png" src="_images/car_prices-TF_95_0.png" />
+</div>
+</div>
+<p>It appears that the model predicts reasonably well.</p>
+<p>Now, check the error distribution:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">error</span> <span class="o">=</span> <span class="n">test_predictions</span> <span class="o">-</span> <span class="n">test_labels</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">error</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Prediction Error [MPG]&#39;</span><span class="p">)</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Count&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/car_prices-TF_97_0.png" src="_images/car_prices-TF_97_0.png" />
+</div>
+</div>
+<p>If you’re happy with the model, save it for later use with <code class="docutils literal notranslate"><span class="pre">Model.save</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dnn_model</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;dnn_model&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-02-10 18:50:01.821887: W tensorflow/python/util/util.cc:368] Sets are not currently considered sequences, but this may change in the future, so consider avoiding using them.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:tensorflow:Assets written to: dnn_model/assets
+</pre></div>
+</div>
+</div>
+</div>
+<p>If you reload the model, it gives identical output:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reloaded</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span><span class="s1">&#39;dnn_model&#39;</span><span class="p">)</span>
+
+<span class="n">test_results</span><span class="p">[</span><span class="s1">&#39;reloaded&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">reloaded</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span>
+    <span class="n">test_features</span><span class="p">,</span> <span class="n">test_labels</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">test_results</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Mean absolute error [MPG]&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Mean absolute error [MPG]</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>horsepower_model</th>
+      <td>3.644899</td>
+    </tr>
+    <tr>
+      <th>linear_model</th>
+      <td>2.545512</td>
+    </tr>
+    <tr>
+      <th>dnn_horsepower_model</th>
+      <td>2.921918</td>
+    </tr>
+    <tr>
+      <th>dnn_model</th>
+      <td>1.687110</td>
+    </tr>
+    <tr>
+      <th>reloaded</th>
+      <td>1.687110</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+</div>
+<div class="section" id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">¶</a></h2>
+<p>This notebook introduced a few techniques to handle a regression problem. Here are a few more tips that may help:</p>
+<ul class="simple">
+<li><p>Mean squared error (MSE) (<code class="docutils literal notranslate"><span class="pre">tf.keras.losses.MeanSquaredError</span></code>) and mean absolute error (MAE) (<code class="docutils literal notranslate"><span class="pre">tf.keras.losses.MeanAbsoluteError</span></code>) are common loss functions used for regression problems. MAE is less sensitive to outliers. Different loss functions are used for classification problems.</p></li>
+<li><p>Similarly, evaluation metrics used for regression differ from classification.</p></li>
+<li><p>When numeric input data features have values with different ranges, each feature should be scaled independently to the same range.</p></li>
+<li><p>Overfitting is a common problem for DNN models, though it wasn’t a problem for this tutorial. Visit the <span class="xref myst">Overfit and underfit</span> tutorial for more help with this.</p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="model_2_SK-learn.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">2nd scikit-learn model</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="SHAP_car_structured_data_regression.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">SHAP  (try)</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      Durch Hendrik Pfeifer<br/>
+    
+        &copy; Urheberrechte © 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

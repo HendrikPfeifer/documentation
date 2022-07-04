@@ -3,11 +3,11 @@
 
 # # Keras 
 # 
-# ##### Classification-based approach with deep neural network
+# ##### Keras Model
 
 # ## Load Packages
 
-# In[2]:
+# In[1]:
 
 
 import numpy as np
@@ -22,20 +22,14 @@ import keras_tuner as kt
 tf.__version__
 
 
-# In[35]:
+# In[2]:
 
 
 # import dataset 
-raw_dataset = pd.read_csv("car_prices.csv", on_bad_lines="skip")
+df = pd.read_csv("car_prices.csv", on_bad_lines="skip")
 
 
-# In[36]:
-
-
-df = raw_dataset.copy()
-
-
-# In[37]:
+# In[3]:
 
 
 df.head()

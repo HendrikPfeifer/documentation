@@ -8,7 +8,7 @@
 
 # ## Load packages
 
-# In[1]:
+# In[4]:
 
 
 get_ipython().run_line_magic('matplotlib', 'inline')
@@ -25,33 +25,27 @@ sns.set_theme()
 
 # ## Import Dataset
 
-# In[2]:
+# In[5]:
 
 
-raw_dataset = pd.read_csv("car_prices.csv", on_bad_lines="skip")
-
-
-# In[3]:
-
-
-df = raw_dataset.copy()
+df = pd.read_csv("car_prices.csv", on_bad_lines="skip")
 
 
 # ## Data inspection
 
-# In[4]:
+# In[6]:
 
 
 df.head(2)
 
 
-# In[5]:
+# In[7]:
 
 
 df.info()
 
 
-# In[6]:
+# In[8]:
 
 
 print(df.isnull().sum())
@@ -59,7 +53,7 @@ print(df.isnull().sum())
 
 # ## Data transformation
 
-# In[7]:
+# In[9]:
 
 
 # drop column with too many missing values
@@ -69,20 +63,20 @@ df = df.drop(['transmission'], axis=1)
 df = df.dropna()
 
 
-# In[8]:
+# In[10]:
 
 
 # Drop irrelevant features
 df = df.drop(['trim', 'vin', 'mmr', 'saledate'], axis=1)
 
 
-# In[9]:
+# In[11]:
 
 
 print(df.isnull().sum())
 
 
-# In[10]:
+# In[12]:
 
 
 # rename columns
@@ -94,13 +88,13 @@ df = df.rename(columns={
     )
 
 
-# In[11]:
+# In[13]:
 
 
 df.info()
 
 
-# In[12]:
+# In[14]:
 
 
 # transform into lowercase
@@ -126,7 +120,7 @@ df["type"] = df["type"].str.lower()
 # * sellingprice = numeric
 # * saledate = categorial
 
-# In[13]:
+# In[15]:
 
 
 # transform to categorical:
@@ -135,13 +129,13 @@ for cat in ["year", "brand", "model", "type", "state", "condition", "color", "in
     df[cat] = df[cat].astype("category")
 
 
-# In[14]:
+# In[16]:
 
 
 df.info()
 
 
-# In[15]:
+# In[17]:
 
 
 # summary statistics for all categorical columns
@@ -150,7 +144,7 @@ df.describe(include=['category']).transpose()
 
 # ## Data preprocessing pipeline
 
-# In[16]:
+# In[18]:
 
 
 # Modules
@@ -162,7 +156,7 @@ from sklearn import set_config
 from sklearn.preprocessing import StandardScaler, OneHotEncoder
 
 
-# In[17]:
+# In[19]:
 
 
 # for numeric features
@@ -172,7 +166,7 @@ numeric_transformer = Pipeline(steps=[
     ])
 
 
-# In[18]:
+# In[20]:
 
 
 # for categorical features  
@@ -182,7 +176,7 @@ categorical_transformer = Pipeline(steps=[
     ])
 
 
-# In[19]:
+# In[21]:
 
 
 # Pipeline
@@ -192,7 +186,7 @@ preprocessor = ColumnTransformer(transformers=[
         ])
 
 
-# In[20]:
+# In[22]:
 
 
 df.head()
@@ -202,7 +196,7 @@ df.head()
 
 # # Multiple Regression
 
-# In[21]:
+# In[23]:
 
 
 # Select features for multiple regression
@@ -223,7 +217,7 @@ print("Missing values:",X.isnull().any(axis = 1).sum())
 y = df["sellingprice"]
 
 
-# In[22]:
+# In[24]:
 
 
 from sklearn.model_selection import train_test_split
@@ -232,7 +226,7 @@ from sklearn.model_selection import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
 
-# In[23]:
+# In[25]:
 
 
 from sklearn.linear_model import LinearRegression
@@ -244,7 +238,7 @@ lm_pipe = Pipeline(steps=[
                         ])
 
 
-# In[24]:
+# In[26]:
 
 
 # show pipeline
@@ -253,13 +247,13 @@ set_config(display="diagram")
 lm_pipe.fit(X_train, y_train)
 
 
-# In[25]:
+# In[27]:
 
 
 y_pred = lm_pipe.predict(X_test)
 
 
-# In[26]:
+# In[28]:
 
 
 from sklearn.metrics import r2_score
@@ -267,7 +261,7 @@ from sklearn.metrics import r2_score
 r2_score(y_test, y_pred)
 
 
-# In[27]:
+# In[29]:
 
 
 from sklearn.metrics import mean_squared_error
@@ -275,13 +269,13 @@ from sklearn.metrics import mean_squared_error
 mean_squared_error(y_test, y_pred)
 
 
-# In[28]:
+# In[30]:
 
 
 mean_squared_error(y_test, y_pred, squared=False)
 
 
-# In[29]:
+# In[31]:
 
 
 from sklearn.metrics import mean_absolute_error
@@ -289,7 +283,7 @@ from sklearn.metrics import mean_absolute_error
 mean_absolute_error(y_test, y_pred)
 
 
-# In[74]:
+# In[32]:
 
 
 # Create a new GDP value
@@ -307,31 +301,40 @@ X_new = pd.DataFrame({
 })
 
 
-# In[75]:
+# In[33]:
 
 
 X_new
 
 
-# In[76]:
+# In[34]:
 
 
 my_prediction = lm_pipe.predict(X_new)
 
 
-# In[77]:
+# In[36]:
+
+
+#save knn-model 
+from joblib import dump
+
+dump(lm_pipe, "lm_model.joblib")
+
+
+# In[37]:
 
 
 df_prediction = pd.DataFrame({"pred": my_prediction})
 
 
-# In[78]:
+# In[38]:
 
 
 df_prediction
 
 
-# In[72]:
+# In[39]:
 
 
 sample = {
@@ -348,7 +351,7 @@ sample = {
 }
 
 
-# In[52]:
+# In[40]:
 
 
 # KNN
@@ -361,7 +364,7 @@ knn_pipe = Pipeline(steps=[
                         ])
 
 
-# In[53]:
+# In[41]:
 
 
 # show pipeline
@@ -370,64 +373,64 @@ set_config(display="diagram")
 knn_pipe.fit(X_train, y_train)
 
 
-# In[54]:
+# In[42]:
 
 
 y_pred = knn_pipe.predict(X_test)
 
 
-# In[55]:
+# In[43]:
 
 
-#save model
+#save knn-model 
 from joblib import dump
 
 dump(knn_pipe, "knn_model.joblib")
 
 
-# In[56]:
+# In[44]:
 
 
 r2_score(y_test, y_pred)
 
 
-# In[57]:
+# In[45]:
 
 
 mean_squared_error(y_test, y_pred)
 
 
-# In[58]:
+# In[46]:
 
 
 mean_squared_error(y_test, y_pred, squared=False)
 
 
-# In[59]:
+# In[47]:
 
 
 mean_absolute_error(y_test, y_pred)
 
 
-# In[79]:
+# In[48]:
 
 
 my_prediction = knn_pipe.predict(X_new)
 
 
-# In[80]:
+# In[49]:
 
 
 df_prediction_knn = pd.DataFrame({"pred": my_prediction})
 
 
-# In[81]:
+# In[50]:
 
 
 df_prediction_knn
 
 
-# In[60]:
+# In[51]:
 
 
 # RandomForest
@@ -440,7 +443,7 @@ rf_pipe = Pipeline(steps=[
                         ])
 
 
-# In[61]:
+# In[52]:
 
 
 # show pipeline
@@ -449,40 +452,40 @@ set_config(display="diagram")
 rf_pipe.fit(X_train, y_train)
 
 
-# In[62]:
+# In[53]:
 
 
-#save model
+#save rf-model
 from joblib import dump
 
 dump(rf_pipe, "rf_model.joblib")
 
 
-# In[63]:
+# In[54]:
 
 
 y_pred = rf_pipe.predict(X_test)
 
 
-# In[64]:
+# In[55]:
 
 
 r2_score(y_test, y_pred)
 
 
-# In[65]:
+# In[56]:
 
 
 mean_squared_error(y_test, y_pred)
 
 
-# In[66]:
+# In[57]:
 
 
 mean_squared_error(y_test, y_pred, squared=False)
 
 
-# In[67]:
+# In[58]:
 
 
 mean_absolute_error(y_test, y_pred)

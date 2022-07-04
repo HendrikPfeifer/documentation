@@ -32,9 +32,15 @@ parts:
     - file: 08_airflow_prediction
   - caption: Attachments
     chapters:
+    - file: data_prep
     - file: model_1_Keras
     - file: model_1_SK-learn
     - file: model_2_SK-learn
+    - file: car_prices-TF
     - file: SHAP_car_structured_data_regression
+    - file: shap_car
+    - file: shap-sklearn
+    - file: shap-sklearn_2
+
 
 

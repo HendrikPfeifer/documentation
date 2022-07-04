@@ -73,6 +73,7 @@ X = pd.concat([X_numerical, dummies], axis=1)
 # In[22]:
 
 
+# create train-, test-, and validation sets
 train_ratio = 0.80
 test_ratio = 0.10
 val_ratio = 0.10

@@ -63,7 +63,7 @@ fig4 = px.histogram(df, x="brand", color="brand", nbins=10, range_x=[-1, 20]).up
 
 
 
-# show container with dataset and scatterplot
+# show container with dataset, histograms and scatterplots
 with container:
     st.subheader("This is the dataset:")
     st.write(df.head())
@@ -78,7 +78,7 @@ with container:
 
 
 
-# Selector
+# Selector for car configuration
 
 def main():
 

@@ -53,8 +53,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Streamlit" href="streamlit.html" />
-    <link rel="prev" title="2nd scikit-learn model" href="model_2_SK-learn.html" />
+    <link rel="next" title="SHAP" href="2-SHAP_car_structured_data_regression.html" />
+    <link rel="prev" title="Scikit-Learn" href="car_prices_SKlearn_multiple.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -100,7 +100,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  Content
+  Business Understanding
  </span>
 </p>
 <ul class="nav bd-sidenav">
@@ -109,14 +109,21 @@ const thebe_selector_output = ".output, .cell_output"
    Business Case
   </a>
  </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="02_data_analysis.html">
    Data analysis
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="03_data_preperation.html">
-   Data preperation
+  <a class="reference internal" href="03_data_preparation.html">
+   Data preparation
   </a>
  </li>
 </ul>
@@ -127,23 +134,18 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="model_1_Keras.html">
-   1st Keras model
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="car_prices_Keras3.html">
    Keras
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="model_1_SK-learn.html">
-   1st scikit-learn model
+  <a class="reference internal" href="car_prices_TF_NEU.html">
+   TensorFlow
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="model_2_SK-learn.html">
-   2nd scikit-learn model
+  <a class="reference internal" href="car_prices_SKlearn_multiple.html">
+   Scikit-Learn
   </a>
  </li>
 </ul>
@@ -161,6 +163,18 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
+  Explainable AI
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-SHAP_car_structured_data_regression.html">
+   SHAP
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
   Deployment
  </span>
 </p>
@@ -173,7 +187,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  Airflow
+  Data Pipelines
  </span>
 </p>
 <ul class="nav bd-sidenav">
@@ -195,13 +209,28 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  Explainable AI
+  Attachments
  </span>
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
+  <a class="reference internal" href="model_1_Keras.html">
+   1st Keras model
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="model_1_SK-learn.html">
+   1st scikit-learn model
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="model_2_SK-learn.html">
+   2nd scikit-learn model
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="SHAP_car_structured_data_regression.html">
-   SHAP
+   try SHAP
   </a>
  </li>
 </ul>
@@ -446,7 +475,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_ratio</span> <span class="o">=</span> <span class="mf">0.80</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create train-, test-, and validation sets</span>
+<span class="n">train_ratio</span> <span class="o">=</span> <span class="mf">0.80</span>
 <span class="n">test_ratio</span> <span class="o">=</span> <span class="mf">0.10</span>
 <span class="n">val_ratio</span> <span class="o">=</span> <span class="mf">0.10</span>
 
@@ -656,17 +686,17 @@ INFO:tensorflow:Oracle triggered exit
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="model_2_SK-learn.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="car_prices_SKlearn_multiple.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">2nd scikit-learn model</p>
+            <p class="prev-next-title">Scikit-Learn</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="streamlit.html" title="next page">
+    <a class='right-next' id="next-link" href="2-SHAP_car_structured_data_regression.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Streamlit</p>
+        <p class="prev-next-title">SHAP</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
